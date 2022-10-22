@@ -79,4 +79,34 @@
     }
 
 
+
+    /* Tabla carrito de venta */
+    #carritoVenta{
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px dashed #6161611e;
+    }
+    #carritoVenta tr th{
+        text-align: left;
+        font-weight: 600;
+        padding: .3rem;
+    }
+    #carritoVenta tr td{
+        text-align: left;
+        padding: .3rem;
+    }
+    #carritoVenta .fin{
+        padding-top: 15px;
+    }
+
+    #carritoVenta #total{
+        text-align: left;
+        padding: .3rem;
+        color: red;
+    }
+
+
+
+
+
 </style>

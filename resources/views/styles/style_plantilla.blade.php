@@ -14,6 +14,10 @@ html{
     padding: 0;
 
 }
+
+button{
+    font-family: 'Montserrat', sans-serif;
+}
 body{
     background-color:  #EAEDED;
 }
@@ -101,6 +105,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 50px 3%;
+    margin-top: 1rem;
     background-color: #1C2833;
 }
 

@@ -10,8 +10,8 @@
 
     @include('styles/style_plantilla')
     @include('styles/style_usuarios')
-    @include('styles/style_usuarios_formulario')
-    @include('styles/style_usuarios_tabla')
+    @include('styles/style_formulario')
+    @include('styles/style_tabla')
 </head>
 <body>
     <header>

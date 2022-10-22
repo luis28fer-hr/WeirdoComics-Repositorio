@@ -10,6 +10,7 @@ main .form {
     box-shadow: 0 0.1rem 0.7rem rgba(0,0,0,.3);
 
 }
+
 main .form #encabezado {
     width: 100%;
     height: 35px;
@@ -142,4 +143,101 @@ main .form form input:focus, select:focus{
 
 
 
+/* Variaciones en el formulario de vender */
+
+
+main #venta{
+    width: 100%;
+}
+#botonbuscar{
+    padding-left: .8rem;
+    padding-right: .8rem;
+    border: none;
+    background-color: #1ABC9C;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+    transition: all 0.3s ease;
+}
+#botonbuscar i{
+    font-size: 21px;
+    color: white;
+}
+
+#inputbuscar{
+    width: 65%;
+    border-radius: 3px 0 0 3px;
+}
+
+#inputbuscar{
+    width: 65%;
+    border-radius: 3px 0 0 3px;
+}
+
+#inputbuscar:hover, #inputbuscar:focus{
+    border-top: 3px solid #1ABC9C;
+    border-left: 3px solid #1ABC9C;
+    border-bottom: 3px solid #1ABC9C;
+    box-shadow: 1px 1px 8px 0px rgba(10, 10, 100, 0.3);
+    padding-left: 13px;
+    padding-right: 8px;
+    padding-top: 0px;
+}
+#descripcion_producto:disabled{
+    background: #FBFCFC;
+    margin: 0 auto;
+    border: 1px dashed rgba(229, 231, 233, .9);
+    resize: none;
+    width: 100%;
+    padding: 1rem;
+    font-size: 17px;
+    color: #2E4053;
+    cursor: text;
+}
+
+#botonbuscar:hover{
+    box-shadow: 1px 1px 8px 0px rgba(10, 10, 100, 0.3);
+}
+
+
+
+/* Variaciones del formulario vender */
+
+.btn{
+    border: none;
+    width: 50%;
+    margin-right: .2rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    padding: .5rem;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancelar{
+    background-color: #CACFD2;
+}
+.agregar{
+    background-color: #58D68D;
+    color: #F4F6F7;
+}
+.vender{
+    background-color: #F5B041;
+    color: #F4F6F7;
+}
+
+.cancelar:hover{
+    background-color: #b5b9bc;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,.2);
+}
+.agregar:hover{
+    background-color: #35ac66;
+    color: #F4F6F7;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,.2);
+}
+.vender:hover{
+    background-color: #d9962a;
+    color: #F4F6F7;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,.2);
 </style>

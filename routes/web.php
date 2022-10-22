@@ -27,3 +27,9 @@ Route::get('agenda', [controladorVistas::class, 'agenda'])->name('Agenda');
 /* Controlador de vistas de usuario */
 Route::get('usuarios/agregar', [controladorVistas::class, 'agregarUsuario'])->name('UsuariosAgregar');
 Route::get('usuarios/consultar', [controladorVistas::class, 'consultarUsuarios'])->name('UsuariosConsultar');
+
+
+
+/* Controlador de vistas de Ventas */
+Route::get('ventas/agregar', [controladorVistas::class, 'agregarVenta'])->name('VentasAgregar');
+Route::get('ventas/consultar', [controladorVistas::class, 'consultarVentas'])->name('VentasConsultar');
