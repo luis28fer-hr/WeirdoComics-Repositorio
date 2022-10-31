@@ -1,5 +1,3 @@
-<style>
-
 main .form {
     margin: 0 auto;
     margin-top: 25px;
@@ -8,54 +6,61 @@ main .form {
     border-radius: 10px;
     width: 68%;
     box-shadow: 0 0.1rem 0.7rem rgba(0,0,0,.3);
-
 }
 
+/* encabezado del formularip */
 main .form #encabezado {
     width: 100%;
-    height: 35px;
+    padding: .3rem 0;
     text-align: center;
     background-color: #D6DBDF;
-    border-radius: 10px 10px 0 0;
+    border-radius: 8px 8px 0 0;
 }
+
 main .form #encabezado #titulo {
     padding: 8px;
-    font-weight: 800;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 17px;
     letter-spacing: 1px;
 
 }
-main .form .container{
+
+/* Area del formulario */
+main .form form .container{
     display: flex;
     justify-content: center;
 }
-main .form .formulario {
+
+/* divisiones del contenedor del formulario */
+
+main .form form .container .div1 {
     width: 50%;
     padding: 15px 15px;
-    font-size: 18px;
 }
-main .form .formulario2 {
+main .form form .container .div2{
     width: 50%;
-    padding: 15px 15px;
-    font-size: 18px;
+    padding: 15px 15px;;
 }
-main .form .botones {
+
+
+/* Botones del formulario */
+main .form form .botones {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     margin-top: 15px;
 }
-main .form .botones a  {
+main .form form .botones a  {
     display: flex;
     width: 48%;
-    height: 38px;
-    border-radius: 13px;
+    height: 35px;
+    border-radius: 8px;
     background-color: #99A3A4;
     align-items: center;
     justify-content: center;
 
 }
-main .form .botones a button {
+main .form form .botones a button {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     border-style: none;
@@ -67,34 +72,28 @@ main .form .botones a button {
     cursor: pointer;
 }
 
-main .form .botones #guardar {
+main .form form .botones #guardar {
     background-color: #48C9B0;
 }
-main .form .botones #guardar:hover {
+main .form form .botones #guardar:hover {
     background-color: #16A085;
 }
 
-main .form .botones a:hover {
+main .form form .botones a:hover {
     background-color: #808B96;
 }
 
-
-
-main .form .formulario div{
-    display: flex;
-    margin-bottom: 10px;
-
-}
-main .form .formulario2 div{
+/* Cajas de los inputs */
+main .form form .container .input__form{
     display: flex;
     margin-bottom: 10px;
 }
+/* Parrofo de la cajas de los inputs */
 
-
-main .form form p{
+main .form form .container p{
     display: inline-block;
     font-size: 14px;
-    letter-spacing: -1px
+    letter-spacing: -1px;
     text-decoration: none;
     width: 30%;
     height: 40px;
@@ -102,7 +101,7 @@ main .form form p{
     font-weight: 600;
 }
 
-main .form form input, select{
+main .form form .container input, select{
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -114,7 +113,9 @@ main .form form input, select{
     border-radius: 3px;
 }
 
-main .form form select{
+
+
+main .form form .container select{
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -125,11 +126,8 @@ main .form form select{
     border-radius: 3px;
     outline: none;
 }
-main .form form select option{
-    height: 30px;
-}
 
-main .form form input:hover, select:hover{
+main .form form .container input:hover, select:hover{
     border-bottom: 3px solid rgba(46, 46, 49, 0.3);
     padding-top: 3px;
     box-shadow: 0 2px 10px 1px rgba(10, 10, 100, 0.1);
@@ -140,7 +138,6 @@ main .form form input:focus, select:focus{
     padding-top: 3px;
     box-shadow: 0 2px 10px 1px rgba(10, 10, 100, 0.1);
 }
-
 
 
 /* Variaciones en el formulario de vender */
@@ -156,7 +153,7 @@ main #venta{
     background-color: #1ABC9C;
     cursor: pointer;
     border-radius: 0 3px 3px 0;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 #botonbuscar i{
     font-size: 21px;
@@ -212,11 +209,11 @@ main #venta{
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .cancelar{
-    background-color: #CACFD2;
+    background-color: #99A3A4;
+    color: white;
 }
 .agregar{
     background-color: #58D68D;
@@ -240,4 +237,4 @@ main #venta{
     background-color: #d9962a;
     color: #F4F6F7;
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,.2);
-</style>
+}

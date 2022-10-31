@@ -3,58 +3,57 @@
 
 <div class="form" id="venta">
     <div id = "encabezado">
-         <p id="titulo">Nueva Venta</p>
+         <p id="titulo">Datos de venta</p>
     </div>
-    <form action="#">
+    <form >
         <div class="container">
-            <div class="formulario">
-                <div>
+            <div class="div1">
+                <div class="input__form">
                     <form action="#" id="buscarproducto">
                         <p>CODPRO:</p>
                         <input type="text" id="inputbuscar" value="" name="txtCodProducto" placeholder="Codigo de producto">
                         <button id="botonbuscar"><i class="fa-solid fa-circle-check"></i></button>
                     </form>
                 </div>
-                <div>
+                <div class="input__form">
                     <textarea name="txtproducto" id="descripcion_producto" cols="30" rows="13" disabled>Producto: Comics Batman V400</textarea>
-
                 </div>
             </div>
-            <div class="formulario2">
+            <div class="div2">
                 <form action="#">
-                    <div>
+                    <div class="input__form">
                         <p>Cantidad:</p>
                         <input type="number" name="txtCantidad" value="" placeholder="Cantidad del producto">
                     </div>
-                    <div>
+                    <div class="input__form">
                         <p>Precio:</p>
                         <input type="text" name="txtPrecio" value="$" placeholder="Precio del producto" disabled>
                     </div>
-                    <div>
+                    <div class="input__form">
                         <p>Total</p>
                         <input type="text" name="txtTotal" value="$" placeholder="Precio total" disabled>
                     </div>
-                    <div>
+                    <div class="input__form">
                         <p>Fecha:</p>
                         <input type="date" name="txtfecha">
                     </div>
-                    <div>
+                    <div class="input__form">
                         <p>Vendedor:</p>
                         <input type="text" name="txtCodVendedor" placeholder="Codigo de vendedor" disabled>
                     </div>
-                    <div>
+                    <div class="input__form">
                         <p></p>
                         <input type="text" name="txtNombreVendedor" placeholder="Nombre del vendedorr" disabled>
                     </div>
-                    <div>
+                    <div class="input__form">
                         <button class="btn cancelar">Cancelar</button>
                         <button class="btn agregar"> <i class="fa-solid fa-cart-shopping"></i> Agregar </button>
                     </div>
                 </form>
             </div>
-            <div class="formulario2">
+            <div class="div2">
                 <form action="#">
-                    <div>
+                    <div class="input__form">
                         <table id="carritoVenta">
                             <tr>
                                 <th>COD</th>
@@ -80,7 +79,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div>
+                    <div class="input__form">
                         <button class="btn cancelar">Cancelar</button>
                         <button class="btn vender"><i class="fa-solid fa-cash-register"></i> Vender</button>
                     </div>

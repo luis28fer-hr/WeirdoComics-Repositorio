@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('menu');
 });
 
 Route::get('inicio', [controladorVistas::class, 'inicio'])->name('Inicio');
@@ -33,3 +33,11 @@ Route::get('usuarios/consultar', [controladorVistas::class, 'consultarUsuarios']
 /* Controlador de vistas de Ventas */
 Route::get('ventas/agregar', [controladorVistas::class, 'agregarVenta'])->name('VentasAgregar');
 Route::get('ventas/consultar', [controladorVistas::class, 'consultarVentas'])->name('VentasConsultar');
+
+
+/* Controlador de rutas para Inventario */
+Route::get('inventario/agregar/comic', [controladorVistas::class, 'agregarComic'])->name('Inventario_Comic_A');
+Route::get('inventario/consultar/comic', [controladorVistas::class, 'consulatarComic'])->name('Inventario_Comic_C');
+
+Route::get('inventario/agregar/articulo', [controladorVistas::class, 'agregarArticulo'])->name('Inventario_Articulo_A');
+Route::get('inventario/consultar/articulo', [controladorVistas::class, 'consulatarArticulo'])->name('Inventario_Articulo_C');

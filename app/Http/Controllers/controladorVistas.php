@@ -37,8 +37,23 @@ class controladorVistas extends Controller
         return view('parciales.ventas.agregar_venta');
     }
     public function consultarVentas(){
-        return view('parciales.ventas.consultar_venta');
+        return view('parciales.ventas.consultar_ventas');
     }
 
+
+    /* Controlador de vistas Inventario */
+    public function agregarComic(){
+        return view('parciales.inventario.agregar_comic');
+    }
+    public function consulatarComic(){
+        return view('parciales.inventario.consultar_comic');
+    }
+
+    public function agregarArticulo(){
+        return view('parciales.inventario.agregar_articulo');
+    }
+    public function consulatarArticulo(){
+        return view('parciales.inventario.consultar_articulo');
+    }
 
 }
