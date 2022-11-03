@@ -64,8 +64,8 @@
             </div>
         </div>
         <div class="botones">
-            <a href=""><button>Cancelar</button></a>
-            <a id="guardar"href=""><button>Guardar</button></a>
+            <button type="reset" id="cancelar">Cancelar</button>
+            <button type="submit" id="guardar">Guardar</button>
         </div>
     </form>
 </section>

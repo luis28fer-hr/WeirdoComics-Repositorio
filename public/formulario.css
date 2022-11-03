@@ -50,26 +50,21 @@ main .form form .botones {
     justify-content: space-evenly;
     margin-top: 15px;
 }
-main .form form .botones a  {
-    display: flex;
+main .form form .botones button{
+    font-family: 'Montserrat', sans-serif;
     width: 48%;
     height: 35px;
     border-radius: 8px;
     background-color: #99A3A4;
     align-items: center;
     justify-content: center;
-
-}
-main .form form .botones a button {
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
-    border-style: none;
+    border: none;
+    color: white;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 1.5px;
-    background-color: rgba(166, 172, 175 , 0);
-    color: #FFFFFF;
     cursor: pointer;
+    transition: all .3s ease;
 }
 
 main .form form .botones #guardar {
@@ -79,7 +74,7 @@ main .form form .botones #guardar:hover {
     background-color: #16A085;
 }
 
-main .form form .botones a:hover {
+main .form form .botones #cancelar:hover {
     background-color: #808B96;
 }
 
@@ -88,6 +83,7 @@ main .form form .container .input__form{
     display: flex;
     margin-bottom: 10px;
 }
+
 /* Parrofo de la cajas de los inputs */
 
 main .form form .container p{
@@ -111,6 +107,13 @@ main .form form .container input, select{
     padding: 0 1rem 0 1rem;
     color: #202d3c;
     border-radius: 3px;
+}
+
+/* Input invalido */
+main .form form .container .input__form .invalido{
+    border-bottom: 4px solid rgba(231, 76, 60, .7);
+    padding-top: 4px;
+    box-shadow: 0 0px 5px 1px rgba(146, 43, 33, 0.3);
 }
 
 

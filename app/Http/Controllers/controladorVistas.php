@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\procesarUsuario;
 use Illuminate\Http\Request;
 
 class controladorVistas extends Controller
@@ -31,6 +32,11 @@ class controladorVistas extends Controller
         return view('parciales.usuarios.consultar_usuarios');
     }
 
+    public function procesarUsuarios(procesarUsuario $req){
+
+
+        return redirect('usuarios/agregar');
+    }
 
     /* Controlador de vistas Ventas */
     public function agregarVenta(){
