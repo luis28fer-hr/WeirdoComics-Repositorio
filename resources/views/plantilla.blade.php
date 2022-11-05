@@ -24,7 +24,6 @@
     <main>
         @yield('contenido')
     </main>
-
     <footer>
         @include('parciales/footer')
     </footer>
