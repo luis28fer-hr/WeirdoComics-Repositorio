@@ -6,22 +6,23 @@
     <div id = "encabezado">
          <p id="titulo">Datos del Comic</p>
     </div>
-    <form>
+    <form action="{{route('Inventario_Comic_Procesar')}}" method="POST">
+        @csrf
         <div class="container">
             <div class="div1">
                     <div class="input__form">
                         <p>Nombre:</p>
-                        <input type="text" value="" placeholder="Nombre del comic">
+                        <input class="{{$errors->first('nombre')? 'invalido':''}}" value="{{old('nombre')}}" name="nombre" placeholder="Nombre del comic">
                     </div>
 
                     <div class="input__form">
                         <p>Edicion:</p>
-                        <input type="text" value="" placeholder="Año de edicion">
+                        <input class="{{$errors->first('edicion')? 'invalido':''}}" value="{{old('edicion')}}" name="edicion" placeholder="Año de edicion">
                     </div>
                     <div class="input__form">
                         <p>Compañia:</p>
-                        <select name="select">
-                            <option value="0" selected disabled>Nombre de la compañia</option>
+                        <select name="compañia" class="{{$errors->first('compañia')? 'invalido':''}}" >
+                            <option value="{{old('compañia')}}" selected disabled>Seleccione una compañia</option>
                             <option value="value1">Value 1</option>
                             <option value="value2">Value 2</option>
                             <option value="value3">Value 3</option>
@@ -29,26 +30,26 @@
                     </div>
                     <div class="input__form">
                         <p>Cantidad:</p>
-                        <input type="number" value="" placeholder="Cantidad disponible">
+                        <input class="{{$errors->first('cantidad')? 'invalido':''}}" value="{{old('cantidad')}}" name="cantidad" placeholder="Cantidad disponible">
                     </div>
                     <div class="input__form">
                         <p>Precio Compra:</p>
-                        <input type="text" value="" placeholder="Precio compra">
+                        <input class="{{$errors->first('compra')? 'invalido':''}}" value="{{old('compra')}}" name="compra" placeholder="Precio compra">
                     </div>
             </div>
             <div class="div2">
                     <div class="input__form">
                         <p>Precio Venta:</p>
-                        <input type="text" value="" placeholder="Precio venta">
+                        <input class="{{$errors->first('venta')? 'invalido':''}}" value="{{old('venta')}}" name="venta" placeholder="Precio venta">
                     </div>
                     <div class="input__form">
                         <p>Fecha ingreso:</p>
-                        <input type="date" value="" title="Fecha de ingreso a almacen">
+                        <input class="{{$errors->first('fecha')? 'invalido':''}}" value="{{old('fecha')}}" type="date" value="" name="fecha" title="Fecha de ingreso a almacen">
                     </div>
                     <div class="input__form">
                         <p>Proveedor:</p>
-                        <select name="select">
-                            <option value="0" selected disabled>Nombre del proveedor</option>
+                        <select name="proveedor" class="{{$errors->first('edicion')? 'invalido':''}}" >
+                            <option value="{{old('edicion')}}" selected disabled>Nombre del proveedor</option>
                             <option value="value1">Value 1</option>
                             <option value="value2">Value 2</option>
                             <option value="value3">Value 3</option>

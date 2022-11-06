@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\procesarComic;
 use App\Http\Requests\procesarUsuario;
 use Illuminate\Http\Request;
 
@@ -54,6 +55,12 @@ class controladorVistas extends Controller
     public function consulatarComic(){
         return view('parciales.inventario.consultar_comic');
     }
+    public function procesarComic(procesarComic $req){
+
+
+        return redirect('inventario/agregar/comic');
+    }
+
 
     public function agregarArticulo(){
         return view('parciales.inventario.agregar_articulo');
