@@ -39,6 +39,7 @@ Route::get('ventas/consultar', [controladorVistas::class, 'consultarVentas'])->n
 /* Controlador de rutas para Inventario */
 Route::get('inventario/agregar/comic', [controladorVistas::class, 'agregarComic'])->name('Inventario_Comic_A');
 Route::get('inventario/consultar/comic', [controladorVistas::class, 'consulatarComic'])->name('Inventario_Comic_C');
+Route::post('inventario/agregar/procesar', [controladorVistas::class, 'procesarComic'])->name('Inventario_Comic_Procesar');
 
 Route::get('inventario/agregar/articulo', [controladorVistas::class, 'agregarArticulo'])->name('Inventario_Articulo_A');
 Route::get('inventario/consultar/articulo', [controladorVistas::class, 'consulatarArticulo'])->name('Inventario_Articulo_C');
