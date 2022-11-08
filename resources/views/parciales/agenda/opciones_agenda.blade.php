@@ -7,6 +7,10 @@
                 <li><a class="" id="consultar" href=""><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
                 <li><a id="reporte" href="#"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
             </ul>
+            <form action="#">
+                <input class="buscar" type="text" placeholder="Buscar registro">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
         </div>
     </div>
     <div class="opciones" id="opciones-2">
@@ -17,6 +21,10 @@
                 <li><a class="" id="consultar" href=""><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
                 <li><a id="reporte" href="#"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
             </ul>
+            <form action="#">
+                <input class="buscar" type="text" placeholder="Buscar registro">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
         </div>
     </div>
 
