@@ -7,7 +7,7 @@
          <p id="titulo">Datos del Marca</p>
     </div>
     <form action="" method="POST">
-    
+
         <div class="container">
             <div class="div1">
                     <div class="input__form">
@@ -18,7 +18,7 @@
                         <p>Fecha:</p>
                         <input class="{{$errors->first('txtfecha')? 'invalido':''}}" value="{{old('txtfecha')}}" name="txtfecha" type="date" placeholder="Nombre del articulo">
                     </div>
- 
+
             </div>
         </div>
         <div class="botones">
