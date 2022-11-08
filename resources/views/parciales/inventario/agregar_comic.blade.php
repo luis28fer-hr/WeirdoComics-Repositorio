@@ -2,6 +2,19 @@
 @extends('inventario')
 @section('contenido_inventario')
 
+<?php
+$titul = session()->get('nombre')
+?>
+
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, Comic: "{$titul}" agregado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!} 
+
+@endif
+
 <section class="form">
     <div id = "encabezado">
          <p id="titulo">Datos del Comic</p>

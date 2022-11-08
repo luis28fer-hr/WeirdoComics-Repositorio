@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class controladorVistas extends Controller
 {
+
     public function inicio(){
         return view('menu');
     }
@@ -35,9 +36,9 @@ class controladorVistas extends Controller
     }
 
     public function procesarUsuarios(procesarUsuario $req){
-
-
-        return redirect('usuarios/agregar');
+        return redirect('usuarios/agregar')
+        ->with('confirmacion','Guardado')
+        ->with('nombre',$req->nombre);
     }
 
     /* Controlador de vistas Ventas */
@@ -57,14 +58,14 @@ class controladorVistas extends Controller
         return view('parciales.inventario.consultar_comic');
     }
     public function procesarComic(procesarComic $req){
-
-
-        return redirect('inventario/agregar/comic');
+        return redirect('inventario/agregar/comic')
+        ->with('confirmacion','Guardado')
+        ->with('nombre',$req->nombre);
     }
     public function procesarArticulo(ValidarArticulo $req){
-
-
-        return redirect('inventario/agregar/articulo');
+        return redirect('inventario/agregar/articulo')
+        ->with('confirmacion','Guardado')
+        ->with('txtnombre',$req->txtnombre);
     }
 
 
@@ -74,5 +75,6 @@ class controladorVistas extends Controller
     public function consulatarArticulo(){
         return view('parciales.inventario.consultar_articulo');
     }
+
 
 }
