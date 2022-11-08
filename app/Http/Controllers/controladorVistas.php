@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\procesarComic;
 use App\Http\Requests\procesarUsuario;
+use App\Http\Requests\ValidarArticulo;
 use Illuminate\Http\Request;
 
 class controladorVistas extends Controller
@@ -59,6 +60,11 @@ class controladorVistas extends Controller
 
 
         return redirect('inventario/agregar/comic');
+    }
+    public function procesarArticulo(ValidarArticulo $req){
+
+
+        return redirect('inventario/agregar/articulo');
     }
 
 
