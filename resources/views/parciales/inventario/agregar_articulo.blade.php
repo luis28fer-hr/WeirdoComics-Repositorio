@@ -7,7 +7,7 @@ $nomArt = session()->get('txtnombre')
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, Articulo: "{$nomArt}" agregado correctamente!',
+    'Realizado, Articulo: {$nomArt} agregado correctamente!',
     'Presiona para continuar!',
     'success'
     )</script> "!!} 

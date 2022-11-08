@@ -7,10 +7,11 @@ $nomUsu = session()->get('nombre')
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, Usuario: "{$nomUsu}" agregado correctamente!',
+    'Realizado, Usuario: {$nomUsu} agregado correctamente!',
     'Presiona para continuar!',
     'success'
     )</script> "!!} 
+@endif
 <section class="form">
     <div id = "encabezado">
          <p id="titulo">Datos del empleado</p>

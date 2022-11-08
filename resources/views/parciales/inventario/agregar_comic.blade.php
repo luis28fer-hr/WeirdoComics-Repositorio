@@ -8,7 +8,7 @@ $titul = session()->get('nombre')
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, Comic: "{$titul}" agregado correctamente!',
+    'Realizado, Comic: {$titul} agregado correctamente!',
     'Presiona para continuar!',
     'success'
     )</script> "!!} 
