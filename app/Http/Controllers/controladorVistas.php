@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\procesarComic;
 use App\Http\Requests\procesarUsuario;
 use App\Http\Requests\ValidarArticulo;
+use App\Http\Requests\validarVenta;
+use App\Http\Requests\validarVentaDatos;
 use Illuminate\Http\Request;
 
 class controladorVistas extends Controller
@@ -26,6 +28,7 @@ class controladorVistas extends Controller
         return view('agenda');
     }
 
+
     /* Controlador de vistas Usuario */
     public function agregarUsuario(){
         return view('parciales.usuarios.agregar_usuario');
@@ -40,6 +43,7 @@ class controladorVistas extends Controller
         return redirect('usuarios/agregar');
     }
 
+
     /* Controlador de vistas Ventas */
     public function agregarVenta(){
         return view('parciales.ventas.agregar_venta');
@@ -47,6 +51,13 @@ class controladorVistas extends Controller
     public function consultarVentas(){
         return view('parciales.ventas.consultar_ventas');
     }
+        /* Validaciones del formulario */
+    public function procesarDatosVenta(validarVentaDatos $req){
+
+
+        return redirect('ventas/agregar');
+    }
+
 
 
     /* Controlador de vistas Inventario */
