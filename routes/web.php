@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('menu');
+    return view('index');
 });
-
+Route::get('login', [controladorVistas::class, 'login'])->name('Login');
 Route::get('inicio', [controladorVistas::class, 'inicio'])->name('Inicio');
 Route::get('usuarios', [controladorVistas::class, 'usuarios'])->name('Usuarios');
 Route::get('ventas', [controladorVistas::class, 'ventas'])->name('Ventas');

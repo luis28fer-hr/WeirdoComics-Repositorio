@@ -7,4 +7,4 @@
             <li><a class="{{request()->routeIs('Agenda')? 'link_activo':''}}" href="{{route('Agenda')}}"><i class="fa-solid fa-calendar-day"></i>Agenda</a></li>
         <ul>
     </nav>
-    <a class="cta" href=""><button><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión</button></a>
+    <a class="cta" href="{{route('Login')}}"><button><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión</button></a>
