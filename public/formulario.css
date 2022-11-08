@@ -1,6 +1,6 @@
 main .form {
     margin: 0 auto;
-    margin-top: 25px;
+    margin-top: 10px;
     padding: 0 0 30px 0 ;
     background-color: #F8F9F9;
     border-radius: 10px;
@@ -212,6 +212,7 @@ main #venta{
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    text-align: center;
 }
 
 .cancelar{
