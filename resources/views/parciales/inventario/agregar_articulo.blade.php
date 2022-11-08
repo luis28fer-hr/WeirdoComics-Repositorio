@@ -1,6 +1,18 @@
 @extends('inventario')
 @section('contenido_inventario')
 
+<?php
+$nomArt = session()->get('txtnombre')
+?>
+
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, Articulo: {$nomArt} agregado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!} 
+
+@endif
 <section class="form">
     <div id = "encabezado">
          <p id="titulo">Datos del Articulo</p>
