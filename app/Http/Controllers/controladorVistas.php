@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 
 class controladorVistas extends Controller
 {
+    public function login(){
+        return view('index');
+    }
     public function inicio(){
         return view('menu');
     }
