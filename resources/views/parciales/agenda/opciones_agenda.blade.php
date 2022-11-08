@@ -3,8 +3,8 @@
         <p>Marcas</p>
         <div>
             <ul>
-                <li><a class="" id="nuevo" href=""><i class="fa-sharp fa-solid fa-square-plus"></i><button>Nuevo</button></a></li>
-                <li><a class="" id="consultar" href=""><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
+                <li><a class="{{request()->routeIs('Agenda_Marca_Agregar')? 'agregar_Activa':''}}" id="nuevo" href="{{route('Agenda_Marca_Agregar')}}"><i class="fa-sharp fa-solid fa-square-plus"></i><button>Nuevo</button></a></li>
+                <li><a class="{{request()->routeIs('Agenda_Marca_Consultar')? 'consultar_Activa':''}}" id="consultar" href="{{route('Agenda_Marca_Consultar')}}"><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
                 <li><a id="reporte" href="#"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
             </ul>
             <form action="#">

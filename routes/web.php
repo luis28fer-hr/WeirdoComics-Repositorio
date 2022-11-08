@@ -45,3 +45,7 @@ Route::get('inventario/consultar/comic', [controladorVistas::class, 'consulatarC
 Route::get('inventario/agregar/articulo', [controladorVistas::class, 'agregarArticulo'])->name('Inventario_Articulo_A');
 Route::get('inventario/consultar/articulo', [controladorVistas::class, 'consulatarArticulo'])->name('Inventario_Articulo_C');
     Route::post('inventario/validar/articulo', [controladorVistas::class, 'procesarArticulo'])->name('Inventario_Validar_Articulo');
+
+/* Controlador de rutas de agenda  */
+Route::get('agenda/marca/agregar', [controladorVistas::class, 'agregarMarca'])->name('Agenda_Marca_Agregar');
+Route::get('agenda/marca/consultar', [controladorVistas::class, 'consultarMarca'])->name('Agenda_Marca_Consultar');

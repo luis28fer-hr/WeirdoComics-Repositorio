@@ -89,4 +89,12 @@ class controladorVistas extends Controller
         return view('parciales.inventario.consultar_articulo');
     }
 
+    /* Controlador de vistas Agenda */
+    public function agregarMarca(){
+        return view('parciales.agenda.agregar_marca');
+    }
+    public function consultarMarca(){
+    return view('parciales.agenda.consultar_marca');
+
+}
 }
