@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 
 class controladorVistas extends Controller
 {
+
+    public function login(){
+        return view('index');
+    }
+
     public function inicio(){
         return view('menu');
     }
@@ -86,4 +91,10 @@ class controladorVistas extends Controller
         return view('parciales.inventario.consultar_articulo');
     }
 
+    public function agregarMarca(){
+        return view('parciales.agenda.agregar_marca');
+    }
+    public function consultarMarca(){
+        return view('parciales.agenda.consultar_marca');
+    }
 }
