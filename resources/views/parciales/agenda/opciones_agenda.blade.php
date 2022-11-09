@@ -1,5 +1,5 @@
 <section id="caja-opciones">
-    <div class="opciones" id="opciones-1">
+    <div class="opciones {{request()->routeIs('Agenda_Marca_Consultar')? 'opciones_opcBuscar_Activa':''}}" id="opciones-1">
         <p>Marcas</p>
         <div>
             <ul>
@@ -13,7 +13,7 @@
             </form>
         </div>
     </div>
-    <div class="opciones" id="opciones-2">
+    <div class="opciones {{request()->routeIs('Agenda_Proovedor_Consultar')? 'opciones_opcBuscar_Activa':''}}" id="opciones-2">
         <p>Proovedores</p>
         <div>
             <ul>

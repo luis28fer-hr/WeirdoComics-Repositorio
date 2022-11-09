@@ -24,12 +24,12 @@ class validarProovedor extends FormRequest
     public function rules()
     {
         return [
-            'txtproovedor' => 'required',
-            'txtmunicipio' => 'required',
-            'txtcontacto' => 'required',
-            'txtnumero' => 'required',
-            'txtcelular' => 'required',
-            'txtcorreo' => 'required'
+            'txtproovedor' => 'required|min:3|max:30',
+            'txtmunicipio' => 'required|numeric',
+            'txtcontacto' => 'required|numeric|digits_between:9,10',
+            'txtnumero' => 'required|numeric|digits_between:9,10',
+            'txtcelular' => 'required|numeric|digits_between:9,10',
+            'txtcorreo' => 'required|email'
         ];
     }
 }

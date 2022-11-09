@@ -2,7 +2,7 @@
 
 @section('contenido_agenda')
 
-<section class="form">
+<section class="form" id="form__proovedor">
     <div id = "encabezado">
          <p id="titulo">Datos del Proovedor</p>
     </div>
