@@ -49,3 +49,4 @@ Route::get('inventario/consultar/articulo', [controladorVistas::class, 'consulat
 /* Controlador de rutas de agenda  */
 Route::get('agenda/marca/agregar', [controladorVistas::class, 'agregarMarca'])->name('Agenda_Marca_Agregar');
 Route::get('agenda/marca/consultar', [controladorVistas::class, 'consultarMarca'])->name('Agenda_Marca_Consultar');
+    Route::post('agenfa/marca/validar', [controladorVistas::class, 'validarMarca'])->name('Agenda_Marca_Validar');

@@ -7,6 +7,14 @@ main .form {
     width: 68%;
     box-shadow: 0 0.1rem 0.7rem rgba(0,0,0,.3);
 }
+main #form__marca {
+    width: 40%;
+}
+main #form__marca form .container .div1 {
+    width: 100%;
+    padding: 15px 15px;
+}
+
 
 /* encabezado del formularip */
 main .form #encabezado {

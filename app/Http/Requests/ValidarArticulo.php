@@ -24,14 +24,14 @@ class ValidarArticulo extends FormRequest
     public function rules()
     {
         return [
-            'txtnombre'=>'required',
+            'txtnombre'=>'required|min:3|max:30',
             'txttipo'=>'required',
             'txtmarcas'=>'required',
-            'txtdescripcion'=>'required',
-            'txtcantidad'=>'required',
-            'txtpreciocom'=>'required',
-            'txtprecioven'=>'required',
-            'txtfech'=>'required',
+            'txtdescripcion'=>'required|min:5|max:250',
+            'txtcantidad'=>'required|integer',
+            'txtpreciocom'=>'required|numeric|between:0.99,9999.99',
+            /* 'txtprecioven'=>'required|numeric|between:0.99,9999.99', */
+            'txtfech'=>'required|date',
             'txtproveedor'=>'required'
         ];
     }

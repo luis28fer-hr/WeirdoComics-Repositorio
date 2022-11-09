@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\procesarComic;
 use App\Http\Requests\procesarUsuario;
 use App\Http\Requests\ValidarArticulo;
+use App\Http\Requests\validarMarca;
 use App\Http\Requests\validarVenta;
 use App\Http\Requests\validarVentaDatos;
 use Illuminate\Http\Request;
@@ -96,5 +97,9 @@ class controladorVistas extends Controller
     }
     public function consultarMarca(){
         return view('parciales.agenda.consultar_marca');
+    }
+    public function validarMarca(validarMarca $req){
+
+        return redirect('agenda/marca/agregar');
     }
 }
