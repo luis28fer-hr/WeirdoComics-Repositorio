@@ -8,6 +8,7 @@ use App\Http\Requests\ValidarArticulo;
 use App\Http\Requests\validarMarca;
 use App\Http\Requests\validarVenta;
 use App\Http\Requests\validarVentaDatos;
+use App\Http\Requests\validarProovedor;
 use Illuminate\Http\Request;
 
 class controladorVistas extends Controller
@@ -97,9 +98,5 @@ class controladorVistas extends Controller
     }
     public function consultarMarca(){
         return view('parciales.agenda.consultar_marca');
-    }
-    public function validarMarca(validarMarca $req){
-
-        return redirect('agenda/marca/agregar');
     }
 }
