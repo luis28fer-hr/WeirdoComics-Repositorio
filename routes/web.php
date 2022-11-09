@@ -51,3 +51,4 @@ Route::get('agenda/marca/agregar', [controladorVistas::class, 'agregarMarca'])->
 Route::get('agenda/marca/consultar', [controladorVistas::class, 'consultarMarca'])->name('Agenda_Marca_Consultar');
 Route::get('agenda/proovedor/agregar', [controladorVistas::class, 'agregarProovedor'])->name('Agenda_Proovedor_Agregar');
 Route::get('agenda/proovedor/consultar', [controladorVistas::class, 'consultarProovedor'])->name('Agenda_Proovedor_Consultar');
+Route::post('agenda/proovedor/validar', [controladorVistas::class, 'procesarProovedor'])->name('Agenda_Validar_Proovedor');

@@ -6,8 +6,8 @@
     <div id = "encabezado">
          <p id="titulo">Datos del Proovedor</p>
     </div>
-    <form action="Agenda_Agregar_Agregar" method="POST">
-
+    <form action="{{route('Agenda_Validar_Proovedor')}}" method="POST">
+        @csrf
         <div class="container">
             <div class="div1">
                     <div class="input__form">
