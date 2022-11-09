@@ -97,4 +97,11 @@ class controladorVistas extends Controller
     public function consultarMarca(){
         return view('parciales.agenda.consultar_marca');
     }
+
+    public function agregarProovedor(){
+        return view('parciales.agenda.agregar_proovedor');
+    }
+    public function consultarProovedor(){
+        return view('parciales.agenda.consultar_proovedor');
+    }
 }
