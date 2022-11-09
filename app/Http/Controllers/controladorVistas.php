@@ -79,12 +79,6 @@ class controladorVistas extends Controller
         ->with('confirmacion','Guardado')
         ->with('nombre',$req->nombre);
     }
-    public function procesarArticulo(ValidarArticulo $req){
-        return redirect('inventario/agregar/articulo')
-        ->with('confirmacion','Guardado')
-        ->with('txtnombre',$req->txtnombre);
-    }
-
 
     public function agregarArticulo(){
         return view('parciales.inventario.agregar_articulo');
@@ -92,6 +86,13 @@ class controladorVistas extends Controller
     public function consulatarArticulo(){
         return view('parciales.inventario.consultar_articulo');
     }
+    public function procesarArticulo(ValidarArticulo $req){
+        return redirect('inventario/agregar/articulo')
+        ->with('confirmacion','Guardado')
+        ->with('txtnombre',$req->txtnombre);
+    }
+
+    /* Controlador de Agenda */
 
     public function agregarMarca(){
         return view('parciales.agenda.agregar_marca');
@@ -99,4 +100,22 @@ class controladorVistas extends Controller
     public function consultarMarca(){
         return view('parciales.agenda.consultar_marca');
     }
+    public function validarMarca(validarMarca $re){
+
+        return redirect('agenda/marca/agregar');
+    }
+
+    public function agregarProovedor(){
+        return view('parciales.agenda.agregar_proovedor');
+    }
+    public function consultarProovedor(){
+        return view('parciales.agenda.consultar_proovedor');
+    }
+    public function validarProovedor(validarProovedor $re){
+
+        return redirect('agenda/proovedor/agregar');
+    }
+
+
+
 }
