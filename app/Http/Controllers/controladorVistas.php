@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\procesarComic;
 use App\Http\Requests\procesarUsuario;
 use App\Http\Requests\ValidarArticulo;
+use App\Http\Requests\validarMarca;
 use App\Http\Requests\validarVenta;
 use App\Http\Requests\validarVentaDatos;
 use App\Http\Requests\validarProovedor;
@@ -97,16 +98,5 @@ class controladorVistas extends Controller
     }
     public function consultarMarca(){
         return view('parciales.agenda.consultar_marca');
-    }
-        /*Controlador Vistas Agenda/Proovedor*/
-    public function agregarProovedor(){
-        return view('parciales.agenda.agregar_proovedor');
-    }
-    public function consultarProovedor(){
-        return view('parciales.agenda.consultar_proovedor');
-    }
-
-    public function procesarProovedor(ValidarProovedor $req){
-        return redirect('agenda/proovedor/validar');
     }
 }

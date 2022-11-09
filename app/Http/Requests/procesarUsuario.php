@@ -24,14 +24,14 @@ class procesarUsuario extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
-            'apellidoPaterno' => 'required',
-            'apellidoMaterno' => 'required',
-            'numeroCelular' => 'required',
-            'fechaIngreso' => 'required',
-            'correo' => 'required',
-            'password' => 'required',
-            'passwordConfirm' => 'required',
+            'nombre' => 'required|min:2|max:30',
+            'apellidoPaterno' => 'required|min:2|max:30',
+            'apellidoMaterno' => 'required|min:2|max:30',
+            'numeroCelular' => 'required|numeric|digits_between:9,10',
+            'fechaIngreso' => 'required|date',
+            'correo' => 'required|email',
+            'password' => 'required|min:6|max:12',
+            'passwordConfirm' => 'required|min:6|max:12',
             'cargo' => 'required'
         ];
     }

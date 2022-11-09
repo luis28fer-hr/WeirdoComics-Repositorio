@@ -10,7 +10,7 @@ $nomUsu = session()->get('nombre')
     'Realizado, Usuario: {$nomUsu} agregado correctamente!',
     'Presiona para continuar!',
     'success'
-    )</script> "!!} 
+    )</script> "!!}
 @endif
 <section class="form">
     <div id = "encabezado">
@@ -48,7 +48,7 @@ $nomUsu = session()->get('nombre')
                     </div>
                     <div class="input__form">
                         <p>Contraseña:</p>
-                        <input class="{{$errors->first('password')? 'invalido':''}}" type="password" name="password" placeholder="Contraseña del empleado">
+                        <input class="{{$errors->first('password')? 'invalido':''}}" name="password" value="{{old('password')}}"  type="password" placeholder="Contraseña del empleado">
                     </div>
                     <div class="input__form">
                         <p></p>
@@ -59,9 +59,8 @@ $nomUsu = session()->get('nombre')
                         <p>Cargo:</p>
                         <select class="{{$errors->first('cargo')? 'invalido':''}}" name="cargo">
                             <option value="0" selected disabled>Cargo del empleado</option>
-                            <option value="value1">Value 1</option>
-                            <option value="value2">Value 2</option>
-                            <option value="value3">Value 3</option>
+                            <option value="value 1">Empleado</option>
+                            <option value="value 2">Administrador</option>
                         </select>
                     </div>
             </div>

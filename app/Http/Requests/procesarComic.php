@@ -24,12 +24,12 @@ class procesarComic extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
-            'edicion' => 'required|integer',
+            'nombre' => 'required|min:3|max:30',
+            'edicion' => 'required|integer|digits_between:1,4',
             'compañia' => 'required',
             'cantidad' => 'required|integer',
-            'compra' => 'required',
-            'venta' => 'required',
+            'compra' => 'required|numeric|between:0.99,9999.99',
+   /*          'venta' => 'required|numeric|between:0.99,9999.99', */
             'fecha' => 'required|date',
             'proveedor' => 'required'
         ];

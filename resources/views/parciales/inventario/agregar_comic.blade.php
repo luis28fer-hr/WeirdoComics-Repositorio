@@ -11,7 +11,7 @@ $titul = session()->get('nombre')
     'Realizado, Comic: {$titul} agregado correctamente!',
     'Presiona para continuar!',
     'success'
-    )</script> "!!} 
+    )</script> "!!}
 
 @endif
 
@@ -29,11 +29,11 @@ $titul = session()->get('nombre')
                     </div>
 
                     <div class="input__form">
-                        <p>Edicion:</p>
+                        <p>Edición,:</p>
                         <input class="{{$errors->first('edicion')? 'invalido':''}}" value="{{old('edicion')}}" name="edicion" placeholder="Año de edicion">
                     </div>
                     <div class="input__form">
-                        <p>Compañia:</p>
+                        <p>Compañía,:</p>
                         <select name="compañia" class="{{$errors->first('compañia')? 'invalido':''}}" >
                             <option value="{{old('compañia')}}" selected disabled>Seleccione una compañia</option>
                             <option value="value1">Value 1</option>
@@ -53,7 +53,7 @@ $titul = session()->get('nombre')
             <div class="div2">
                     <div class="input__form">
                         <p>Precio Venta:</p>
-                        <input class="{{$errors->first('venta')? 'invalido':''}}" value="{{old('venta')}}" name="venta" placeholder="Precio venta">
+                        <input value="Automático" name="venta" placeholder="Precio venta" disabled>
                     </div>
                     <div class="input__form">
                         <p>Fecha ingreso:</p>

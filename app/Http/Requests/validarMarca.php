@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class validarVentaDatos extends FormRequest
+class validarMarca extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class validarVentaDatos extends FormRequest
     public function rules()
     {
         return [
-            'txtCodProducto' => 'required|numeric|digits_between:3,15',
-            'txtCantidad' => 'required|integer',
+            'txtnombre' => 'required|min:2|max:30',
             'txtfecha' => 'required|date'
         ];
     }

@@ -2,12 +2,12 @@
 
 @section('contenido_agenda')
 
-<section class="form">
+<section class="form" id="form__marca">
     <div id = "encabezado">
          <p id="titulo">Datos del Marca</p>
     </div>
-    <form action="" method="POST">
-
+    <form action="{{route('Agenda_Marca_Validar')}}" method="POST">
+        @csrf
         <div class="container">
             <div class="div1">
                     <div class="input__form">

@@ -10,7 +10,7 @@ $nomArt = session()->get('txtnombre')
     'Realizado, Articulo: {$nomArt} agregado correctamente!',
     'Presiona para continuar!',
     'success'
-    )</script> "!!} 
+    )</script> "!!}
 
 @endif
 <section class="form">
@@ -28,7 +28,7 @@ $nomArt = session()->get('txtnombre')
                     <div class="input__form">
                         <p>Tipo:</p>
                         <select name="txttipo" class="{{$errors->first('txttipo')? 'invalido':''}}" value="{{old('txttipo')}}">
-                            <option value="0" selected disabled>Tipp del articulo</option>
+                            <option value="0" selected disabled>Tipo del articulo</option>
                             <option value="value1">Value 1</option>
                             <option value="value2">Value 2</option>
                             <option value="value3">Value 3</option>
@@ -44,22 +44,22 @@ $nomArt = session()->get('txtnombre')
                         </select>
                     </div>
                     <div class="input__form">
-                        <p>Descripcion:</p>
+                        <p>Descripción:</p>
                         <input class="{{$errors->first('txtdescripcion')? 'invalido':''}}" value="{{old('txtdescripcion')}}" name="txtdescripcion" placeholder="Descripcion">
                     </div>
                     <div class="input__form">
                         <p>Cantidad:</p>
-                        <input type="number" name="txtcantidad" class="{{$errors->first('txtcantidad')? 'invalido':''}}" value="{{old('txtcantidad')}}" placeholder="Cantidad disponible">
+                        <input name="txtcantidad" class="{{$errors->first('txtcantidad')? 'invalido':''}}" value="{{old('txtcantidad')}}" placeholder="Cantidad disponible">
                     </div>
                     <div class="input__form">
                         <p>Precio Compra:</p>
-                        <input type="date" name="txtpreciocom" class="{{$errors->first('txtpreciocom')? 'invalido':''}}" value="{{old('txtpreciocom')}}" title="Precio de compra">
+                        <input name="txtpreciocom" class="{{$errors->first('txtpreciocom')? 'invalido':''}}" value="{{old('txtpreciocom')}}" placeholder="Precio de compra">
                     </div>
             </div>
             <div class="div2">
                     <div class="input__form">
                         <p>Precio Venta:</p>
-                        <input type="text" name="txtprecioven" class="{{$errors->first('txtprecioven')? 'invalido':''}}" value="{{old('txtprecioven')}}" placeholder="Precio de venta">
+                        <input type="text" name="txtprecioven" value="Automatico" placeholder="Precio de venta" disabled>
                     </div>
                     <div class="input__form">
                         <p>Fecha:</p>
