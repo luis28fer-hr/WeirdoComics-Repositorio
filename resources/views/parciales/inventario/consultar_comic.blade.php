@@ -27,7 +27,7 @@
             <td>02/02/2020</td>
             <td>%100Com</td>
             <td>
-                <a href="{{route('Inventario_Comic_E')}}">
+                <a href="{{route('Inventario_Comic_C_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -46,7 +46,7 @@
             <td>02/02/2020</td>
             <td>%100Com</td>
             <td>
-                <a href="{{route('Inventario_Comic_E')}}">
+                <a href="{{route('Inventario_Comic_C_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -65,7 +65,7 @@
             <td>02/02/2020</td>
             <td>%100Com</td>
             <td>
-                <a href="{{route('Inventario_Comic_E')}}">
+                <a href="{{route('Inventario_Comic_C_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -84,7 +84,7 @@
             <td>02/02/2020</td>
             <td>%100Com</td>
             <td>
-                <a href="{{route('Inventario_Comic_E')}}">
+                <a href="{{route('Inventario_Comic_C_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">

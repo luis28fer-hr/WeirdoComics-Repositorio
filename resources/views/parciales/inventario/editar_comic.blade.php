@@ -19,7 +19,7 @@ $titul = session()->get('nombre')
     <div id = "encabezado">
          <p id="titulo">Editar Datos del Comic</p>
     </div>
-    <form action="{{route('Inventario_Comic_Procesar')}}" method="POST">
+    <form action="{{route('Inventario_Comic_Procesar_Editar')}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">

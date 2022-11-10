@@ -16,7 +16,7 @@ $nomUsu = session()->get('nombre')
     <div id = "encabezado">
          <p id="titulo">Editar Datos del empleado</p>
     </div>
-    <form action="{{route('UsuariosProcesar')}}" method="POST">
+    <form action="{{route('UsuariosProcesarEditar')}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">
