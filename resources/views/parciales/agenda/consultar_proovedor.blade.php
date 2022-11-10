@@ -20,8 +20,15 @@
             <td>4422101616</td>
             <td>4421336089</td>
             <td>artur@gmail.com</td>
-            <td><a href="#"><i title="Editar" class="fa-solid fa-pen-to-square editar"></i><i title="Eliminar" class="fa-solid fa-trash eliminar"></i></a></td>
-        </tr>
+            <td>
+                    <a href="#">
+                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                    </a>
+                    <a href="#">
+                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    </a>
+                </td>
+            </tr>
         <tr>
             <td>Villegas Vazquez Arturo</td>
             <td>123</td>
@@ -29,8 +36,15 @@
             <td>4422101616</td>
             <td>4421336089</td>
             <td>artur@gmail.com</td>
-            <td><a href="#"><i title="Editar" class="fa-solid fa-pen-to-square editar"></i><i title="Eliminar" class="fa-solid fa-trash eliminar"></i></a></td>
-        </tr>
+            <td>
+                    <a href="#">
+                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                    </a>
+                    <a href="#">
+                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    </a>
+                </td>
+            </tr>
         <tr>
             <td>Villegas Vazquez Arturo</td>
             <td>123</td>
@@ -38,8 +52,15 @@
             <td>4422101616</td>
             <td>4421336089</td>
             <td>artur@gmail.com</td>
-            <td><a href="#"><i title="Editar" class="fa-solid fa-pen-to-square editar"></i><i title="Eliminar" class="fa-solid fa-trash eliminar"></i></a></td>
-        </tr>
+            <td>
+                    <a href="#">
+                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                    </a>
+                    <a href="#">
+                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    </a>
+                </td>
+            </tr>
         <tr>
             <td>Villegas Vazquez Arturo</td>
             <td>123</td>
@@ -47,8 +68,15 @@
             <td>4422101616</td>
             <td>4421336089</td>
             <td>artur@gmail.com</td>
-            <td><a href="#"><i title="Editar" class="fa-solid fa-pen-to-square editar"></i><i title="Eliminar" class="fa-solid fa-trash eliminar"></i></a></td>
-        </tr>
+            <td>
+                    <a href="#">
+                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                    </a>
+                    <a href="#">
+                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    </a>
+                </td>
+            </tr>
     </table>
 </section>
 

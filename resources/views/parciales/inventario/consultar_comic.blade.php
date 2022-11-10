@@ -26,8 +26,15 @@
             <td>$199</td>
             <td>02/02/2020</td>
             <td>%100Com</td>
-            <td><a href="#"><i title="Editar" class="fa-solid fa-pen-to-square editar"></i><i title="Eliminar" class="fa-solid fa-trash eliminar"></i></a></td>
-        </tr>
+            <td>
+                    <a href="#">
+                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                    </a>
+                    <a href="#">
+                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    </a>
+                </td>
+            </tr>
         <tr>
             <td>1234</td>
             <td>Batman vs Superman</td>
@@ -38,8 +45,15 @@
             <td>$199</td>
             <td>02/02/2020</td>
             <td>%100Com</td>
-            <td><a href="#"><i title="Editar" class="fa-solid fa-pen-to-square editar"></i><i title="Eliminar" class="fa-solid fa-trash eliminar"></i></a></td>
-        </tr>
+            <td>
+                    <a href="#">
+                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                    </a>
+                    <a href="#">
+                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    </a>
+                </td>
+            </tr>
         <tr>
             <td>1548</td>
             <td>Batman vs Superman</td>
@@ -50,8 +64,15 @@
             <td>$199</td>
             <td>02/02/2020</td>
             <td>%100Com</td>
-            <td><a href="#"><i title="Editar" class="fa-solid fa-pen-to-square editar"></i><i title="Eliminar" class="fa-solid fa-trash eliminar"></i></a></td>
-        </tr>
+            <td>
+                    <a href="#">
+                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                    </a>
+                    <a href="#">
+                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    </a>
+                </td>
+            </tr>
         <tr>
             <td>7624</td>
             <td>Batman vs Superman</td>
@@ -62,8 +83,15 @@
             <td>$199</td>
             <td>02/02/2020</td>
             <td>%100Com</td>
-            <td><a href="#"><i title="Editar" class="fa-solid fa-pen-to-square editar"></i><i title="Eliminar" class="fa-solid fa-trash eliminar"></i></a></td>
-        </tr>
+            <td>
+                    <a href="#">
+                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                    </a>
+                    <a href="#">
+                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    </a>
+                </td>
+            </tr>
     </table>
 </section>
 
