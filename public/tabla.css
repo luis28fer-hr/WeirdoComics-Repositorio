@@ -40,6 +40,7 @@
     main .tabla table a .editar{
         color: #F39C12;
         font-size: 20px;
+        margin-right: 1rem;
         transition: all 0.3s ease;
     }
     main .tabla table a .editar:hover{
@@ -57,12 +58,6 @@
         color: #B03A2E;
         transform: translateY(-2px);
         box-shadow: 0 1px 5px 0px #1209010c;
-    }
-
-    main .tabla table tr a{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
     }
 
     main .tabla table tr{

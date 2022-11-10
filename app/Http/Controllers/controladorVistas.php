@@ -43,6 +43,9 @@ class controladorVistas extends Controller
     public function consultarUsuarios(){
         return view('parciales.usuarios.consultar_usuarios');
     }
+    public function editarUsuario(){
+        return view('parciales.usuarios.agregar_usuario');
+    }
 
     public function procesarUsuarios(procesarUsuario $req){
         return redirect('usuarios/agregar')
