@@ -22,7 +22,7 @@
                 <td>Administrador</td>
                 <td>10 - 05 - 2020</td>
                 <td>
-                    <a href="#">
+                    <a href="{{route('UsuariosConsultarEditar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -39,7 +39,7 @@
                 <td>Empleado</td>
                 <td>17 - 10 - 2021</td>
                 <td>
-                    <a href="#">
+                    <a href="{{route('UsuariosConsultarEditar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -56,7 +56,7 @@
                 <td>Empleado</td>
                 <td>25 - 01 - 2022</td>
                 <td>
-                    <a href="#">
+                    <a href="{{route('UsuariosConsultarEditar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -73,7 +73,7 @@
                 <td>Empleado</td>
                 <td>29 - 12 - 2021</td>
                 <td>
-                    <a href="#">
+                    <a href="{{route('UsuariosConsultarEditar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">

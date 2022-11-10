@@ -43,8 +43,9 @@ class controladorVistas extends Controller
     public function consultarUsuarios(){
         return view('parciales.usuarios.consultar_usuarios');
     }
+    /* Funcion de editar  */
     public function editarUsuario(){
-        return view('parciales.usuarios.agregar_usuario');
+        return view('parciales.usuarios.editar_usuario');
     }
 
     public function procesarUsuarios(procesarUsuario $req){
@@ -61,6 +62,7 @@ class controladorVistas extends Controller
     public function consultarVentas(){
         return view('parciales.ventas.consultar_ventas');
     }
+
         /* Validaciones del formulario */
     public function procesarDatosVenta(validarVentaDatos $req){
 
