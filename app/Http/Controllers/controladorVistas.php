@@ -49,9 +49,14 @@ class controladorVistas extends Controller
     }
 
     public function procesarUsuarios(procesarUsuario $req){
+
         return redirect('usuarios/agregar')
         ->with('confirmacion','Guardado')
         ->with('nombre',$req->nombre);
+    }
+    public function procesarEditarUsuario(procesarUsuario $req){
+
+        return redirect('usuarios/consultar');
     }
 
 
@@ -67,10 +72,16 @@ class controladorVistas extends Controller
     }
 
         /* Validaciones del formulario */
-    public function procesarDatosVenta(validarVentaDatos $req){
+    public function procesarVenta(validarVentaDatos $req){
 
 
         return redirect('ventas/agregar');
+    }
+
+    public function procesarEditarVenta(validarVentaDatos $req){
+
+
+        return redirect('ventas/consultar');
     }
 
 
@@ -86,10 +97,16 @@ class controladorVistas extends Controller
         return view('parciales.inventario.editar_comic');
     }
     public function procesarComic(procesarComic $req){
+
         return redirect('inventario/agregar/comic')
         ->with('confirmacion','Guardado')
         ->with('nombre',$req->nombre);
     }
+    public function procesarEditarComic(procesarComic $req){
+
+        return redirect('inventario/consultar/comic');
+    }
+
 
     public function agregarArticulo(){
         return view('parciales.inventario.agregar_articulo');
@@ -105,6 +122,11 @@ class controladorVistas extends Controller
         ->with('confirmacion','Guardado')
         ->with('txtnombre',$req->txtnombre);
     }
+    public function procesarEditarArticulo(ValidarArticulo $req){
+
+        return redirect('inventario/consultar/articulo');
+    }
+
 
     /* Controlador de Agenda */
 
@@ -121,6 +143,10 @@ class controladorVistas extends Controller
 
         return redirect('agenda/marca/agregar');
     }
+    public function validarEditarMarca(validarMarca $re){
+
+        return redirect('agenda/marca/consultar');
+    }
 
     public function agregarProovedor(){
         return view('parciales.agenda.agregar_proovedor');
@@ -134,6 +160,10 @@ class controladorVistas extends Controller
     public function validarProovedor(validarProovedor $re){
 
         return redirect('agenda/proovedor/agregar');
+    }
+    public function validarEditarProovedor(validarProovedor $re){
+
+        return redirect('agenda/proovedor/consultar');
     }
 
 

@@ -18,7 +18,7 @@
             <td>Colin Maldonado Ricardo</td>
             <td>10 - 05 - 2020</td>
             <td>
-                <a href="{{route('VentasEditar')}}">
+                <a href="{{route('VentasConsultarEditar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -33,7 +33,7 @@
             <td>Villegas Vazquez Arturo</td>
             <td>15 - 11 - 2021</td>
             <td>
-                <a href="{{route('VentasEditar')}}">
+                <a href="{{route('VentasConsultarEditar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -48,7 +48,7 @@
             <td>Villegas Vazquez Arturo</td>
             <td>15 - 11 - 2021</td>
             <td>
-                <a href="{{route('VentasEditar')}}">
+                <a href="{{route('VentasConsultarEditar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -63,7 +63,7 @@
             <td>Villegas Vazquez Arturo</td>
             <td>16 - 11 - 2021</td>
             <td>
-                <a href="{{route('VentasEditar')}}">
+                <a href="{{route('VentasConsultarEditar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
