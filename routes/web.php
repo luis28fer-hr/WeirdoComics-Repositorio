@@ -35,6 +35,7 @@ Route::get('usuarios/consultar/editar', [controladorVistas::class, 'editarUsuari
 /* Controlador de rutas de Ventas */
 Route::get('ventas/agregar', [controladorVistas::class, 'agregarVenta'])->name('VentasAgregar');
 Route::get('ventas/consultar', [controladorVistas::class, 'consultarVentas'])->name('VentasConsultar');
+Route::get('ventas/consultar/editar', [controladorVistas::class, 'editarVentas'])->name('VentasEditar');
 
     Route::post('ventas/datos/venta', [controladorVistas::class, 'procesarDatosVenta'])->name('Venta_validar_datos');
 
@@ -43,18 +44,22 @@ Route::get('ventas/consultar', [controladorVistas::class, 'consultarVentas'])->n
 /* Controlador de rutas para Inventario */
 Route::get('inventario/agregar/comic', [controladorVistas::class, 'agregarComic'])->name('Inventario_Comic_A');
 Route::get('inventario/consultar/comic', [controladorVistas::class, 'consulatarComic'])->name('Inventario_Comic_C');
+Route::get('inventario/consultar/comic/editar', [controladorVistas::class, 'editarComic'])->name('Inventario_Comic_E');
 
     Route::post('inventario/agregar/procesar', [controladorVistas::class, 'procesarComic'])->name('Inventario_Comic_Procesar');
 
 Route::get('inventario/agregar/articulo', [controladorVistas::class, 'agregarArticulo'])->name('Inventario_Articulo_A');
 Route::get('inventario/consultar/articulo', [controladorVistas::class, 'consulatarArticulo'])->name('Inventario_Articulo_C');
-    Route::post('inventario/validar/articulo', [controladorVistas::class, 'procesarArticulo'])->name('Inventario_Validar_Articulo');
+Route::get('inventario/consultar/articulo/editar', [controladorVistas::class, 'editarArticulo'])->name('Inventario_Articulo_E');
+Route::post('inventario/validar/articulo', [controladorVistas::class, 'procesarArticulo'])->name('Inventario_Validar_Articulo');
 
 /* Controlador de rutas de agenda  */
 Route::get('agenda/marca/agregar', [controladorVistas::class, 'agregarMarca'])->name('Agenda_Marca_Agregar');
 Route::get('agenda/marca/consultar', [controladorVistas::class, 'consultarMarca'])->name('Agenda_Marca_Consultar');
-    Route::post('agenda/marca/validar', [controladorVistas::class, 'validarMarca'])->name('Agenda_Marca_Validar');
+Route::get('agenda/marca/consultar/editar', [controladorVistas::class, 'editarMarca'])->name('Agenda_Marca_Editar');
+Route::post('agenda/marca/validar', [controladorVistas::class, 'validarMarca'])->name('Agenda_Marca_Validar');
 
 Route::get('agenda/proovedor/agregar', [controladorVistas::class, 'agregarProovedor'])->name('Agenda_Proovedor_Agregar');
 Route::get('agenda/proovedor/consultar', [controladorVistas::class, 'consultarProovedor'])->name('Agenda_Proovedor_Consultar');
-    Route::post('agenda/proovedor/validar', [controladorVistas::class, 'validarProovedor'])->name('Agenda_Validar_Proovedor');
+Route::get('agenda/proovedor/consultar/editar', [controladorVistas::class, 'editarProovedor'])->name('Agenda_Proovedor_Editar');
+Route::post('agenda/proovedor/validar', [controladorVistas::class, 'validarProovedor'])->name('Agenda_Validar_Proovedor');

@@ -15,7 +15,7 @@
             <td>Colin Maldonado Ricardo</td>
             <td>10 - 05 - 2020</td>
             <td>
-                    <a href="#">
+                <a href="{{route('Agenda_Marca_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -28,7 +28,7 @@
             <td>Colin Maldonado Ricardo</td>
             <td>10 - 05 - 2020</td>
             <td>
-                    <a href="#">
+                <a href="{{route('Agenda_Marca_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -41,7 +41,7 @@
             <td>Colin Maldonado Ricardo</td>
             <td>10 - 05 - 2020</td>
             <td>
-                    <a href="#">
+                <a href="{{route('Agenda_Marca_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -54,7 +54,7 @@
             <td>Colin Maldonado Ricardo</td>
             <td>10 - 05 - 2020</td>
             <td>
-                    <a href="#">
+                <a href="{{route('Agenda_Marca_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">

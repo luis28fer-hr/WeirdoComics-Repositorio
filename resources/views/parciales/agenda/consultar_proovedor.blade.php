@@ -21,7 +21,7 @@
             <td>4421336089</td>
             <td>artur@gmail.com</td>
             <td>
-                    <a href="#">
+                <a href="{{route('Agenda_Proovedor_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -37,7 +37,7 @@
             <td>4421336089</td>
             <td>artur@gmail.com</td>
             <td>
-                    <a href="#">
+                <a href="{{route('Agenda_Proovedor_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -53,7 +53,7 @@
             <td>4421336089</td>
             <td>artur@gmail.com</td>
             <td>
-                    <a href="#">
+                <a href="{{route('Agenda_Proovedor_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -69,7 +69,7 @@
             <td>4421336089</td>
             <td>artur@gmail.com</td>
             <td>
-                    <a href="#">
+                <a href="{{route('Agenda_Proovedor_Editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
