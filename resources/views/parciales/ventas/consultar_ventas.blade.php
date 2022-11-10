@@ -1,6 +1,18 @@
 @extends('ventas')
 @section('contenido_ventas')
 
+<?php
+$codArt = session()->get('txtCodProducto')
+?>
+
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, venta de codigo: {$codArt} editada correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
 <section class="tabla">
     <table>
         <tr class="uno">

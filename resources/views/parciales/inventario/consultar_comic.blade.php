@@ -1,7 +1,18 @@
 
 @extends('inventario')
 @section('contenido_inventario')
+<?php
+$titul = session()->get('nombre')
+?>
 
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, Comic: {$titul} editado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
 <section class="tabla">
     <table>
         <tr class="uno">
