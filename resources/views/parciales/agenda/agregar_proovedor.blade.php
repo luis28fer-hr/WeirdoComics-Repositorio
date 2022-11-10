@@ -1,7 +1,18 @@
 @extends('agenda')
 
 @section('contenido_agenda')
+<?php
+$nompro = session()->get('txtproovedor')
+?>
 
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, proveedor: {$nompro} agregado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
 <section class="form" id="form__proovedor">
     <div id = "encabezado">
          <p id="titulo">Datos del Proovedor</p>

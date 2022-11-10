@@ -1,5 +1,17 @@
 @extends('ventas')
 @section('contenido_ventas')
+<?php
+$codArt = session()->get('txtCodProducto')
+?>
+
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, venta de codigo: {$codArt} agregada correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
 
 <div class="form" id="venta">
     <div id = "encabezado">

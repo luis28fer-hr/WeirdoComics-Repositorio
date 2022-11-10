@@ -1,7 +1,18 @@
 
 @extends('agenda')
 @section('contenido_agenda')
+<?php
+$nompro = session()->get('txtproovedor')
+?>
 
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, proveedor: {$nompro} editado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
 <section class="tabla">
     <table>
         <tr class="uno">

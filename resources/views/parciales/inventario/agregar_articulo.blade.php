@@ -13,6 +13,7 @@ $nomArt = session()->get('txtnombre')
     )</script> "!!}
 
 @endif
+
 <section class="form">
     <div id = "encabezado">
          <p id="titulo">Datos del Articulo</p>
