@@ -62,6 +62,9 @@ class controladorVistas extends Controller
     public function consultarVentas(){
         return view('parciales.ventas.consultar_ventas');
     }
+    public function editarVentas(){
+        return view('parciales.ventas.editar_venta');
+    }
 
         /* Validaciones del formulario */
     public function procesarDatosVenta(validarVentaDatos $req){
@@ -79,6 +82,9 @@ class controladorVistas extends Controller
     public function consulatarComic(){
         return view('parciales.inventario.consultar_comic');
     }
+    public function editarComic(){
+        return view('parciales.inventario.editar_comic');
+    }
     public function procesarComic(procesarComic $req){
         return redirect('inventario/agregar/comic')
         ->with('confirmacion','Guardado')
@@ -90,6 +96,9 @@ class controladorVistas extends Controller
     }
     public function consulatarArticulo(){
         return view('parciales.inventario.consultar_articulo');
+    }
+    public function editarArticulo(){
+        return view('parciales.inventario.editar_articulo');
     }
     public function procesarArticulo(ValidarArticulo $req){
         return redirect('inventario/agregar/articulo')
@@ -105,6 +114,9 @@ class controladorVistas extends Controller
     public function consultarMarca(){
         return view('parciales.agenda.consultar_marca');
     }
+    public function editarMarca(){
+        return view('parciales.agenda.editar_marca');
+    }
     public function validarMarca(validarMarca $re){
 
         return redirect('agenda/marca/agregar');
@@ -115,6 +127,9 @@ class controladorVistas extends Controller
     }
     public function consultarProovedor(){
         return view('parciales.agenda.consultar_proovedor');
+    }
+    public function editarProovedor(){
+        return view('parciales.agenda.editar_proovedor');
     }
     public function validarProovedor(validarProovedor $re){
 
