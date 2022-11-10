@@ -11,8 +11,7 @@
     <main>
         <section id="contenedor">
             <div class="presentacion">
-                <H1>WEIRDO COMICS</H1>
-                <p>Logotipo</p>
+                <video src="{{ URL::asset('logo5.mp4') }}" autoplay muted loop></video>
             </div>
             <div class="login">
                 <form action="{{route('Inicio')}}">
