@@ -2,6 +2,19 @@
 @extends('agenda')
 @section('contenido_agenda')
 
+<?php
+$nom = session()->get('txtnombre')
+?>
+
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, marca: {$nom} editada correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
+
 <section class="tabla">
     <table>
         <tr class="uno">

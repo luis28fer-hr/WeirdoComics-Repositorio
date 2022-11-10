@@ -2,6 +2,19 @@
 
 @section('contenido_agenda')
 
+<?php
+$nom = session()->get('txtnombre')
+?>
+
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Realizado, marca: {$nom} agregada correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
+
 <section class="form" id="form__marca">
     <div id = "encabezado">
          <p id="titulo">Datos del Marca</p>

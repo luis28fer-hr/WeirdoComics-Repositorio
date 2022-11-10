@@ -11,7 +11,7 @@
     <main>
         <section id="contenedor">
             <div class="presentacion">
-                <video src="{{ URL::asset('logo5.mp4') }}" autoplay muted loop></video>
+                <video src="{{ URL::asset('logo2.mp4') }}" autoplay muted loop></video>
             </div>
             <div class="login">
                 <form action="{{route('Inicio')}}">

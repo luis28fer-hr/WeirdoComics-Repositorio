@@ -49,14 +49,14 @@ class controladorVistas extends Controller
     }
 
     public function procesarUsuarios(procesarUsuario $req){
-
         return redirect('usuarios/agregar')
         ->with('confirmacion','Guardado')
         ->with('nombre',$req->nombre);
     }
     public function procesarEditarUsuario(procesarUsuario $req){
-
-        return redirect('usuarios/consultar');
+        return redirect('usuarios/consultar')
+        ->with('confirmacion','Guardado')
+        ->with('nombre',$req->nombre);
     }
 
 
@@ -73,15 +73,15 @@ class controladorVistas extends Controller
 
         /* Validaciones del formulario */
     public function procesarVenta(validarVentaDatos $req){
-
-
-        return redirect('ventas/agregar');
+        return redirect('ventas/agregar')
+        ->with('confirmacion','Guardado')
+        ->with('txtCodProducto',$req->txtCodProducto);
     }
 
     public function procesarEditarVenta(validarVentaDatos $req){
-
-
-        return redirect('ventas/consultar');
+        return redirect('ventas/consultar')
+        ->with('confirmacion','Guardado')
+        ->with('txtCodProducto',$req->txtCodProducto);
     }
 
 
@@ -97,14 +97,14 @@ class controladorVistas extends Controller
         return view('parciales.inventario.editar_comic');
     }
     public function procesarComic(procesarComic $req){
-
         return redirect('inventario/agregar/comic')
         ->with('confirmacion','Guardado')
         ->with('nombre',$req->nombre);
     }
     public function procesarEditarComic(procesarComic $req){
-
-        return redirect('inventario/consultar/comic');
+        return redirect('inventario/consultar/comic')
+        ->with('confirmacion','Guardado')
+        ->with('nombre',$req->nombre);
     }
 
 
@@ -123,8 +123,9 @@ class controladorVistas extends Controller
         ->with('txtnombre',$req->txtnombre);
     }
     public function procesarEditarArticulo(ValidarArticulo $req){
-
-        return redirect('inventario/consultar/articulo');
+        return redirect('inventario/consultar/articulo')
+        ->with('confirmacion','Guardado')
+        ->with('txtnombre',$req->txtnombre);
     }
 
 
@@ -139,14 +140,18 @@ class controladorVistas extends Controller
     public function editarMarca(){
         return view('parciales.agenda.editar_marca');
     }
-    public function validarMarca(validarMarca $re){
-
-        return redirect('agenda/marca/agregar');
+    public function validarMarca(validarMarca $req){
+        return redirect('agenda/marca/agregar')
+        ->with('confirmacion','Guardado')
+        ->with('txtnombre',$req->txtnombre);
     }
-    public function validarEditarMarca(validarMarca $re){
-
-        return redirect('agenda/marca/consultar');
+    public function validarEditarMarca(validarMarca $req){
+        return redirect('agenda/marca/consultar')
+        ->with('confirmacion','Guardado')
+        ->with('txtnombre',$req->txtnombre);
     }
+
+/* Controlador de Agenda */
 
     public function agregarProovedor(){
         return view('parciales.agenda.agregar_proovedor');
@@ -157,13 +162,15 @@ class controladorVistas extends Controller
     public function editarProovedor(){
         return view('parciales.agenda.editar_proovedor');
     }
-    public function validarProovedor(validarProovedor $re){
-
-        return redirect('agenda/proovedor/agregar');
+    public function validarProovedor(validarProovedor $req){
+        return redirect('agenda/proovedor/agregar')
+        ->with('confirmacion','Guardado')
+        ->with('txtproovedor',$req->txtproovedor);
     }
-    public function validarEditarProovedor(validarProovedor $re){
-
-        return redirect('agenda/proovedor/consultar');
+    public function validarEditarProovedor(validarProovedor $req){
+        return redirect('agenda/proovedor/consultar')
+        ->with('confirmacion','Guardado')
+        ->with('txtproovedor',$req->txtproovedor);
     }
 
 
