@@ -24,6 +24,11 @@ Route::get('ventas', [controladorVistas::class, 'ventas'])->name('Ventas');
 Route::get('inventario', [controladorVistas::class, 'inventario'])->name('Inventario');
 Route::get('agenda', [controladorVistas::class, 'agenda'])->name('Agenda');
 
+/* Controlador de rutas de login */
+Route::post('login/validar', [controladorVistas::class, 'validarLogin'])->name('validarLogin');
+
+
+
 /* Controlador de rutas de usuario */
 Route::get('usuarios/agregar', [controladorVistas::class, 'agregarUsuario'])->name('UsuariosAgregar');
 Route::get('usuarios/consultar', [controladorVistas::class, 'consultarUsuarios'])->name('UsuariosConsultar');

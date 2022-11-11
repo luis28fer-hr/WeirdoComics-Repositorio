@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\procesarComic;
 use App\Http\Requests\procesarUsuario;
 use App\Http\Requests\ValidarArticulo;
+use App\Http\Requests\validarLogin;
 use App\Http\Requests\validarMarca;
 use App\Http\Requests\validarVenta;
 use App\Http\Requests\validarVentaDatos;
@@ -35,6 +36,10 @@ class controladorVistas extends Controller
         return view('agenda');
     }
 
+    public function validarLogin(validarLogin $req){
+
+        return redirect('inicio');
+    }
 
     /* Controlador de vistas Usuario */
     public function agregarUsuario(){
