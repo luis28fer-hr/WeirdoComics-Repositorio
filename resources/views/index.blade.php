@@ -14,13 +14,16 @@
                 <video src="{{ URL::asset('logo2.mp4') }}" autoplay muted loop></video>
             </div>
             <div class="login">
-                <form action="{{route('Inicio')}}">
+                <form action="{{route('validarLogin')}}" method="POST">
+                    @csrf
                     <H2>Inicio de sesión</H2>
                     <div>
                         <p>Usuario:</p>
-                        <input type="text">
+                        <input type="text" name="usuario">
+                        <span>{{$errors->first('usuario')}}</span>
                         <p>Contraseña:</p>
-                        <input type="text">
+                        <input type="text" name="contraseña">
+                        <span>{{$errors->first('contraseña')}}</span>
                     </div>
                     <button type="submit">Entrar</button>
                     <a href="">Olvide mi contraseña</a>
