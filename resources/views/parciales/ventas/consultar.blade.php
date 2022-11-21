@@ -1,34 +1,36 @@
-
-@extends('agenda')
-@section('contenido_agenda')
+@extends('ventas')
+@section('contenido_ventas')
 
 <?php
-$nom = session()->get('txtnombre')
+$codArt = session()->get('txtCodProducto')
 ?>
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, marca: {$nom} editada correctamente!',
+    'Realizado, venta de codigo: {$codArt} editada correctamente!',
     'Presiona para continuar!',
     'success'
     )</script> "!!}
 
 @endif
-
 <section class="tabla">
     <table>
         <tr class="uno">
             <th>COD</th>
-            <th>Nombre</th>
+            <th>Referencia</th>
+            <th>CODEMP</th>
+            <th>Empleado</th>
             <th>Fecha</th>
-            <th></th>
+            <th>Opciones</th>
         </tr>
         <tr>
             <td>15349</td>
+            <td>14562159</td>
+            <td>1011</td>
             <td>Colin Maldonado Ricardo</td>
             <td>10 - 05 - 2020</td>
             <td>
-                <a href="{{route('Agenda_Marca_Consultar_Editar')}}">
+                <a href="{{route('ventas.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -37,11 +39,13 @@ $nom = session()->get('txtnombre')
                 </td>
             </tr>
         <tr>
-        <td>15349</td>
-            <td>Colin Maldonado Ricardo</td>
-            <td>10 - 05 - 2020</td>
+            <td>166482</td>
+            <td>59862061</td>
+            <td>5261</td>
+            <td>Villegas Vazquez Arturo</td>
+            <td>15 - 11 - 2021</td>
             <td>
-                <a href="{{route('Agenda_Marca_Consultar_Editar')}}">
+                <a href="{{route('ventas.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -50,11 +54,13 @@ $nom = session()->get('txtnombre')
                 </td>
             </tr>
         <tr>
-        <td>15349</td>
-            <td>Colin Maldonado Ricardo</td>
-            <td>10 - 05 - 2020</td>
+            <td>145622</td>
+            <td>1457826</td>
+            <td>5261</td>
+            <td>Villegas Vazquez Arturo</td>
+            <td>15 - 11 - 2021</td>
             <td>
-                <a href="{{route('Agenda_Marca_Consultar_Editar')}}">
+                <a href="{{route('ventas.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -63,22 +69,21 @@ $nom = session()->get('txtnombre')
                 </td>
             </tr>
         <tr>
-        <td>15349</td>
-            <td>Colin Maldonado Ricardo</td>
-            <td>10 - 05 - 2020</td>
+            <td>478451</td>
+            <td>1234512</td>
+            <td>5261</td>
+            <td>Villegas Vazquez Arturo</td>
+            <td>16 - 11 - 2021</td>
             <td>
-                <a href="{{route('Agenda_Marca_Consultar_Editar')}}">
+                <a href="{{route('ventas.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
                         <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
                     </a>
                 </td>
-            </tr>
+        </tr>
     </table>
 </section>
-
-
 @endsection
-
 

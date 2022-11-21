@@ -19,7 +19,7 @@ $nom = session()->get('txtnombre')
     <div id = "encabezado">
          <p id="titulo">Datos del Marca</p>
     </div>
-    <form action="{{route('Agenda_Marca_Validar')}}" method="POST">
+    <form action="{{route('agenda.marca.guardar')}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">

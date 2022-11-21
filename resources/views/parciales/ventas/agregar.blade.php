@@ -17,7 +17,7 @@ $codArt = session()->get('txtCodProducto')
     <div id = "encabezado">
          <p id="titulo">Datos de venta</p>
     </div>
-    <form action="{{route('Venta_validar_datos')}}" method="POST">
+    <form action="{{route('ventas.guardar')}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">

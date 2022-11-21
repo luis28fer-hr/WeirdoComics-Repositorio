@@ -6,7 +6,7 @@
     <div id = "encabezado">
          <p id="titulo">Editar Datos del Proovedor</p>
     </div>
-    <form action="{{route('Agenda_Validar_Proovedor_editar')}}" method="POST">
+    <form action="{{route('agenda.proovedor.consultar.editar.actualizar')}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">

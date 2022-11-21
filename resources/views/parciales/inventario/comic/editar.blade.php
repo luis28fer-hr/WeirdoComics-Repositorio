@@ -17,9 +17,9 @@ $titul = session()->get('nombre')
 
 <section class="form">
     <div id = "encabezado">
-         <p id="titulo">Datos del Comic</p>
+         <p id="titulo">Editar Datos del Comic</p>
     </div>
-    <form action="{{route('Inventario_Comic_Procesar')}}" method="POST">
+    <form action="{{route('inventario.comic.consultar.editar.actualizar')}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">
