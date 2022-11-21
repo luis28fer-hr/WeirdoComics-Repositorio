@@ -17,7 +17,7 @@ $nompro = session()->get('txtproovedor')
     <div id = "encabezado">
          <p id="titulo">Datos del Proovedor</p>
     </div>
-    <form action="{{route('Agenda_Validar_Proovedor')}}" method="POST">
+    <form action="{{route('agenda.proovedor.guardar')}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">

@@ -2,12 +2,12 @@
 @extends('inventario')
 @section('contenido_inventario')
 <?php
-$titul = session()->get('nombre')
+$nomArt = session()->get('txtnombre')
 ?>
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, Comic: {$titul} editado correctamente!',
+    'Realizado, Articulo: {$nomArt} editado correctamente!',
     'Presiona para continuar!',
     'success'
     )</script> "!!}
@@ -24,21 +24,17 @@ $titul = session()->get('nombre')
             <th>$ Compra</th>
             <th>$ Venta</th>
             <th>Fecha</th>
-            <th>Proveedor</th>
-            <th>Opciones</th>
         </tr>
         <tr>
-            <td>11111</td>
-            <td>Batman vs Superman</td>
-            <td>2015</td>
-            <td>DC comics</td>
-            <td>30</td>
-            <td>$139</td>
-            <td>$199</td>
-            <td>02/02/2020</td>
-            <td>%100Com</td>
+            <td>15349</td>
+            <td>Colin Maldonado Ricardo</td>
+            <td>4485296374</td>
+            <td>ricardo.colin@weirdocomis.com</td>
+            <td>rCocado156</td>
+            <td>Administrador</td>
+            <td>10 - 05 - 2020</td>
             <td>
-                <a href="{{route('Inventario_Comic_C_Editar')}}">
+                <a href="{{route('inventario.articulo.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -47,17 +43,15 @@ $titul = session()->get('nombre')
                 </td>
             </tr>
         <tr>
-            <td>1234</td>
-            <td>Batman vs Superman</td>
-            <td>2015</td>
-            <td>DC comics</td>
-            <td>30</td>
-            <td>$139</td>
-            <td>$199</td>
-            <td>02/02/2020</td>
-            <td>%100Com</td>
+            <td>26481</td>
+            <td>Hernandez Reyes Luis Fernando</td>
+            <td>4481236896</td>
+            <td>luis.hernandez@weirdocomis.com</td>
+            <td>lUrFs1563</td>
+            <td>Empleado</td>
+            <td>17 - 10 - 2021</td>
             <td>
-                <a href="{{route('Inventario_Comic_C_Editar')}}">
+                <a href="{{route('inventario.articulo.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -66,17 +60,15 @@ $titul = session()->get('nombre')
                 </td>
             </tr>
         <tr>
-            <td>1548</td>
-            <td>Batman vs Superman</td>
-            <td>2015</td>
-            <td>DC comics</td>
-            <td>30</td>
-            <td>$139</td>
-            <td>$199</td>
-            <td>02/02/2020</td>
-            <td>%100Com</td>
+            <td>147256</td>
+            <td>Enriques Tellez Jose Agustin</td>
+            <td>4157826591</td>
+            <td>jose.tellez@weirdocomis.com</td>
+            <td>jToEg1532</td>
+            <td>Empleado</td>
+            <td>25 - 01 - 2022</td>
             <td>
-                <a href="{{route('Inventario_Comic_C_Editar')}}">
+                <a href="{{route('inventario.articulo.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -85,17 +77,15 @@ $titul = session()->get('nombre')
                 </td>
             </tr>
         <tr>
-            <td>7624</td>
-            <td>Batman vs Superman</td>
-            <td>2015</td>
-            <td>DC comics</td>
-            <td>30</td>
-            <td>$139</td>
-            <td>$199</td>
-            <td>02/02/2020</td>
-            <td>%100Com</td>
+            <td>256813</td>
+            <td>Villegas Vazquez Arturo</td>
+            <td>4785125482</td>
+            <td>arturo.vazquez@weirdocomis.com</td>
+            <td>aVrzerO258</td>
+            <td>Empleado</td>
+            <td>29 - 12 - 2021</td>
             <td>
-                <a href="{{route('Inventario_Comic_C_Editar')}}">
+                <a href="{{route('inventario.articulo.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">

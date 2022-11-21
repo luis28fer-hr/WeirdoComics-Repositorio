@@ -14,7 +14,7 @@
                 <video src="{{ URL::asset('logo2.mp4') }}" autoplay muted loop></video>
             </div>
             <div class="login">
-                <form action="{{route('validarLogin')}}" method="POST">
+                <form action="{{route('login.acceder')}}" method="POST">
                     @csrf
                     <H2>Inicio de sesión</H2>
                     <div>

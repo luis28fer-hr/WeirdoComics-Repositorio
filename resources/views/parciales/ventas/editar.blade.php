@@ -5,7 +5,7 @@
     <div id = "encabezado">
          <p id="titulo">Editar Datos de venta</p>
     </div>
-    <form action="{{route('Venta_validar_editar')}}" method="POST">
+    <form action="{{route('ventas.consultar.editar.actualizar')}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">

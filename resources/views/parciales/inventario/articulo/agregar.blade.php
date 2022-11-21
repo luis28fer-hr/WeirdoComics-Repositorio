@@ -18,7 +18,7 @@ $nomArt = session()->get('txtnombre')
     <div id = "encabezado">
          <p id="titulo">Datos del Articulo</p>
     </div>
-    <form action="{{route('Inventario_Validar_Articulo')}}" method="POST">
+    <form action="{{route('inventario.articulo.guardar')}}" method="POST">
     @csrf
         <div class="container">
             <div class="div1">
