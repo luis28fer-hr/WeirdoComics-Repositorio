@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\validarMarca;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class controladorMarca extends Controller
 {
@@ -22,6 +24,13 @@ class controladorMarca extends Controller
     public function store(validarMarca $req)
     {
 
+        DB::table('tb_marcas')->insert([
+            "nombre"=>$req->input('txtnombre'),
+            "fechaRegistro"=>$req->input('txtfecha'),
+            "fecha"=>Carbon::now(),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
         return redirect('agenda/marca/agregar')
         ->with('confirmacion','Guardado')
         ->with('txtnombre',$req->txtnombre);

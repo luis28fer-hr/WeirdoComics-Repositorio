@@ -27,9 +27,9 @@ $nomArt = session()->get('txtnombre')
                         <input class="{{$errors->first('txtnombre')? 'invalido':''}}" value="{{old('txtnombre')}}" name="txtnombre" placeholder="Nombre del articulo">
                     </div>
                     <div class="input__form">
-                        <p>Tipo:</p>
-                        <select name="txttipo" class="{{$errors->first('txttipo')? 'invalido':''}}" value="{{old('txttipo')}}">
-                            <option value="0" selected disabled>Tipo del articulo</option>
+                        <p>Tipo,:</p>
+                        <select name="txttipo" class="{{$errors->first('txttipo')? 'invalido':''}}" >
+                            <option value="{{old('txttipo')}}" selected disabled>Tipo</option>
                             <option value="value1">Value 1</option>
                             <option value="value2">Value 2</option>
                             <option value="value3">Value 3</option>
@@ -38,10 +38,10 @@ $nomArt = session()->get('txtnombre')
                     <div class="input__form">
                         <p>Marcas:</p>
                         <select name="txtmarcas" class="{{$errors->first('txtmarcas')? 'invalido':''}}" value="{{old('txtmarcas')}}">
-                            <option value="0" selected disabled>Marca del articulo</option>
-                            <option value="value1">Value 1</option>
-                            <option value="value2">Value 2</option>
-                            <option value="value3">Value 3</option>
+                            <option selected disabled="disabled" value="">Marca del Articulo</option>
+                            @foreach($consulMarca as $marca)
+                                <option value="{{$marca->idMarca}}"> {{$marca->nombre}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="input__form">
@@ -60,7 +60,7 @@ $nomArt = session()->get('txtnombre')
             <div class="div2">
                     <div class="input__form">
                         <p>Precio Venta:</p>
-                        <input type="text" name="txtprecioven" value="Automatico" placeholder="Precio de venta" disabled>
+                        <input name="txtprecioven" class="{{$errors->first('txtprecioven')? 'invalido':''}}" value="{{old('txtprecioven')}}" placeholder="Precio de venta">
                     </div>
                     <div class="input__form">
                         <p>Fecha:</p>
@@ -69,10 +69,10 @@ $nomArt = session()->get('txtnombre')
                     <div class="input__form">
                         <p>Proveedor:</p>
                         <select name="txtproveedor" class="{{$errors->first('txtproveedor')? 'invalido':''}}" value="{{old('txtproveedor')}}">
-                            <option value="0" selected disabled>Nombre del proovedor</option>
-                            <option value="value1">Value 1</option>
-                            <option value="value2">Value 2</option>
-                            <option value="value3">Value 3</option>
+                            <option selected disabled="disabled" value="">Nombre Porveedor</option>
+                            @foreach($consulProve as $proveedor)
+                                <option value="{{$proveedor->idProveedor}}"> {{$proveedor->nombre}}</option>
+                            @endforeach
                         </select>
                     </div>
             </div>

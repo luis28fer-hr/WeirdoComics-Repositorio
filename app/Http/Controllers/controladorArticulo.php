@@ -4,20 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidarArticulo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class controladorArticulo extends Controller
 {
 
     public function create()
     {
-        return view('parciales.inventario.articulo.agregar');
+        $consulProve=DB::table('tb_proveedores')->get();
+        $consulMarca=DB::table('tb_marcas')->get();
+        return view('parciales.inventario.articulo.agregar',compact('consulProve','consulMarca'));
 
     }
 
 
     public function store(ValidarArticulo $req)
     {
-
+        DB::table('tb_articulos')->insert([
+            "nombre"=>$req->input('txtnombre'),
+            "tipo"=>$req->input('txttipo'),
+            "id_marca"=>$req->input('txtmarcas'),
+            "descripcion"=>$req->input('txtdescripcion'),
+            "cantidad"=>$req->input('txtcantidad'),
+            "precioCompra"=>$req->input('txtpreciocom'),
+            "precioVenta"=>$req->input('txtprecioven'),
+            "fechaIngreso"=>$req->input('txtfech'),
+            "id_proveedor"=>$req->input('txtproveedor'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
         return redirect('inventario/articulo/agregar')
         ->with('confirmacion','Guardado')
         ->with('txtnombre',$req->txtnombre);
@@ -25,8 +41,8 @@ class controladorArticulo extends Controller
 
     public function show()
     {
-
-        return view('parciales.inventario.articulo.consultar');
+        $consulArticulos=DB::table('tb_articulos')->get();
+        return view('parciales.inventario.articulo.consultar',compact('consulArticulos'));
     }
 
     public function edit()

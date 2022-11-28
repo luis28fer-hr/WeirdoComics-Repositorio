@@ -53,7 +53,7 @@ $titul = session()->get('nombre')
             <div class="div2">
                     <div class="input__form">
                         <p>Precio Venta:</p>
-                        <input value="Automático" name="venta" placeholder="Precio venta" disabled>
+                        <input class="{{$errors->first('venta')? 'invalido':''}}" value="{{old('venta')}}" name="venta" placeholder="Precio venta">
                     </div>
                     <div class="input__form">
                         <p>Fecha ingreso:</p>
@@ -62,10 +62,10 @@ $titul = session()->get('nombre')
                     <div class="input__form">
                         <p>Proveedor:</p>
                         <select name="proveedor" class="{{$errors->first('edicion')? 'invalido':''}}" >
-                            <option value="{{old('edicion')}}" selected disabled>Nombre del proveedor</option>
-                            <option value="value1">Value 1</option>
-                            <option value="value2">Value 2</option>
-                            <option value="value3">Value 3</option>
+                            <option selected disabled="disabled" value="">Nombre Porveedor</option>
+                            @foreach($consulProve as $proveedor)
+                                <option value="{{$proveedor->idProveedor}}"> {{$proveedor->nombre}}</option>
+                            @endforeach
                         </select>
                     </div>
             </div>
