@@ -45,8 +45,8 @@ class controladorUsuarios extends Controller
 
     public function show()
     {
-
-        return view('parciales.usuarios.consultar');
+        $consulUsuarios=DB::table('tb_usuarios')->get();
+        return view('parciales.usuarios.consultar',compact('consulUsuarios'));
     }
 
     public function edit()

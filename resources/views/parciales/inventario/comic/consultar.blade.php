@@ -23,20 +23,22 @@ $titul = session()->get('nombre')
             <th>Cantidad</th>
             <th>$ Compra</th>
             <th>$ Venta</th>
-            <th>Fecha</th>
             <th>Proveedor</th>
+            <th>Fecha</th>
             <th>Opciones</th>
         </tr>
+        @foreach($consulComics as $consul)
         <tr>
-            <td>11111</td>
-            <td>Batman vs Superman</td>
-            <td>2015</td>
-            <td>DC comics</td>
-            <td>30</td>
-            <td>$139</td>
-            <td>$199</td>
-            <td>02/02/2020</td>
-            <td>%100Com</td>
+            
+            <td>{{$consul->idComic}}</td>
+            <td>{{$consul->nombre}}</td>
+            <td>{{$consul->añoEdicion}}</td>
+            <td>{{$consul->compania}}</td>
+            <td>{{$consul->cantidad}}</td>
+            <td>{{$consul->precioCompra}}</td>
+            <td>{{$consul->precioVenta}}</td>
+            <td>{{$consul->id_proveedor}}</td>
+            <td>{{$consul->fechaIngreso}}</td>
             <td>
                 <a href="{{route('inventario.comic.consultar.editar')}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
@@ -45,64 +47,8 @@ $titul = session()->get('nombre')
                         <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
                     </a>
                 </td>
-            </tr>
-        <tr>
-            <td>1234</td>
-            <td>Batman vs Superman</td>
-            <td>2015</td>
-            <td>DC comics</td>
-            <td>30</td>
-            <td>$139</td>
-            <td>$199</td>
-            <td>02/02/2020</td>
-            <td>%100Com</td>
-            <td>
-                <a href="{{route('inventario.comic.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
-        <tr>
-            <td>1548</td>
-            <td>Batman vs Superman</td>
-            <td>2015</td>
-            <td>DC comics</td>
-            <td>30</td>
-            <td>$139</td>
-            <td>$199</td>
-            <td>02/02/2020</td>
-            <td>%100Com</td>
-            <td>
-                <a href="{{route('inventario.comic.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
-        <tr>
-            <td>7624</td>
-            <td>Batman vs Superman</td>
-            <td>2015</td>
-            <td>DC comics</td>
-            <td>30</td>
-            <td>$139</td>
-            <td>$199</td>
-            <td>02/02/2020</td>
-            <td>%100Com</td>
-            <td>
-                <a href="{{route('inventario.comic.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
+        </tr>
+        @endforeach
     </table>
 </section>
 
