@@ -12,6 +12,15 @@ $nomUsu = session()->get('nombre')
     )</script> "!!}
 @endif
 
+@if (session()->has('actualizacion'))
+{!!"<script> Swal.fire(
+    'Realizado, Usuario: {$nomUsu} Actualizado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+@endif
+
+
     <section class="tabla">
         <table>
             <tr class="uno">
@@ -27,7 +36,7 @@ $nomUsu = session()->get('nombre')
             <tr>
                 @foreach($consulUsuarios as $consul)
                 <tr>
-                    
+
                     <td>{{$consul->idUsuario}}</td>
                     <td>{{$consul->nombre}}</td>
                     <td>{{$consul->celular}}</td>
@@ -36,7 +45,7 @@ $nomUsu = session()->get('nombre')
                     <td>{{$consul->cargo}}</td>
                     <td>{{$consul->fechaIngreso}}</td>
                     <td>
-                    <a href="{{route('usuarios.consultar.editar')}}">
+                    <a href="{{route('usuarios.consultar.editar', $consul->idUsuario)}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">

@@ -17,7 +17,7 @@ class controladorUsuarios extends Controller
 
     public function create()
     {
-        $consulUsuarios=DB::table('tb_usuarios')->get(); 
+        $consulUsuarios=DB::table('tb_usuarios')->get();
         return view('parciales.usuarios.agregar',compact('consulUsuarios'));
     }
 
@@ -49,17 +49,31 @@ class controladorUsuarios extends Controller
         return view('parciales.usuarios.consultar',compact('consulUsuarios'));
     }
 
-    public function edit()
+    public function edit($id)
     {
 
-        return view('parciales.usuarios.editar');
+        $consulUsuarios=DB::table('tb_usuarios')->where('idUsuario', $id)->first();
+        return view('parciales.usuarios.editar', compact('consulUsuarios'));
     }
 
-    public function update(procesarUsuario $req)
+    public function update(procesarUsuario $req, $id)
     {
+        DB::table('tb_usuarios')->where('idUsuario', $id)->update([
+            "nombre"=>$req->input('nombre'),
+            "apellidoP"=>$req->input('apellidoPaterno'),
+            "apellidoM"=>$req->input('apellidoMaterno'),
+            "celular"=>$req->input('numeroCelular'),
+            "fechaIngreso"=>$req->input('fechaIngreso'),
+            "email"=>$req->input('correo'),
+            "contraseña"=>$req->input('password'),
+            "confirmcontraseña"=>$req->input('passwordConfirm'),
+            "cargo"=>$req->input('cargo'),
+            "fechaIngreso"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
 
         return redirect('usuarios/consultar')
-        ->with('confirmacion','Guardado')
+        ->with('actualizacion','Guardado')
         ->with('nombre',$req->nombre);
     }
 
