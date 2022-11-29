@@ -14,7 +14,6 @@ class controladorProovedor extends Controller
     {
 
         return view('parciales.agenda.proovedor.agregar');
-
     }
 
     public function store(validarProovedor $req)

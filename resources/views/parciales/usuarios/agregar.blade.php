@@ -59,8 +59,8 @@ $nomUsu = session()->get('nombre')
                         <p>Cargo:</p>
                         <select class="{{$errors->first('cargo')? 'invalido':''}}" name="cargo">
                             <option value="0" selected disabled>Cargo del empleado</option>
-                            <option value="value 1">Empleado</option>
-                            <option value="value 2">Administrador</option>
+                            <option value="Empleado">Empleado</option>
+                            <option value="Administrador">Administrador</option>
                         </select>
                     </div>
             </div>

@@ -1,13 +1,7 @@
 
-    main .tabla{
-        margin-top: 10px;
-        display: block;
-        height: 25rem;
-    }
-
     main .tabla table{
-        margin: 0 auto;
         width: 100%;
+        margin-top: .5rem;
         border-radius: .5rem;
         border-collapse: collapse;
         background-color: rgba(245, 245, 245, 1);

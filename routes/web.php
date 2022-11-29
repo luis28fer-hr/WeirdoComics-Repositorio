@@ -27,8 +27,8 @@ Route::get('usuarios', [controladorUsuarios::class, 'index'])->name('usuarios');
 Route::get('usuarios/agregar', [controladorUsuarios::class, 'create'])->name('usuarios.agregar');
 Route::post('usuarios/agregar/guardar', [controladorUsuarios::class, 'store'])->name('usuarios.guardar');
 Route::get('usuarios/consultar', [controladorUsuarios::class, 'show'])->name('usuarios.consultar');
-Route::get('usuarios/editar', [controladorUsuarios::class, 'edit'])->name('usuarios.consultar.editar');
-Route::post('usuarios/editar/actualizar', [controladorUsuarios::class, 'update'])->name('usuarios.consultar.editar.actualizar');
+Route::get('usuarios/editar/{id}', [controladorUsuarios::class, 'edit'])->name('usuarios.consultar.editar');
+Route::post('usuarios/editar/actualizar/{id}', [controladorUsuarios::class, 'update'])->name('usuarios.consultar.editar.actualizar');
 
 
 /* Rutas de Ventas */
