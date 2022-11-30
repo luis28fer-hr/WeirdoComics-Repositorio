@@ -35,16 +35,28 @@ class controladorProovedor extends Controller
 
     public function show()
     {
-        return view('parciales.agenda.proovedor.consultar');
+
+        $consulProvedor=DB::table('tb_proveedores')->get();
+        return view('parciales.agenda.proovedor.consultar',compact('consulProvedor'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('parciales.agenda.proovedor.editar');
+        $consulProvedor=DB::table('tb_proveedores')->where('idProveedor', $id)->first();
+        return view('parciales.agenda.proovedor.editar',compact('consulProvedor'));
     }
 
-    public function update(validarProovedor $req)
+    public function update(validarProovedor $req, $id)
     {
+        DB::table('tb_proveedores')->where('idProveedor', $id)->update([
+            "nombre"=>$req->input('txtproovedor'),
+            "municipio"=>$req->input('txtmunicipio'),
+            "contacto"=>$req->input('txtcontacto'),
+            "numeroFijo"=>$req->input('txtnumero'),
+            "cel"=>$req->input('txtcelular'),
+            "correo"=>$req->input('txtcorreo'),
+            "updated_at"=>Carbon::now()
+        ]);
         return redirect('agenda/proovedor/consultar')
         ->with('confirmacion','Guardado')
         ->with('txtproovedor',$req->txtproovedor);

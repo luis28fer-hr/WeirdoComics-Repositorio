@@ -6,17 +6,17 @@
     <div id = "encabezado">
          <p id="titulo">Editar Datos del Marca</p>
     </div>
-    <form action="{{route('agenda.marca.consultar.editar.actualizar')}}" method="POST">
+    <form action="{{route('agenda.marca.consultar.editar.actualizar',$consulMarca->idMarca)}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">
                     <div class="input__form">
                         <p>Nombre:</p>
-                        <input class="{{$errors->first('txtnombre')? 'invalido':''}}" value="{{old('txtnombre')}}" name="txtnombre" placeholder="Nombre del articulo">
+                        <input class="{{$errors->first('txtnombre')? 'invalido':''}}" value="{{$consulMarca->nombre}}" name="txtnombre" placeholder="Nombre del articulo">
                     </div>
                     <div class="input__form">
                         <p>Fecha:</p>
-                        <input class="{{$errors->first('txtfecha')? 'invalido':''}}" value="{{old('txtfecha')}}" name="txtfecha" type="date" placeholder="Nombre del articulo">
+                        <input class="{{$errors->first('txtfecha')? 'invalido':''}}" value="{{$consulMarca->fechaRegistro}}" name="txtfecha" type="date" placeholder="Nombre del articulo">
                     </div>
 
             </div>

@@ -61,11 +61,11 @@ Route::get('agenda', [controladorMarca::class, 'index'])->name('agenda');
 Route::get('agenda/marca/agregar', [controladorMarca::class, 'create'])->name('agenda.marca.agregar');
 Route::post('agenda/marca/agregar/guardar', [controladorMarca::class, 'store'])->name('agenda.marca.guardar');
 Route::get('agenda/marca/consultar', [controladorMarca::class, 'show'])->name('agenda.marca.consultar');
-Route::get('agenda/marca/editar', [controladorMarca::class, 'edit'])->name('agenda.marca.consultar.editar');
-Route::post('agenda/marca/editar/actualizar', [controladorMarca::class, 'update'])->name('agenda.marca.consultar.editar.actualizar');
+Route::get('agenda/marca/editar/{id}', [controladorMarca::class, 'edit'])->name('agenda.marca.consultar.editar');
+Route::post('agenda/marca/editar/actualizar/{id}', [controladorMarca::class, 'update'])->name('agenda.marca.consultar.editar.actualizar');
 
 Route::get('agenda/proovedor/agregar', [controladorProovedor::class, 'create'])->name('agenda.proovedor.agregar');
 Route::post('agenda/proovedor/agregar/guardar', [controladorProovedor::class, 'store'])->name('agenda.proovedor.guardar');
 Route::get('agenda/proovedor/consultar', [controladorProovedor::class, 'show'])->name('agenda.proovedor.consultar');
-Route::get('agenda/proovedor/editar', [controladorProovedor::class, 'edit'])->name('agenda.proovedor.consultar.editar');
-Route::post('agenda/proovedor/editar/actualizar', [controladorProovedor::class, 'update'])->name('agenda.proovedor.consultar.editar.actualizar');
+Route::get('agenda/proovedor/editar/{id}', [controladorProovedor::class, 'edit'])->name('agenda.proovedor.consultar.editar');
+Route::post('agenda/proovedor/editar/actualizar/{id}', [controladorProovedor::class, 'update'])->name('agenda.proovedor.consultar.editar.actualizar');

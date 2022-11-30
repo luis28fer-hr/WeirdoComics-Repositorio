@@ -24,70 +24,24 @@ $nompro = session()->get('txtproovedor')
             <th>Correo</th>
             <th></th>
         </tr>
+        @foreach ($consulProvedor as $consul1)
         <tr>
-            <td>Villegas Vazquez Arturo</td>
-            <td>123</td>
-            <td>*****</td>
-            <td>4422101616</td>
-            <td>4421336089</td>
-            <td>artur@gmail.com</td>
+            <td>{{$consul1->nombre}}</td>
+            <td>{{$consul1->municipio}}</td>
+            <td>{{$consul1->contacto}}</td>
+            <td>{{$consul1->numeroFijo}}</td>
+            <td>{{$consul1->cel}}</td>
+            <td>{{$consul1->correo}}</td>
             <td>
-                <a href="{{route('agenda.proovedor.consultar.editar')}}">
+                <a href="{{route('agenda.proovedor.consultar.editar',$consul1->idProveedor)}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
                         <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
                     </a>
                 </td>
-            </tr>
-        <tr>
-            <td>Villegas Vazquez Arturo</td>
-            <td>123</td>
-            <td>*****</td>
-            <td>4422101616</td>
-            <td>4421336089</td>
-            <td>artur@gmail.com</td>
-            <td>
-                <a href="{{route('agenda.proovedor.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
-        <tr>
-            <td>Villegas Vazquez Arturo</td>
-            <td>123</td>
-            <td>*****</td>
-            <td>4422101616</td>
-            <td>4421336089</td>
-            <td>artur@gmail.com</td>
-            <td>
-                <a href="{{route('agenda.proovedor.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
-        <tr>
-            <td>Villegas Vazquez Arturo</td>
-            <td>123</td>
-            <td>*****</td>
-            <td>4422101616</td>
-            <td>4421336089</td>
-            <td>artur@gmail.com</td>
-            <td>
-                <a href="{{route('agenda.proovedor.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
+            </tr>        
+            @endforeach
     </table>
 </section>
 
