@@ -39,17 +39,23 @@ class controladorMarca extends Controller
     public function show()
     {
 
-        return view('parciales.agenda.marca.consultar');
+        $consulMarcas=DB::table('tb_marcas')->get();
+        return view('parciales.agenda.marca.consultar',compact('consulMarcas'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-
-        return view('parciales.agenda.marca.editar');
+        $consulMarca=DB::table('tb_marcas')->where('idMarca', $id)->first();
+        return view('parciales.agenda.marca.editar',compact('consulMarca'));
     }
 
-    public function update(validarMarca $req)
+    public function update(validarMarca $req, $id)
     {
+        DB::table('tb_marcas')->where('idMarca', $id)->update([
+            "nombre"=>$req->input('txtnombre'),
+            "fechaRegistro"=>$req->input('txtfecha'),
+            "updated_at"=>Carbon::now()
+        ]);
         return redirect('agenda/marca/consultar')
         ->with('confirmacion','Guardado')
         ->with('txtnombre',$req->txtnombre);

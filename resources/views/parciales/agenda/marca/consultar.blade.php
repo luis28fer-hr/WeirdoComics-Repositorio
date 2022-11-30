@@ -15,6 +15,9 @@ $nom = session()->get('txtnombre')
 
 @endif
 
+
+    
+
 <section class="tabla">
     <table>
         <tr class="uno">
@@ -23,12 +26,13 @@ $nom = session()->get('txtnombre')
             <th>Fecha</th>
             <th></th>
         </tr>
+        @foreach ($consulMarcas as $consul1)
         <tr>
-            <td>15349</td>
-            <td>Colin Maldonado Ricardo</td>
-            <td>10 - 05 - 2020</td>
+            <td>{{$consul1->idMarca}}</td>
+            <td>{{$consul1->nombre}}</td>
+            <td>{{$consul1->fechaRegistro}}</td>
             <td>
-                <a href="{{route('agenda.marca.consultar.editar')}}">
+                <a href="{{route('agenda.marca.consultar.editar',$consul1->idMarca)}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">
@@ -36,45 +40,7 @@ $nom = session()->get('txtnombre')
                     </a>
                 </td>
             </tr>
-        <tr>
-        <td>15349</td>
-            <td>Colin Maldonado Ricardo</td>
-            <td>10 - 05 - 2020</td>
-            <td>
-                <a href="{{route('agenda.marca.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
-        <tr>
-        <td>15349</td>
-            <td>Colin Maldonado Ricardo</td>
-            <td>10 - 05 - 2020</td>
-            <td>
-                <a href="{{route('agenda.marca.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
-        <tr>
-        <td>15349</td>
-            <td>Colin Maldonado Ricardo</td>
-            <td>10 - 05 - 2020</td>
-            <td>
-                <a href="{{route('agenda.marca.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
+            @endforeach
     </table>
 </section>
 
