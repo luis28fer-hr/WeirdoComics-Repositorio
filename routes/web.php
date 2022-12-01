@@ -46,14 +46,14 @@ Route::get('inventario', [controladorComic::class, 'index'])->name('inventario')
 Route::get('inventario/comic/agregar', [controladorComic::class, 'create'])->name('inventario.comic.agregar');
 Route::post('inventario/comic/agregar/guardar', [controladorComic::class, 'store'])->name('inventario.comic.guardar');
 Route::get('inventario/comic/consultar', [controladorComic::class, 'show'])->name('inventario.comic.consultar');
-Route::get('inventario/comic/editar', [controladorComic::class, 'edit'])->name('inventario.comic.consultar.editar');
-Route::post('inventario/comic/editar/actualizar', [controladorComic::class, 'update'])->name('inventario.comic.consultar.editar.actualizar');
+Route::get('inventario/comic/editar/{id}', [controladorComic::class, 'edit'])->name('inventario.comic.consultar.editar');
+Route::post('inventario/comic/editar/actualizar/{id}', [controladorComic::class, 'update'])->name('inventario.comic.consultar.editar.actualizar');
 
 Route::get('inventario/articulo/agregar', [controladorArticulo::class, 'create'])->name('inventario.articulo.agregar');
 Route::post('inventario/articulo/agregar/guardar', [controladorArticulo::class, 'store'])->name('inventario.articulo.guardar');
 Route::get('inventario/articulo/consultar', [controladorArticulo::class, 'show'])->name('inventario.articulo.consultar');
-Route::get('inventario/articulo/editar', [controladorArticulo::class, 'edit'])->name('inventario.articulo.consultar.editar');
-Route::post('inventario/articulo/editar/actualizar', [controladorArticulo::class, 'update'])->name('inventario.articulo.consultar.editar.actualizar');
+Route::get('inventario/articulo/editar/{id}', [controladorArticulo::class, 'edit'])->name('inventario.articulo.consultar.editar');
+Route::post('inventario/articulo/editar/actualizar/{id}', [controladorArticulo::class, 'update'])->name('inventario.articulo.consultar.editar.actualizar');
 
 
 /* Rutas de agenda  */

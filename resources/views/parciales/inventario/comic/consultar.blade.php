@@ -40,7 +40,7 @@ $titul = session()->get('nombre')
             <td>{{$consul->id_proveedor}}</td>
             <td>{{$consul->fechaIngreso}}</td>
             <td>
-                <a href="{{route('inventario.comic.consultar.editar')}}">
+                <a href="{{route('inventario.comic.consultar.editar',$consul->idComic)}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">

@@ -45,14 +45,28 @@ class controladorArticulo extends Controller
         return view('parciales.inventario.articulo.consultar',compact('consulArticulos'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-
-        return view('parciales.inventario.articulo.editar');
+        $consulArticulo=DB::table('tb_articulos')->where('idArticulo', $id)->first();
+        $consulProve=DB::table('tb_proveedores')->get();
+        $consulMarca=DB::table('tb_marcas')->get();
+        return view('parciales.inventario.articulo.editar',compact('consulArticulo','consulProve','consulMarca'));
     }
 
-    public function update(ValidarArticulo $req)
+    public function update(ValidarArticulo $req,$id)
     {
+        DB::table('tb_articulos')->where('idArticulo', $id)->update([
+            "nombre"=>$req->input('txtnombre'),
+            "tipo"=>$req->input('txttipo'),
+            "id_marca"=>$req->input('txtmarcas'),
+            "descripcion"=>$req->input('txtdescripcion'),
+            "cantidad"=>$req->input('txtcantidad'),
+            "precioCompra"=>$req->input('txtpreciocom'),
+            "precioVenta"=>$req->input('txtprecioven'),
+            "fechaIngreso"=>$req->input('txtfech'),
+            "id_proveedor"=>$req->input('txtproveedor'),
+            "updated_at"=>Carbon::now()
+        ]);
         return redirect('inventario/articulo/consultar')
         ->with('confirmacion','Guardado')
         ->with('txtnombre',$req->txtnombre);
