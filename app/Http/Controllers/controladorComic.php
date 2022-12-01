@@ -46,15 +46,26 @@ class controladorComic extends Controller
         return view('parciales.inventario.comic.consultar',compact('consulComics'));
     }
 
-    public function edit()
+    public function edit($id)
     {
-
-        return view('parciales.inventario.comic.editar');
+        $consulComic=DB::table('tb_comics')->where('idComic', $id)->first();
+        $consulProve=DB::table('tb_proveedores')->get();
+        return view('parciales.inventario.comic.editar',compact('consulComic', 'consulProve'));
     }
 
-    public function update(procesarComic $req)
+    public function update(procesarComic $req,$id)
     {
-
+        DB::table('tb_comics')->where('idComic', $id)->update([
+            "nombre"=>$req->input('nombre'),
+            "añoEdicion"=>$req->input('edicion'),
+            "compania"=>$req->input('compañia'),
+            "cantidad"=>$req->input('cantidad'),
+            "precioCompra"=>$req->input('compra'),
+            "precioVenta"=>$req->input('venta'),
+            "fechaIngreso"=>$req->input('fecha'),
+            "id_proveedor"=>$req->input('proveedor'),
+            "updated_at"=>Carbon::now()
+        ]);
         return redirect('inventario/comic/consultar')
         ->with('confirmacion','Guardado')
         ->with('nombre',$req->nombre);

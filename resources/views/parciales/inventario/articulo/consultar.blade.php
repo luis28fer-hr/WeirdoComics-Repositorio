@@ -39,7 +39,7 @@ $nomArt = session()->get('txtnombre')
             <td>{{$consul->fechaIngreso}}</td>
             <td>
                 
-                <a href="{{route('inventario.articulo.consultar.editar')}}">
+                <a href="{{route('inventario.articulo.consultar.editar',$consul->idArticulo)}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
                     <a href="#">

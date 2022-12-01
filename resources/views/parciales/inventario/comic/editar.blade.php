@@ -19,18 +19,18 @@ $titul = session()->get('nombre')
     <div id = "encabezado">
          <p id="titulo">Editar Datos del Comic</p>
     </div>
-    <form action="{{route('inventario.comic.consultar.editar.actualizar')}}" method="POST">
+    <form action="{{route('inventario.comic.consultar.editar.actualizar',$consulComic->idComic)}}" method="POST">
         @csrf
         <div class="container">
             <div class="div1">
                     <div class="input__form">
                         <p>Nombre:</p>
-                        <input class="{{$errors->first('nombre')? 'invalido':''}}" value="{{old('nombre')}}" name="nombre" placeholder="Nombre del comic">
+                        <input class="{{$errors->first('nombre')? 'invalido':''}}" value="{{$consulComic->nombre}}" name="nombre" placeholder="Nombre del comic">
                     </div>
 
                     <div class="input__form">
                         <p>Edición,:</p>
-                        <input class="{{$errors->first('edicion')? 'invalido':''}}" value="{{old('edicion')}}" name="edicion" placeholder="Año de edicion">
+                        <input class="{{$errors->first('edicion')? 'invalido':''}}" value="{{$consulComic->añoEdicion}}" name="edicion" placeholder="Año de edicion">
                     </div>
                     <div class="input__form">
                         <p>Compañía,:</p>
@@ -43,29 +43,28 @@ $titul = session()->get('nombre')
                     </div>
                     <div class="input__form">
                         <p>Cantidad:</p>
-                        <input class="{{$errors->first('cantidad')? 'invalido':''}}" value="{{old('cantidad')}}" name="cantidad" placeholder="Cantidad disponible">
+                        <input class="{{$errors->first('cantidad')? 'invalido':''}}" value="{{$consulComic->cantidad}}" name="cantidad" placeholder="Cantidad disponible">
                     </div>
                     <div class="input__form">
                         <p>Precio Compra:</p>
-                        <input class="{{$errors->first('compra')? 'invalido':''}}" value="{{old('compra')}}" name="compra" placeholder="Precio compra">
+                        <input class="{{$errors->first('compra')? 'invalido':''}}" value="{{$consulComic->precioCompra}}" name="compra" placeholder="Precio compra">
                     </div>
             </div>
             <div class="div2">
                     <div class="input__form">
                         <p>Precio Venta:</p>
-                        <input value="Automático" name="venta" placeholder="Precio venta" disabled>
+                        <input value="16" name="venta" placeholder="Precio venta">
                     </div>
                     <div class="input__form">
                         <p>Fecha ingreso:</p>
-                        <input class="{{$errors->first('fecha')? 'invalido':''}}" value="{{old('fecha')}}" type="date" value="" name="fecha" title="Fecha de ingreso a almacen">
+                        <input class="{{$errors->first('fecha')? 'invalido':''}}" value="{{$consulComic->fechaIngreso}}" type="date" value="" name="fecha" title="Fecha de ingreso a almacen">
                     </div>
                     <div class="input__form">
                         <p>Proveedor:</p>
                         <select name="proveedor" class="{{$errors->first('edicion')? 'invalido':''}}" >
-                            <option value="{{old('edicion')}}" selected disabled>Nombre del proveedor</option>
-                            <option value="value1">Value 1</option>
-                            <option value="value2">Value 2</option>
-                            <option value="value3">Value 3</option>
+                            @foreach($consulProve as $proveedor)
+                            <option value="{{$proveedor->idProveedor}}"> {{$proveedor->nombre}}</option>
+                            @endforeach
                         </select>
                     </div>
             </div>
