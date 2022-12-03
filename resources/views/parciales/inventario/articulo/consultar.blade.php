@@ -35,7 +35,7 @@ $nomArt = session()->get('txtnombre')
             <td>{{$consul->id_marca}}</td>
             <td>{{$consul->precioCompra}}</td>
             <td>{{$consul->precioVenta}}</td>
-            <td>{{$consul->id_proveedor}}</td>
+            <td>{{$consul->proveedores->nombre}}</td>
             <td>{{$consul->fechaIngreso}}</td>
             <td>
                 

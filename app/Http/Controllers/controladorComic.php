@@ -43,6 +43,13 @@ class controladorComic extends Controller
     public function show()
     {
         $consulComics=DB::table('tb_comics')->get();
+        foreach($consulComics as $comic){
+            if($comic->id_proveedor != null){
+            $comic->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $comic->id_proveedor)->first();
+        }else{
+            $comic->proveedores =(object)['nombre'=>'No existe' ];
+        }
+        }
         return view('parciales.inventario.comic.consultar',compact('consulComics'));
     }
 

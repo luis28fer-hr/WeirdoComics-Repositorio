@@ -37,7 +37,7 @@ $titul = session()->get('nombre')
             <td>{{$consul->cantidad}}</td>
             <td>{{$consul->precioCompra}}</td>
             <td>{{$consul->precioVenta}}</td>
-            <td>{{$consul->id_proveedor}}</td>
+            <td>{{$consul->proveedores->nombre}}</td>
             <td>{{$consul->fechaIngreso}}</td>
             <td>
                 <a href="{{route('inventario.comic.consultar.editar',$consul->idComic)}}">
