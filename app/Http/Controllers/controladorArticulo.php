@@ -42,6 +42,13 @@ class controladorArticulo extends Controller
     public function show()
     {
         $consulArticulos=DB::table('tb_articulos')->get();
+        foreach($consulArticulos as $articulo){
+            if($articulo->id_proveedor != null){
+            $articulo->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $articulo->id_proveedor)->first();
+        }else{
+            $articulo->proveedores =(object)['nombre'=>'No existe' ];
+        }
+        }
         return view('parciales.inventario.articulo.consultar',compact('consulArticulos'));
     }
 
