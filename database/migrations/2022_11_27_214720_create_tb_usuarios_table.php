@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellidoP');
             $table->string('apellidoM');
-            $table->integer('celular');
+            $table->bigInteger('celular');
             $table->date('fechaIngreso');
             $table->string('email');
             $table->string('contraseña');

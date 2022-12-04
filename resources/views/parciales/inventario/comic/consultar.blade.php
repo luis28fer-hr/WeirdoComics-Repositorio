@@ -20,7 +20,7 @@ $titul = session()->get('nombre')
             <th>Nombre</th>
             <th>Edicion</th>
             <th>Compañia</th>
-            <th>Cantidad</th>
+            <th>Stock</th>
             <th>$ Compra</th>
             <th>$ Venta</th>
             <th>Proveedor</th>
@@ -28,25 +28,29 @@ $titul = session()->get('nombre')
             <th>Opciones</th>
         </tr>
         @foreach($consulComics as $consul)
-        <tr>
-            
+        <tr class="@if ($consul->cantidad == 0)
+                        __stockVacio
+                    @endif">
             <td>{{$consul->idComic}}</td>
             <td>{{$consul->nombre}}</td>
             <td>{{$consul->añoEdicion}}</td>
             <td>{{$consul->compania}}</td>
             <td>{{$consul->cantidad}}</td>
-            <td>{{$consul->precioCompra}}</td>
-            <td>{{$consul->precioVenta}}</td>
+            <td>$ {{$consul->precioCompra}}</td>
+            <td>$ {{$consul->precioVenta}}</td>
             <td>{{$consul->proveedores->nombre}}</td>
             <td>{{$consul->fechaIngreso}}</td>
             <td>
+                <a href="">
+                    <i title="Solicitar pedido" class="fa-solid fa-envelope correo"></i>
+                </a>
                 <a href="{{route('inventario.comic.consultar.editar',$consul->idComic)}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
+                    <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+                </a>
+                <a href="#">
+                    <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                </a>
+            </td>
         </tr>
         @endforeach
     </table>

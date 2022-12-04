@@ -23,18 +23,22 @@ class controladorComic extends Controller
 
     public function store(procesarComic $req)
     {
+        $pre_compra = $req->input('compra');
+        $pre_venta = $pre_compra + ($pre_compra * 0.40);
+
         DB::table('tb_comics')->insert([
             "nombre"=>$req->input('nombre'),
             "añoEdicion"=>$req->input('edicion'),
             "compania"=>$req->input('compañia'),
             "cantidad"=>$req->input('cantidad'),
             "precioCompra"=>$req->input('compra'),
-            "precioVenta"=>$req->input('venta'),
+            "precioVenta"=>$pre_venta,
             "fechaIngreso"=>$req->input('fecha'),
             "id_proveedor"=>$req->input('proveedor'),
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now()
         ]);
+
         return redirect('inventario/comic/agregar')
         ->with('confirmacion','Guardado')
         ->with('nombre',$req->nombre);
@@ -57,18 +61,23 @@ class controladorComic extends Controller
     {
         $consulComic=DB::table('tb_comics')->where('idComic', $id)->first();
         $consulProve=DB::table('tb_proveedores')->get();
-        return view('parciales.inventario.comic.editar',compact('consulComic', 'consulProve'));
+        $proveedorComic=DB::table('tb_proveedores')->where('idProveedor', $consulComic->id_proveedor)->first();
+
+        return view('parciales.inventario.comic.editar',compact('consulComic', 'consulProve', 'proveedorComic'));
     }
 
-    public function update(procesarComic $req,$id)
+    public function update(procesarComic $req, $id)
     {
+        $pre_compra = $req->input('compra');
+        $pre_venta = $pre_compra + ($pre_compra * 0.40);
+
         DB::table('tb_comics')->where('idComic', $id)->update([
             "nombre"=>$req->input('nombre'),
             "añoEdicion"=>$req->input('edicion'),
             "compania"=>$req->input('compañia'),
             "cantidad"=>$req->input('cantidad'),
             "precioCompra"=>$req->input('compra'),
-            "precioVenta"=>$req->input('venta'),
+            "precioVenta"=>$pre_venta,
             "fechaIngreso"=>$req->input('fecha'),
             "id_proveedor"=>$req->input('proveedor'),
             "updated_at"=>Carbon::now()

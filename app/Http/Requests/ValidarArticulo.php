@@ -24,7 +24,7 @@ class ValidarArticulo extends FormRequest
     public function rules()
     {
         return [
-            'txtnombre'=>'required|min:3|max:30',
+            'txtnombre'=>'required|min:3|max:80',
             'txttipo'=>'required',
             'txtmarcas'=>'required',
             'txtdescripcion'=>'required|min:5|max:250',

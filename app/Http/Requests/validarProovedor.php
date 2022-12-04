@@ -26,9 +26,9 @@ class validarProovedor extends FormRequest
         return [
             'txtproovedor' => 'required|min:3|max:30',
             'txtmunicipio' => 'required|numeric',
-            'txtcontacto' => 'required|numeric|digits_between:8,9',
-            'txtnumero' => 'required|numeric|digits_between:8,9',
-            'txtcelular' => 'required|numeric|digits_between:8,9',
+            'txtcontacto' => 'required|numeric|digits_between:10,10',
+            'txtnumero' => 'required|numeric|digits_between:10,10',
+            'txtcelular' => 'required|numeric|digits_between:10,10',
             'txtcorreo' => 'required|email'
         ];
     }

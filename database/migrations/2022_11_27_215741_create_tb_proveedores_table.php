@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id('idProveedor');
             $table->string('nombre');
             $table->string('municipio');
-            $table->integer('contacto');
-            $table->integer('numeroFijo');
-            $table->integer('cel');
+            $table->bigInteger('contacto');
+            $table->bigInteger('numeroFijo');
+            $table->bigInteger('cel');
             $table->string('correo');
             $table->timestamps();
         });

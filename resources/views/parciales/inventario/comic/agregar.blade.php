@@ -29,16 +29,16 @@ $titul = session()->get('nombre')
                     </div>
 
                     <div class="input__form">
-                        <p>Edición,:</p>
+                        <p>Edición:</p>
                         <input class="{{$errors->first('edicion')? 'invalido':''}}" value="{{old('edicion')}}" name="edicion" placeholder="Año de edicion">
                     </div>
                     <div class="input__form">
-                        <p>Compañía,:</p>
+                        <p>Compañía:</p>
                         <select name="compañia" class="{{$errors->first('compañia')? 'invalido':''}}" >
                             <option value="{{old('compañia')}}" selected disabled>Seleccione una compañia</option>
-                            <option value="value1">Value 1</option>
-                            <option value="value2">Value 2</option>
-                            <option value="value3">Value 3</option>
+                            <option value="Compañia 1">Compañia 1</option>
+                            <option value="Compañia 2">Compañia 2</option>
+                            <option value="Compañia 3">Compañia 3</option>
                         </select>
                     </div>
                     <div class="input__form">
@@ -53,8 +53,9 @@ $titul = session()->get('nombre')
             <div class="div2">
                     <div class="input__form">
                         <p>Precio Venta:</p>
-                        <input class="{{$errors->first('venta')? 'invalido':''}}" value="{{old('venta')}}" name="venta" placeholder="Precio venta">
+                        <input class="{{$errors->first('venta')? 'invalido':''}}" value="{{old('venta')}}" name="venta" placeholder="Precio Automatico" disabled>
                     </div>
+
                     <div class="input__form">
                         <p>Fecha ingreso:</p>
                         <input class="{{$errors->first('fecha')? 'invalido':''}}" value="{{old('fecha')}}" type="date" value="" name="fecha" title="Fecha de ingreso a almacen">
@@ -64,7 +65,7 @@ $titul = session()->get('nombre')
                         <select name="proveedor" class="{{$errors->first('edicion')? 'invalido':''}}" >
                             <option selected disabled="disabled" value="">Nombre Porveedor</option>
                             @foreach($consulProve as $proveedor)
-                                <option value="{{$proveedor->idProveedor}}"> {{$proveedor->nombre}}</option>
+                                <option value="{{$proveedor->idProveedor}}">{{$proveedor->idProveedor}} - {{$proveedor->nombre}}</option>
                             @endforeach
                         </select>
                     </div>
