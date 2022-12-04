@@ -27,7 +27,7 @@ class procesarUsuario extends FormRequest
             'nombre' => 'required|min:2|max:30',
             'apellidoPaterno' => 'required|min:2|max:30',
             'apellidoMaterno' => 'required|min:2|max:30',
-            'numeroCelular' => 'required|numeric|digits_between:8,9',
+            'numeroCelular' => 'required|numeric|digits_between:10,10',
             'fechaIngreso' => 'required|date',
             'correo' => 'required|email',
             'password' => 'required|min:6|max:12',

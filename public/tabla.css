@@ -31,6 +31,20 @@
     main .tabla table tr td:first-child{
         font-weight: 600;
     }
+
+    main .tabla table a .correo{
+        color: rgba(84, 153, 199, 1);
+        font-size: 19px;
+        margin-right: 1rem;
+        transition: all 0.3s ease;
+    }
+    main .tabla table a .correo:hover{
+        color: rgba(90, 155, 205, 1);
+        font-size: 19px;
+        transform: translateY(-2px);
+        box-shadow: 0 1px 5px 0px #1209010c;
+    }
+
     main .tabla table a .editar{
         color: #F39C12;
         font-size: 20px;
@@ -65,6 +79,21 @@
         background-color: rgba(127, 179, 213, .5);
         cursor: pointer;
     }
+
+
+    main .tabla table .__stockVacio{
+        background-color: rgba(231, 76, 60 , .6);
+    }
+    main .tabla table .__stockVacio:hover{
+        background-color: rgba(231, 76, 60 , .8);
+    }
+    main .tabla table .__stockVacio:nth-child(odd){
+        background-color: rgba(231, 76, 60 , .6);
+    }
+    main .tabla table .__stockVacio:nth-child(odd):hover{
+        background-color: rgba(231, 76, 60 , .8);
+    }
+
 
 
 
