@@ -16,6 +16,7 @@ $nompro = session()->get('txtproovedor')
 <section class="tabla">
     <table>
         <tr class="uno">
+            <th>COD</th>
             <th>Nombre</th>
             <th>Municipio ID</th>
             <th>Contacto</th>
@@ -26,6 +27,7 @@ $nompro = session()->get('txtproovedor')
         </tr>
         @foreach ($consulProvedor as $consul1)
         <tr>
+            <td>{{$consul1->idProveedor}}</td>
             <td>{{$consul1->nombre}}</td>
             <td>{{$consul1->municipio}}</td>
             <td>{{$consul1->contacto}}</td>
@@ -40,7 +42,7 @@ $nompro = session()->get('txtproovedor')
                         <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
                     </a>
                 </td>
-            </tr>        
+            </tr>
             @endforeach
     </table>
 </section>

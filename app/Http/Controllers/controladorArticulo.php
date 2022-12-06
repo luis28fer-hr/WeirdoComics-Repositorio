@@ -7,6 +7,7 @@ use App\Http\Requests\ValidarArticulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class controladorArticulo extends Controller
 {
@@ -84,6 +85,30 @@ class controladorArticulo extends Controller
         return view('parciales.inventario.articulo.consultar',compact('consulArticulos'));
     }
 
+
+    public function showPDF()
+    {
+
+        $consulArticulos=DB::table('tb_articulos')->get();
+
+        foreach($consulArticulos as $articulo){
+            if($articulo->id_proveedor != null){
+            $articulo->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $articulo->id_proveedor)->first();
+            }else{
+                $articulo->proveedores =(object)['nombre'=>'No existe' ];
+            }
+            if($articulo->id_proveedor != null){
+                $articulo->marca = DB::table('tb_marcas')->select(['idMarca', 'nombre'])->where('idMarca', $articulo->id_marca)->first();
+            }else{
+                $articulo->marca =(object)['nombre'=>'No existe' ];
+            }
+
+        }
+
+        $pdf = PDF::loadView('parciales.inventario.articulo.pdf', compact('consulArticulos'));
+
+        return $pdf->stream();
+    }
 
 
     public function edit($id)

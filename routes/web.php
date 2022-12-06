@@ -31,6 +31,8 @@ Route::post('usuarios/consultar/nombre', [controladorUsuarios::class, 'showNombr
 Route::get('usuarios/editar/{id}', [controladorUsuarios::class, 'edit'])->name('usuarios.consultar.editar');
 Route::post('usuarios/editar/actualizar/{id}', [controladorUsuarios::class, 'update'])->name('usuarios.consultar.editar.actualizar');
 
+Route::get('usuarios/pdf', [controladorUsuarios::class, 'showPDF'])->name('usuarios.pdf');
+
 
 /* Rutas de Ventas */
 Route::get('ventas', [controladorVentas::class, 'index'])->name('ventas');
@@ -51,12 +53,19 @@ Route::post('inventario/comic/consultar/nombre', [controladorComic::class, 'show
 Route::get('inventario/comic/editar/{id}', [controladorComic::class, 'edit'])->name('inventario.comic.consultar.editar');
 Route::post('inventario/comic/editar/actualizar/{id}', [controladorComic::class, 'update'])->name('inventario.comic.consultar.editar.actualizar');
 
+Route::get('inventario/comic/pdf', [controladorComic::class, 'showPDF'])->name('inventario.comic.pdf');
+
+
+
 Route::get('inventario/articulo/agregar', [controladorArticulo::class, 'create'])->name('inventario.articulo.agregar');
 Route::post('inventario/articulo/agregar/guardar', [controladorArticulo::class, 'store'])->name('inventario.articulo.guardar');
 Route::get('inventario/articulo/consultar', [controladorArticulo::class, 'show'])->name('inventario.articulo.consultar');
 Route::post('inventario/articulo/consultar/nombre', [controladorArticulo::class, 'showNombre'])->name('inventario.articulo.consultar.filtro');
 Route::get('inventario/articulo/editar/{id}', [controladorArticulo::class, 'edit'])->name('inventario.articulo.consultar.editar');
 Route::post('inventario/articulo/editar/actualizar/{id}', [controladorArticulo::class, 'update'])->name('inventario.articulo.consultar.editar.actualizar');
+
+Route::get('inventario/articulo/pdf', [controladorArticulo::class, 'showPDF'])->name('inventario.articulo.pdf');
+
 
 
 /* Rutas de agenda  */
@@ -69,9 +78,13 @@ Route::post('agenda/marca/consultar/nombre', [controladorMarca::class, 'showNomb
 Route::get('agenda/marca/editar/{id}', [controladorMarca::class, 'edit'])->name('agenda.marca.consultar.editar');
 Route::post('agenda/marca/editar/actualizar/{id}', [controladorMarca::class, 'update'])->name('agenda.marca.consultar.editar.actualizar');
 
+Route::get('agenda/marca/pdf', [controladorMarca::class, 'showPDF'])->name('agenda.marca.pdf');
+
+
 Route::get('agenda/proovedor/agregar', [controladorProovedor::class, 'create'])->name('agenda.proovedor.agregar');
 Route::post('agenda/proovedor/agregar/guardar', [controladorProovedor::class, 'store'])->name('agenda.proovedor.guardar');
 Route::get('agenda/proovedor/consultar', [controladorProovedor::class, 'show'])->name('agenda.proovedor.consultar');
 Route::post('agenda/proovedor/consultar/nombre', [controladorProovedor::class, 'showNombre'])->name('agenda.proovedor.consultar.filtro');
 Route::get('agenda/proovedor/editar/{id}', [controladorProovedor::class, 'edit'])->name('agenda.proovedor.consultar.editar');
 Route::post('agenda/proovedor/editar/actualizar/{id}', [controladorProovedor::class, 'update'])->name('agenda.proovedor.consultar.editar.actualizar');
+Route::get('agenda/proovedor/pdf', [controladorProovedor::class, 'showPDF'])->name('agenda.proovedor.pdf');

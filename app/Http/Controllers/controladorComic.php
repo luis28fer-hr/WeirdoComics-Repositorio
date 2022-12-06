@@ -7,6 +7,7 @@ use App\Http\Requests\validadBuscar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class controladorComic extends Controller
 {
@@ -71,6 +72,23 @@ class controladorComic extends Controller
         }
         }
         return view('parciales.inventario.comic.consultar',compact('consulComics'));
+    }
+
+    public function showPDF()
+    {
+
+        $consulComics=DB::table('tb_comics')->get();
+        foreach($consulComics as $comic){
+            if($comic->id_proveedor != null){
+            $comic->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $comic->id_proveedor)->first();
+        }else{
+            $comic->proveedores =(object)['nombre'=>'No existe' ];
+        }
+        }
+
+        $pdf = PDF::loadView('parciales.inventario.comic.pdf', compact('consulComics'));
+
+        return $pdf->stream();
     }
 
 

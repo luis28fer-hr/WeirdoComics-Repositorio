@@ -7,6 +7,7 @@ use App\Http\Requests\validarProovedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class controladorProovedor extends Controller
 {
@@ -47,6 +48,16 @@ class controladorProovedor extends Controller
         $consulProvedor=DB::select('select * from tb_proveedores where nombre like ?', ['%'.$nombre.'%']);
 
         return view('parciales.agenda.proovedor.consultar',compact('consulProvedor'));
+    }
+
+    public function showPDF()
+    {
+
+        $consulProvedor=DB::table('tb_proveedores')->get();
+
+        $pdf = PDF::loadView('parciales.agenda.proovedor.pdf', compact('consulProvedor'));
+
+        return $pdf->stream();
     }
 
     public function edit($id)

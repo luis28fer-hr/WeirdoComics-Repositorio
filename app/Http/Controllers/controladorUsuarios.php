@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class controladorUsuarios extends Controller
 {
     public function index()
@@ -56,6 +58,15 @@ class controladorUsuarios extends Controller
         $nombre = $req->input('txtnombre');
         $consulUsuarios=DB::select('select * from tb_usuarios where nombre like ? or apellidoP like ? or apellidoM like ?', ['%'.$nombre.'%', '%'.$nombre.'%', '%'.$nombre.'%']);
         return view('parciales.usuarios.consultar',compact('consulUsuarios'));
+    }
+
+    public function showPDF()
+    {
+        $consulUsuarios=DB::table('tb_usuarios')->get();
+
+        $pdf = PDF::loadView('parciales.usuarios.pdf', compact('consulUsuarios'));
+
+        return $pdf->stream();
     }
 
 

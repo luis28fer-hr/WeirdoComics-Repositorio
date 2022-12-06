@@ -7,7 +7,7 @@ use App\Http\Requests\validarMarca;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 class controladorMarca extends Controller
 {
 
@@ -51,6 +51,16 @@ class controladorMarca extends Controller
         $consulMarcas=DB::select('select * from tb_marcas where nombre like ?', ['%'.$nombre.'%']);
 
         return view('parciales.agenda.marca.consultar',compact('consulMarcas'));
+    }
+
+    public function showPDF()
+    {
+
+        $consulMarcas=DB::table('tb_marcas')->get();
+
+        $pdf = PDF::loadView('parciales.agenda.marca.pdf', compact('consulMarcas'));
+
+        return $pdf->stream();
     }
 
     public function edit($id)
