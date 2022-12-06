@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\validadBuscar;
 use App\Http\Requests\validarMarca;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,6 +41,15 @@ class controladorMarca extends Controller
     {
 
         $consulMarcas=DB::table('tb_marcas')->get();
+        return view('parciales.agenda.marca.consultar',compact('consulMarcas'));
+    }
+
+
+    public function showNombre(validadBuscar $req)
+    {
+        $nombre = $req->input('txtnombre');
+        $consulMarcas=DB::select('select * from tb_marcas where nombre like ?', ['%'.$nombre.'%']);
+
         return view('parciales.agenda.marca.consultar',compact('consulMarcas'));
     }
 

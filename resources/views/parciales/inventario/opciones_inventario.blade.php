@@ -1,5 +1,5 @@
 <section id="caja-opciones">
-    <div class="opciones {{request()->routeIs('inventario.comic.consultar')? 'opciones_opcBuscar_Activa':''}}" id="opciones-1">
+    <div class="opciones {{request()->routeIs('inventario.comic.consultar*')? 'opciones_opcBuscar_Activa':''}}" id="opciones-1">
         <p>Comics</p>
         <div>
             <ul>
@@ -7,13 +7,14 @@
                 <li><a class="{{request()->routeIs('inventario.comic.consultar*')? 'consultar_Activa':''}}" id="consultar" href="{{route('inventario.comic.consultar')}}"><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
                 <li><a id="reporte" href="#"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
             </ul>
-            <form action="#">
-                <input class="buscar" type="text" placeholder="Buscar registro">
+            <form action="{{route('inventario.comic.consultar.filtro')}}" method="POST">
+                @csrf
+                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del empleado'}}" required>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
     </div>
-    <div class="opciones {{request()->routeIs('inventario.articulo.consultar')? 'opciones_opcBuscar_Activa':''}}" id="opciones-2">
+    <div class="opciones {{request()->routeIs('inventario.articulo.consultar*')? 'opciones_opcBuscar_Activa':''}}" id="opciones-2">
         <p>Articulos</p>
         <div>
             <ul>
@@ -21,8 +22,9 @@
                 <li><a class="{{request()->routeIs('inventario.articulo.consultar*')? 'consultar_Activa':''}}" id="consultar" href="{{route('inventario.articulo.consultar')}}"><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
                 <li><a id="reporte" href="#"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
             </ul>
-            <form action="#">
-                <input class="buscar" type="text" placeholder="Buscar registro">
+            <form action="{{route('inventario.articulo.consultar.filtro')}}" method="POST">
+                @csrf
+                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del empleado'}}" required>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>

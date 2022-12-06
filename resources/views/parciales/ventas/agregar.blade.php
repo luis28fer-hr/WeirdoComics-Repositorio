@@ -19,15 +19,17 @@ $codArt = session()->get('txtCodProducto')
     </div>
     <form action="{{route('ventas.guardar')}}" method="POST">
         @csrf
+
         <div class="container">
-            <div class="div1">
+
+            <div class= "div1">
                 <div class="input__form">
                     <p>CODPRO:</p>
-                    <input class="{{$errors->first('txtCodProducto')? 'invalido':''}}" name="txtCodProducto" value="{{old('txtCodProducto')}}" id="inputbuscar" placeholder="Codigo de producto">
-                    <button type="submit" id="botonbuscar"><i class="fa-solid fa-circle-check"></i></button>
+                    <input name="txtCodProducto" value="{{old('txtCodProducto')}}" id="inputbuscar" placeholder="Codigo de producto">
+                    <a wire:click="add" id="botonbuscar"><i class="fa-solid fa-circle-check"></i></a>
                 </div>
                 <div class="input__form">
-                    <textarea name="txtproducto" id="descripcion_producto" cols="30" rows="13" disabled>Producto: Comics Batman V400</textarea>
+                    <textarea name="txtproducto" id="descripcion_producto" cols="30" rows="13" disabled>Producto: </textarea>
                 </div>
             </div>
 
@@ -46,7 +48,7 @@ $codArt = session()->get('txtCodProducto')
                 </div>
                 <div class="input__form">
                     <p>Fecha:</p>
-                    <input class="{{$errors->first('txtfecha')? 'invalido':''}}" name="txtfecha" value="{{old('txtfecha')}}" type="date">
+                    <input class="{{$errors->first('txtfecha')? 'invalido':''}}" name="txtfecha" value="{{old('txtfecha')}}">
                 </div>
                 <div class="input__form">
                     <p>Vendedor:</p>

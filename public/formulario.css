@@ -165,13 +165,12 @@ main #venta{
     width: 100%;
 }
 #botonbuscar{
-    padding-left: .8rem;
-    padding-right: .8rem;
-    border: none;
-    background-color: #1ABC9C;
-    cursor: pointer;
+    padding: .5rem .8rem;
+    background-color: #1aaa8d;
     border-radius: 0 3px 3px 0;
     transition: color 0.3s ease;
+    border: 0;
+    cursor: pointer;
 }
 #botonbuscar i{
     font-size: 21px;

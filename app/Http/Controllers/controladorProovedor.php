@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\validadBuscar;
 use App\Http\Requests\validarProovedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,6 +38,14 @@ class controladorProovedor extends Controller
     {
 
         $consulProvedor=DB::table('tb_proveedores')->get();
+        return view('parciales.agenda.proovedor.consultar',compact('consulProvedor'));
+    }
+
+    public function showNombre(validadBuscar $req)
+    {
+        $nombre = $req->input('txtnombre');
+        $consulProvedor=DB::select('select * from tb_proveedores where nombre like ?', ['%'.$nombre.'%']);
+
         return view('parciales.agenda.proovedor.consultar',compact('consulProvedor'));
     }
 

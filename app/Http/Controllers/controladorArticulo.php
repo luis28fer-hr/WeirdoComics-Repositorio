@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\validadBuscar;
 use App\Http\Requests\ValidarArticulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -62,6 +63,28 @@ class controladorArticulo extends Controller
         }
         return view('parciales.inventario.articulo.consultar',compact('consulArticulos'));
     }
+
+    public function showNombre(validadBuscar $req)
+    {
+        $nombre = $req->input('txtnombre');
+        $consulArticulos=DB::select('select * from tb_articulos where nombre like ?', ['%'.$nombre.'%']);
+
+        foreach($consulArticulos as $articulo){
+            if($articulo->id_proveedor != null){
+            $articulo->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $articulo->id_proveedor)->first();
+            }else{
+                $articulo->proveedores =(object)['nombre'=>'No existe' ];
+            }
+            if($articulo->id_proveedor != null){
+                $articulo->marca = DB::table('tb_marcas')->select(['idMarca', 'nombre'])->where('idMarca', $articulo->id_marca)->first();
+            }else{
+                $articulo->marca =(object)['nombre'=>'No existe' ];
+            }
+        }
+        return view('parciales.inventario.articulo.consultar',compact('consulArticulos'));
+    }
+
+
 
     public function edit($id)
     {
