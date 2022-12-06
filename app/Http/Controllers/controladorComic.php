@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\procesarComic;
+use App\Http\Requests\validadBuscar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -56,6 +57,23 @@ class controladorComic extends Controller
         }
         return view('parciales.inventario.comic.consultar',compact('consulComics'));
     }
+
+    public function showNombre(validadBuscar $req)
+    {
+        $nombre = $req->input('txtnombre');
+        $consulComics=DB::select('select * from tb_comics where nombre like ?', ['%'.$nombre.'%']);
+
+        foreach($consulComics as $comic){
+            if($comic->id_proveedor != null){
+            $comic->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $comic->id_proveedor)->first();
+        }else{
+            $comic->proveedores =(object)['nombre'=>'No existe' ];
+        }
+        }
+        return view('parciales.inventario.comic.consultar',compact('consulComics'));
+    }
+
+
 
     public function edit($id)
     {

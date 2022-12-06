@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\validarVentaDatos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class controladorVentas extends Controller
 {
 
     public function index()
     {
+
         return view('ventas');
     }
 

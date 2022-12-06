@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\procesarUsuario;
+use App\Http\Requests\validadBuscar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -45,10 +46,19 @@ class controladorUsuarios extends Controller
 
     public function show()
     {
+
         $consulUsuarios=DB::table('tb_usuarios')->get();
-        
         return view('parciales.usuarios.consultar',compact('consulUsuarios'));
     }
+
+    public function showNombre(validadBuscar $req)
+    {
+        $nombre = $req->input('txtnombre');
+        $consulUsuarios=DB::select('select * from tb_usuarios where nombre like ? or apellidoP like ? or apellidoM like ?', ['%'.$nombre.'%', '%'.$nombre.'%', '%'.$nombre.'%']);
+        return view('parciales.usuarios.consultar',compact('consulUsuarios'));
+    }
+
+
 
     public function edit($id)
     {
