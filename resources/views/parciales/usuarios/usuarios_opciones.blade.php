@@ -6,7 +6,7 @@
                 <ul>
                     <li><a class="{{request()->routeIs('usuarios.agregar')? 'agregar_Activa':''}}" id="nuevo" href="{{route('usuarios.agregar')}}"><i class="fa-sharp fa-solid fa-square-plus"></i><button>Nuevo</button></a></li>
                     <li><a class="{{request()->routeIs('usuarios.consultar*')? 'consultar_Activa':''}}" id="consultar" href="{{route('usuarios.consultar')}}"><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
-                    <li><a id="reporte" href="#"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
+                    <li><a id="reporte" href="{{route('usuarios.pdf')}}" target="_blank"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
                 </ul>
                 <form action="{{route('usuarios.consultar.filtro')}}" method="POST">
                     @csrf

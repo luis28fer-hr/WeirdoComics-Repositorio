@@ -5,7 +5,7 @@
             <ul>
                 <li><a class="{{request()->routeIs('agenda.marca.agregar')? 'agregar_Activa':''}}" id="nuevo" href="{{route('agenda.marca.agregar')}}"><i class="fa-sharp fa-solid fa-square-plus"></i><button>Nuevo</button></a></li>
                 <li><a class="{{request()->routeIs('agenda.marca.consultar*')? 'consultar_Activa':''}}" id="consultar" href="{{route('agenda.marca.consultar')}}"><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
-                <li><a id="reporte" href="#"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
+                <li><a id="reporte"  href="{{route('agenda.marca.pdf')}}" target="_blank"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
             </ul>
             <form action="{{route('agenda.marca.consultar.filtro')}}" method="POST">
                 @csrf
@@ -20,7 +20,7 @@
             <ul>
                 <li><a class="{{request()->routeIs('agenda.proovedor.agregar')? 'agregar_Activa':''}}" id="nuevo" href="{{route('agenda.proovedor.agregar')}}"><i class="fa-sharp fa-solid fa-square-plus"></i><button>Nuevo</button></a></li>
                 <li><a class="{{request()->routeIs('agenda.proovedor.consultar*')? 'consultar_Activa':''}}" id="consultar" href="{{route('agenda.proovedor.consultar')}}"><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
-                <li><a id="reporte" href="#"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
+                <li><a id="reporte" href="{{route('agenda.proovedor.pdf')}}" target="_blank"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
             </ul>
             <form action="{{route('agenda.proovedor.consultar.filtro')}}" method="POST">
                 @csrf
