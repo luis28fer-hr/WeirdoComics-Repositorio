@@ -15,9 +15,17 @@ $nom = session()->get('txtnombre')
 
 @endif
 
+@if (session()->has('eliminacion'))
+{!!"<script> Swal.fire(
+    'Realizado, marca: eliminado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
+
 
     
-
 <section class="tabla">
     <table>
         <tr class="uno">

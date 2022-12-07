@@ -83,8 +83,10 @@ class controladorProovedor extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        return redirect('agenda/proovedor/consultar')
+        ->with('eliminacion','texto');
+        
     }
 }

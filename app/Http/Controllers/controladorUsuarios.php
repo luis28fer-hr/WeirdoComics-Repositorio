@@ -99,8 +99,12 @@ class controladorUsuarios extends Controller
         ->with('nombre',$req->nombre);
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        
+
+
+        return redirect('usuarios/consultar')
+        ->with('eliminacion','mensaje');
     }
 }

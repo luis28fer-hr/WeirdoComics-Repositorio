@@ -123,8 +123,12 @@ class controladorComic extends Controller
         ->with('nombre',$req->nombre);
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        
+
+        return redirect('inventario/comic/consultar')
+        ->with('eliminacion','mensaje');
+
     }
 }

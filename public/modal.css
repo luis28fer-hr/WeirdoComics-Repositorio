@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     background-color: #FFFFFF;
-    width: 35%;
+    width: 40%;
     max-height: 29rem;
     margin: 0 auto;
     border-radius: 15px;
@@ -121,6 +121,7 @@
 .modal .__footer .__botones .__confirmar{
     background-color: #f03925;
     color: #FBFCFC;
+    border: none;
 }
 
 .modal .__footer .__botones .__confirmar:hover{

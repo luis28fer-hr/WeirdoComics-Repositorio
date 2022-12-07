@@ -1,3 +1,6 @@
+<form action="{{route('usuarios.consultar.eliminar')}}">
+
+
 <div class="modal" id="modal_eliminar-{{$consul->idUsuario}}">
 
     <div class="__body">
@@ -11,8 +14,10 @@
     <div class="__footer">
         <div class="__botones">
             <a href="#boton" class="__btn __cancelar">Cancelar</a>
-            <a href="" class="__btn __confirmar">Confirmar</a>
+            <button href="" class="__btn __confirmar">Confirmar</button>
         </div>
     </div>
 
 </div>
+
+</form>

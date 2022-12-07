@@ -148,8 +148,9 @@ class controladorArticulo extends Controller
         ->with('txtnombre',$req->txtnombre);
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        return redirect('inventario/articulo/consultar')
+        ->with('eliminacion','texto');
     }
 }

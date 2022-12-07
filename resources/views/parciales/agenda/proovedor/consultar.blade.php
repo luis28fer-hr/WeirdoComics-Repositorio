@@ -13,6 +13,15 @@ $nompro = session()->get('txtproovedor')
     )</script> "!!}
 
 @endif
+
+@if (session()->has('eliminacion'))
+{!!"<script> Swal.fire(
+    'Realizado, proveedor: eliminado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
 <section class="tabla">
     <table>
         <tr class="uno">
