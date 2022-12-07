@@ -24,7 +24,7 @@ class procesarComic extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|min:3|max:30',
+            'nombre' => 'required|min:3|max:150',
             'edicion' => 'required|integer|digits_between:1,4',
             'compañia' => 'required',
             'cantidad' => 'required|integer',

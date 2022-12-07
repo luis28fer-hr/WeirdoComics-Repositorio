@@ -83,10 +83,12 @@ class controladorProovedor extends Controller
     }
 
 
-    public function destroy()
+    public function destroy($id)
     {
+        DB::table('tb_proveedores')->where('idProveedor', $id)->delete();
+
         return redirect('agenda/proovedor/consultar')
         ->with('eliminacion','texto');
-        
+
     }
 }

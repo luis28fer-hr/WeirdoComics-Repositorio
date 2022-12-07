@@ -7,6 +7,7 @@ main .form {
     width: 68%;
     box-shadow: 0 0.1rem 0.7rem rgba(0,0,0,.3);
 }
+
 main #form__marca {
     width: 40%;
 }
@@ -164,6 +165,11 @@ main .form form input:focus, select:focus{
 main #venta{
     width: 100%;
 }
+
+main #venta-editar{
+    width: 50%;
+}
+
 #botonbuscar{
     padding: .5rem .8rem;
     background-color: #1aaa8d;

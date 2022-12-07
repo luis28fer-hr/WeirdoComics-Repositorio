@@ -81,8 +81,10 @@ class controladorMarca extends Controller
         ->with('txtnombre',$req->txtnombre);
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        DB::table('tb_marcas')->where('idMarca', $id)->delete();
+
         return redirect('agenda/marca/consultar')
         ->with('eliminacion','texto');
     }

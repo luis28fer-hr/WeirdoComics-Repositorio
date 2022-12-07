@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_comics', function (Blueprint $table) {
+
             $table->id('idComic');
             $table->string('nombre');
             $table->string('añoEdicion');

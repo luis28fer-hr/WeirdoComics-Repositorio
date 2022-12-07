@@ -1,12 +1,21 @@
 @extends('ventas')
 @section('contenido_ventas')
 <?php
-$codArt = session()->get('txtCodProducto')
+$codArt = session()->get('txtNombre')
 ?>
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, venta de codigo: {$codArt} agregada correctamente!',
+    'Realizado, venta de: {$codArt} agregada correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
+
+@if (session()->has('no_existe'))
+{!!"<script> Swal.fire(
+    'Lo siento, el producto no existe o no esta disponible!',
     'Presiona para continuar!',
     'success'
     )</script> "!!}
@@ -15,89 +24,26 @@ $codArt = session()->get('txtCodProducto')
 
 <div class="form" id="venta">
     <div id = "encabezado">
-         <p id="titulo">Datos de venta</p>
+         <p id="titulo">Busqueda</p>
     </div>
-    <form action="{{route('ventas.guardar')}}" method="POST">
+
+    <form action="{{route('ventas.añadir')}}" method="POST">
         @csrf
-
-        <div class="container">
-
-            <div class= "div1">
-                <div class="input__form">
-                    <p>CODPRO:</p>
-                    <input name="txtCodProducto" value="{{old('txtCodProducto')}}" id="inputbuscar" placeholder="Codigo de producto">
-                    <a wire:click="add" id="botonbuscar"><i class="fa-solid fa-circle-check"></i></a>
-                </div>
-                <div class="input__form">
-                    <textarea name="txtproducto" id="descripcion_producto" cols="30" rows="13" disabled>Producto: </textarea>
-                </div>
+        <div class="container-venta">
+            <div class= "busqueda-venta">
+                <select name="inventario" id="" class="{{$errors->first('inventario')? '__invalid':''}}">
+                    <option value="0" selected disabled>Seleccione su inventario</option>
+                    <option value="1">Comics</option>
+                    <option value="2">Articulos</option>
+                </select>
+                <input class="input_venta {{$errors->first('cod_pro')? '__invalid':''}}" type="text" name="cod_pro" placeholder="CODIGO DE PRODUCTO" value="{{old('cod_pro')}}">
             </div>
-
-            <div class="div2">
-                <div class="input__form">
-                    <p>Cantidad:</p>
-                    <input class="{{$errors->first('txtCantidad')? 'invalido':''}}" name="txtCantidad" value="{{old('txtCantidad')}}" placeholder="Cantidad del producto">
-                </div>
-                <div class="input__form">
-                    <p>Precio:</p>
-                    <input type="text" name="txtPrecio" value="$" placeholder="Precio del producto" disabled>
-                </div>
-                <div class="input__form">
-                    <p>Total</p>
-                    <input type="text" name="txtTotal" value="$" placeholder="Precio total" disabled>
-                </div>
-                <div class="input__form">
-                    <p>Fecha:</p>
-                    <input class="{{$errors->first('txtfecha')? 'invalido':''}}" name="txtfecha" value="{{old('txtfecha')}}">
-                </div>
-                <div class="input__form">
-                    <p>Vendedor:</p>
-                    <input type="text" name="txtCodVendedor" placeholder="Codigo de vendedor" disabled>
-                </div>
-                <div class="input__form">
-                    <p></p>
-                    <input type="text" name="txtNombreVendedor" placeholder="Nombre del vendedorr" disabled>
-                </div>
-                <div class="input__form">
-                    <button class="btn cancelar">Cancelar</button>
-                    <button type="submit" class="btn agregar"> <i class="fa-solid fa-cart-shopping"></i> Agregar </button>
-                </div>
-            </div>
-            <div class="div2">
-                    <div class="input__form">
-                        <table id="carritoVenta">
-                            <tr>
-                                <th>COD</th>
-                                <th>Cantidad</th>
-                                <th>Precio</th>
-                                <th>Total</th>
-                            </tr>
-                            <tr>
-                                <td>123</td>
-                                <td>2</td>
-                                <td>$59.99</td>
-                                <td>$119.98</td>
-                            </tr>
-                            <tr>
-                                <td>123</td>
-                                <td>2</td>
-                                <td>$59.99</td>
-                                <td>$119.98</td>
-                            </tr>
-                            <tr>
-                                <th class="fin" colspan="3">Precio total</td>
-                                <th class="fin" id="total">$333.96</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="input__form">
-                        <a href="" class="btn cancelar">Cancelar</a>
-                        <a href="" class="btn vender"><i class="fa-solid fa-cash-register"></i> Vender</a>
-                    </div>
-            </div>
+            <button type="submit">Agregar</button>
         </div>
     </form>
 </div>
+
+@yield('carrito_venta')
 
 
 @endsection
