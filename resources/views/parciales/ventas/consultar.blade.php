@@ -83,6 +83,7 @@ $codArt = session()->get('txtCodProducto')
                     </a>
                 </td>
         </tr>
+
     </table>
 </section>
 @endsection

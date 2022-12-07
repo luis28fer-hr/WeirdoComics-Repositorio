@@ -81,8 +81,9 @@ class controladorMarca extends Controller
         ->with('txtnombre',$req->txtnombre);
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        return redirect('agenda/marca/consultar')
+        ->with('eliminacion','texto');
     }
 }

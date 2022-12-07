@@ -13,6 +13,15 @@ $titul = session()->get('nombre')
     )</script> "!!}
 
 @endif
+
+@if (session()->has('eliminacion'))
+{!!"<script> Swal.fire(
+    'Realizado, Eliminado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+@endif
+
 <section class="tabla">
     <table>
         <tr class="uno">
@@ -47,11 +56,16 @@ $titul = session()->get('nombre')
                 <a href="{{route('inventario.comic.consultar.editar',$consul->idComic)}}">
                     <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                 </a>
-                <a href="#">
+
+                <a href="#modal_eliminar-{{$consul->idComic}}" id="boton">
                     <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+
                 </a>
             </td>
         </tr>
+
+        @include('parciales.inventario.comic.modal-eliminar')
+
         @endforeach
     </table>
 </section>

@@ -13,6 +13,17 @@ $nomArt = session()->get('txtnombre')
     )</script> "!!}
 
 @endif
+
+
+@if (session()->has('eliminacion'))
+{!!"<script> Swal.fire(
+    'Realizado, Eliminado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+@endif
+
+
 <section class="tabla">
     <table>
         <tr class="uno">
@@ -48,11 +59,13 @@ $nomArt = session()->get('txtnombre')
                 <a href="{{route('inventario.articulo.consultar.editar',$consul->idArticulo)}}">
                     <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                 </a>
-                <a href="#">
+                <a href="#modal_eliminar-{{$consul->idArticulo}}" id="boton">
                     <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
                 </a>
             </td>
         </tr>
+
+        @include('parciales.inventario.articulo.modal-eliminar')
 
         @endforeach
 
