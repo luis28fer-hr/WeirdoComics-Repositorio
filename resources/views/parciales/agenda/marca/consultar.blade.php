@@ -35,11 +35,15 @@ $nom = session()->get('txtnombre')
                 <a href="{{route('agenda.marca.consultar.editar',$consul1->idMarca)}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
-                    <a href="#">
+                    <a href="#modal_eliminar-{{$consul1->idMarca}}" id="boton">
                         <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
                     </a>
                 </td>
             </tr>
+
+
+            @include('parciales.agenda.marca.modal-eliminar')
+
             @endforeach
     </table>
 </section>

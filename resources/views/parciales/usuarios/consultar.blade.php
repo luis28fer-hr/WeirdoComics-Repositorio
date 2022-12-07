@@ -48,11 +48,17 @@ $nomUsu = session()->get('nombre')
                     <a href="{{route('usuarios.consultar.editar', $consul->idUsuario)}}">
                         <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
-                    <a href="#">
+
+                    <a href="#modal_eliminar-{{$consul->idUsuario}}" id="boton">
                         <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
                     </a>
                 </td>
             </tr>
+
+
+            @include('parciales.usuarios.modal-eliminar')
+            
+            
             @endforeach
         </table>
     </section>
