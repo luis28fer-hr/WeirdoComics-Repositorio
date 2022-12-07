@@ -1,4 +1,6 @@
-<form action="{{route('agenda.proovedor.consultar.eliminar')}}">
+<form action="{{route('agenda.proovedor.consultar.eliminar', $consul1->idProveedor)}}" method="POST">
+    @csrf
+    @method('PUT')
 <div class="modal" id="modal_eliminar-{{$consul1->idProveedor}}">
 
     <div class="__body">
@@ -6,7 +8,7 @@
         <p class="__titulo">¿Estas seguro de eliminar?</p>
         <div class="__icon">
             <i class="fa-regular fa-trash-can"></i>
-            <label for="">NOTA: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, rem? Rerum ipsam distinctio minima impedit.</label>
+            <label for="">NOTA: Al eliminar el proovedor algunos registros de inventario pueden ser modificados automaticamente.</label>
         </div>
     </div>
     <div class="__footer">

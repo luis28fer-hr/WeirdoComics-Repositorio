@@ -36,9 +36,15 @@ $titul = session()->get('nombre')
                         <p>Compañía:</p>
                         <select name="compañia" class="{{$errors->first('compañia')? 'invalido':''}}" >
                             <option value="{{old('compañia')}}" selected disabled>Seleccione una compañia</option>
-                            <option value="Compañia 1">Compañia 1</option>
-                            <option value="Compañia 2">Compañia 2</option>
-                            <option value="Compañia 3">Compañia 3</option>
+                            <option value="Desconocida">Desconocida</option>
+                            <option value="Universo Valiant">Universo Valiant</option>
+                            <option value="Marvel comics">Marvel Comics</option>
+                            <option value="DC comics">DC Comics</option>
+                            <option value="Project Black Sky">Project Black Sky</option>
+                            <option value="Millarworld">Millarworld</option>
+                            <option value="Invincible">Invincible</option>
+                            <option value="Red Circle">Red Circle</option>
+
                         </select>
                     </div>
                     <div class="input__form">

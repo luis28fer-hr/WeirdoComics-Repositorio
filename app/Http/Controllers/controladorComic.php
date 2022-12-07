@@ -123,9 +123,9 @@ class controladorComic extends Controller
         ->with('nombre',$req->nombre);
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        
+        DB::table('tb_comics')->where('idComic', $id)->delete();
 
         return redirect('inventario/comic/consultar')
         ->with('eliminacion','mensaje');

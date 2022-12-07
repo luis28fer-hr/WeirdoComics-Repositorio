@@ -148,8 +148,10 @@ class controladorArticulo extends Controller
         ->with('txtnombre',$req->txtnombre);
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        DB::table('tb_articulos')->where('idArticulo', $id)->delete();
+
         return redirect('inventario/articulo/consultar')
         ->with('eliminacion','texto');
     }

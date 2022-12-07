@@ -5,84 +5,73 @@
 $codArt = session()->get('txtCodProducto')
 ?>
 
-@if (session()->has('confirmacion'))
+
+@if (session()->has('actualizacion'))
 {!!"<script> Swal.fire(
-    'Realizado, venta de codigo: {$codArt} editada correctamente!',
+    'Realizado, Actualizacion de venta: {$codArt} editada correctamente!',
     'Presiona para continuar!',
     'success'
     )</script> "!!}
 
 @endif
+
+@if (session()->has('eliminacion'))
+{!!"<script> Swal.fire(
+    'Realizado, Eliminacion de venta: Correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
+
+@if (session()->has('noprocede'))
+{!!"<script> Swal.fire(
+    'Lo siento, El stock de: {$codArt} es insuficiente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}
+
+@endif
+
 <section class="tabla">
     <table>
         <tr class="uno">
-            <th>COD</th>
-            <th>Referencia</th>
-            <th>CODEMP</th>
-            <th>Empleado</th>
-            <th>Fecha</th>
+            <th>REF</th>
+            <th>Usuario</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>fecha</th>
             <th>Opciones</th>
         </tr>
-        <tr>
-            <td>15349</td>
-            <td>14562159</td>
-            <td>1011</td>
-            <td>Colin Maldonado Ricardo</td>
-            <td>10 - 05 - 2020</td>
-            <td>
-                <a href="{{route('ventas.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
+        @foreach ($consultaVentas as $item)
+            <tr>
+                <td>{{$item->idVenta}}</td>
+                <td>{{$item->usuario->nombre}} {{$item->usuario->apellidoP}} {{$item->usuario->apellidoM}}</td>
+                <td>
+                    @if (is_null($item->comic))
+                        {{$item->articulo->nombre}} - {{$item->articulo->tipo}}
+                    @else
+                        {{$item->comic->nombre}}  - {{$item->comic->añoEdicion}}
+                    @endif
+                </td>
+                <td>$ {{$item->precio}}</td>
+                <td>{{$item->cantidad}}</td>
+                <td>$ {{$item->total}}</td>
+                <td>{{$item->created_at}}</td>
+                <td>
+                    <a href="{{route('ventas.consultar.editar', $item->idVenta)}}">
+                            <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
                     </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
+                    <a  href="#modal_eliminar-{{$item->idVenta}}" id="boton">
+                            <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
                     </a>
                 </td>
             </tr>
-        <tr>
-            <td>166482</td>
-            <td>59862061</td>
-            <td>5261</td>
-            <td>Villegas Vazquez Arturo</td>
-            <td>15 - 11 - 2021</td>
-            <td>
-                <a href="{{route('ventas.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
-        <tr>
-            <td>145622</td>
-            <td>1457826</td>
-            <td>5261</td>
-            <td>Villegas Vazquez Arturo</td>
-            <td>15 - 11 - 2021</td>
-            <td>
-                <a href="{{route('ventas.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-            </tr>
-        <tr>
-            <td>478451</td>
-            <td>1234512</td>
-            <td>5261</td>
-            <td>Villegas Vazquez Arturo</td>
-            <td>16 - 11 - 2021</td>
-            <td>
-                <a href="{{route('ventas.consultar.editar')}}">
-                        <i title="Editar" class="fa-solid fa-pen-to-square editar"></i>
-                    </a>
-                    <a href="#">
-                        <i title="Eliminar" class="fa-solid fa-trash eliminar"></i>
-                    </a>
-                </td>
-        </tr>
+
+            @include('parciales.ventas.modal-eliminar')
+        @endforeach
 
     </table>
 </section>

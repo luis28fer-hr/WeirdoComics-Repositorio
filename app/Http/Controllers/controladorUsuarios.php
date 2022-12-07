@@ -99,10 +99,10 @@ class controladorUsuarios extends Controller
         ->with('nombre',$req->nombre);
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        
 
+        DB::table('tb_usuarios')->where('idUsuario', $id)->delete();
 
         return redirect('usuarios/consultar')
         ->with('eliminacion','mensaje');

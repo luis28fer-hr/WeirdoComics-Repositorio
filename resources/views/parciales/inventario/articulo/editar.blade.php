@@ -29,9 +29,15 @@ $nomArt = session()->get('txtnombre')
                         <p>Tipo:</p>
                         <select name="txttipo" class="{{$errors->first('txttipo')? 'invalido':''}}">
                             <option value="{{$consulArticulo->tipo}}" selected>{{$consulArticulo->tipo}}</option>
-                            <option value="Tipo 1">Tipo 1</option>
-                            <option value="Tipo 2">Tipo 2</option>
-                            <option value="Tipo 3">Tipo 3</option>
+                            <option value="Electrodomesticos">Electrodomesticos</option>
+                            <option value="Tecnologia">Tecnologia</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Escolar">Escolar</option>
+                            <option value="Moda">Moda</option>
+                            <option value="Oficinas">Oficinas</option>
+                            <option value="Bebes">Bebes</option>
+                            <option value="Calzado">Bebes</option>
+                            <option value="Ropa">Ropa</option>
                         </select>
                     </div>
                     <div class="input__form">

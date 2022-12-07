@@ -1,5 +1,6 @@
-<form action="{{route('usuarios.consultar.eliminar')}}">
-
+<form action="{{route('usuarios.consultar.eliminar', $consul->idUsuario)}}" method="POST">
+    @csrf
+    @method('PUT')
 
 <div class="modal" id="modal_eliminar-{{$consul->idUsuario}}">
 
@@ -8,7 +9,7 @@
         <p class="__titulo">¿Estas seguro de eliminar?</p>
         <div class="__icon">
             <i class="fa-regular fa-trash-can"></i>
-            <label for="">NOTA: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, rem? Rerum ipsam distinctio minima impedit.</label>
+            <label for="">NOTA: Al eliminar el usuario, algunos registros de venta pueden ser modificados automaticamente.</label>
         </div>
     </div>
     <div class="__footer">
