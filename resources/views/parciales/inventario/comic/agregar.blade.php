@@ -69,7 +69,7 @@ $titul = session()->get('nombre')
                     <div class="input__form">
                         <p>Proveedor:</p>
                         <select name="proveedor" class="{{$errors->first('edicion')? 'invalido':''}}" >
-                            <option selected disabled="disabled" value="">Nombre Porveedor</option>
+                            <option selected disabled="disabled" value="">Nombre Proveedor</option>
                             @foreach($consulProve as $proveedor)
                                 <option value="{{$proveedor->idProveedor}}">{{$proveedor->idProveedor}} - {{$proveedor->nombre}}</option>
                             @endforeach

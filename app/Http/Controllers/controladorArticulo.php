@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\validadBuscar;
 use App\Http\Requests\ValidarArticulo;
+use App\Http\Requests\validarpedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\solicitarPedidoArticulo;
 class controladorArticulo extends Controller
 {
 
@@ -47,11 +49,11 @@ class controladorArticulo extends Controller
 
     public function show()
     {
-        $consulArticulos=DB::table('tb_articulos')->get();
+        $consulArticulos=DB::table('tb_articulos')->orderByDesc('created_at')->get();
 
         foreach($consulArticulos as $articulo){
             if($articulo->id_proveedor != null){
-            $articulo->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $articulo->id_proveedor)->first();
+            $articulo->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre', 'correo'])->where('idProveedor', $articulo->id_proveedor)->first();
             }else{
                 $articulo->proveedores =(object)['nombre'=>'No existe' ];
             }
@@ -72,7 +74,7 @@ class controladorArticulo extends Controller
 
         foreach($consulArticulos as $articulo){
             if($articulo->id_proveedor != null){
-            $articulo->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $articulo->id_proveedor)->first();
+            $articulo->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre', 'correo'])->where('idProveedor', $articulo->id_proveedor)->first();
             }else{
                 $articulo->proveedores =(object)['nombre'=>'No existe' ];
             }
@@ -89,7 +91,7 @@ class controladorArticulo extends Controller
     public function showPDF()
     {
 
-        $consulArticulos=DB::table('tb_articulos')->get();
+        $consulArticulos=DB::table('tb_articulos')->orderByDesc('created_at')->get();
 
         foreach($consulArticulos as $articulo){
             if($articulo->id_proveedor != null){
@@ -108,6 +110,23 @@ class controladorArticulo extends Controller
         $pdf = PDF::loadView('parciales.inventario.articulo.pdf', compact('consulArticulos'));
 
         return $pdf->stream();
+    }
+
+    public function generarPedido(validarpedido $req,  $id){
+        $cantidad = $req->input('cantidad');
+        $usuario=DB::table('tb_usuarios')->first();
+        $articulo=DB::table('tb_articulos')->where('idArticulo', $id)->first();
+        $proveedorArticulo = DB::table('tb_proveedores')->where('idProveedor', $articulo->id_proveedor)->first();
+        $marca =DB::table('tb_marcas')->where('idMarca', $articulo->id_marca)->first();
+
+        $pdf = PDF::loadView('parciales.inventario.articulo.pdf-pedido', compact('articulo', 'proveedorArticulo', 'cantidad', 'usuario', 'marca'));
+
+        Mail::to($proveedorArticulo->correo)->send(new solicitarPedidoArticulo($articulo, $proveedorArticulo ,$cantidad, $usuario, $marca));
+
+
+        return redirect('inventario/articulo/consultar')
+        ->with('pedidoenviado','Guardado')
+        ->with('nombre',$req->nombre);
     }
 
 

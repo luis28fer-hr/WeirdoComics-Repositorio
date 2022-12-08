@@ -40,7 +40,7 @@ class controladorMarca extends Controller
     public function show()
     {
 
-        $consulMarcas=DB::table('tb_marcas')->get();
+        $consulMarcas=DB::table('tb_marcas')->orderByDesc('created_at')->get();
         return view('parciales.agenda.marca.consultar',compact('consulMarcas'));
     }
 
@@ -56,7 +56,7 @@ class controladorMarca extends Controller
     public function showPDF()
     {
 
-        $consulMarcas=DB::table('tb_marcas')->get();
+        $consulMarcas=DB::table('tb_marcas')->orderByDesc('created_at')->get();
 
         $pdf = PDF::loadView('parciales.agenda.marca.pdf', compact('consulMarcas'));
 

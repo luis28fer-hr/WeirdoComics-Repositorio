@@ -22,6 +22,10 @@
     transition: opacity 0.8s ease;
 }
 
+.pedido{
+    max-height: 34rem;
+}
+
 .modal:target{
     --opacity: 1;
     --pointer: unset;
@@ -126,4 +130,74 @@
 
 .modal .__footer .__botones .__confirmar:hover{
     background-color: #c53a2b;
+}
+
+
+
+.modal .__body .__titulo-pedido{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 1.2rem;
+    margin-bottom: .8rem;
+    letter-spacing: .5px;
+}
+
+.modal .__body .__icon-pedido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.modal .__body .__icon-pedido i{
+    background-color: #A9CCE3;
+    font-size: 4.5rem;
+    padding: 1.5rem 1.4rem;
+    margin-bottom: .4rem;
+    border-radius: 50%;
+    font-weight: 100;
+    color: #2980B9;
+}
+
+.modal .__body .__icon-pedido label{
+    font-size: 1.2rem;
+    padding: .5rem 2rem;
+    font-weight: 600;
+}
+
+.modal .__body .__icon-pedido input{
+    width: 85%;
+    font-size: 1rem;
+    padding: .5rem .8rem;
+    font-weight: 600;
+    border: 3px solid #376a9e;
+    border-radius: 8px;
+    margin-bottom: .5rem;
+    color: #263e55;
+}
+
+.modal .__body .__icon-pedido .invalido{
+    border: 3px solid rgba(231, 76, 60, .7);
+}
+
+.modal .__body .__icon-pedido input:focus{
+    outline: none;
+    width: 85%;
+    font-size: 1rem;
+    padding: .5rem .8rem;
+    font-weight: 600;
+    border: 3px solid #55a0eb;
+    border-radius: 8px;
+    margin-bottom: .5rem;
+}
+
+.modal .__footer .__botones .__confirmar-pedido{
+    background-color: #55a0eb;
+    color: #FBFCFC;
+    border: none;
+}
+
+.modal .__footer .__botones .__confirmar-pedido:hover{
+    background-color: #488dd3;
 }

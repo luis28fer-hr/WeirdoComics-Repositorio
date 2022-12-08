@@ -4,7 +4,7 @@
 
 <section class="form" id="form__proovedor">
     <div id = "encabezado">
-         <p id="titulo">Editar Datos del Proovedor</p>
+         <p id="titulo">Editar Datos del Proveedor</p>
     </div>
     <form action="{{route('agenda.proovedor.consultar.editar.actualizar',$consulProvedor->idProveedor)}}" method="POST">
         @csrf

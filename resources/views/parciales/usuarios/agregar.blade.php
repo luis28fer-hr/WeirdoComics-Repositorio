@@ -12,6 +12,15 @@ $nomUsu = session()->get('nombre')
     'success'
     )</script> "!!}
 @endif
+
+@if (session()->has('nocoincide'))
+{!!"<script> Swal.fire({
+    icon: 'error',
+    title: 'Las contraseñas deben ser iguales!',
+    text: 'Presiona para continuar!',
+    })</script> "!!}
+@endif
+
 <section class="form">
     <div id = "encabezado">
          <p id="titulo">Datos del empleado</p>

@@ -38,7 +38,7 @@ class controladorProovedor extends Controller
     public function show()
     {
 
-        $consulProvedor=DB::table('tb_proveedores')->get();
+        $consulProvedor=DB::table('tb_proveedores')->orderByDesc('created_at')->get();
         return view('parciales.agenda.proovedor.consultar',compact('consulProvedor'));
     }
 
@@ -53,7 +53,7 @@ class controladorProovedor extends Controller
     public function showPDF()
     {
 
-        $consulProvedor=DB::table('tb_proveedores')->get();
+        $consulProvedor=DB::table('tb_proveedores')->orderByDesc('created_at')->get();
 
         $pdf = PDF::loadView('parciales.agenda.proovedor.pdf', compact('consulProvedor'));
 

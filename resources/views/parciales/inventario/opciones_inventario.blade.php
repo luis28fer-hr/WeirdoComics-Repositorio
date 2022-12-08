@@ -7,11 +7,13 @@
                 <li><a class="{{request()->routeIs('inventario.comic.consultar*')? 'consultar_Activa':''}}" id="consultar" href="{{route('inventario.comic.consultar')}}"><i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i><button>Consultar</button></a></li>
                 <li><a id="reporte" href="{{route('inventario.comic.pdf')}}" target="_blank"><i class="fa-solid fa-file-pdf"></i><button>Reporte</button></a></li>
             </ul>
+
             <form action="{{route('inventario.comic.consultar.filtro')}}" method="POST">
                 @csrf
-                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del empleado'}}" required>
+                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del producto'}}" required>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
+
         </div>
     </div>
     <div class="opciones {{request()->routeIs('inventario.articulo.consultar*')? 'opciones_opcBuscar_Activa':''}}" id="opciones-2">
@@ -24,7 +26,7 @@
             </ul>
             <form action="{{route('inventario.articulo.consultar.filtro')}}" method="POST">
                 @csrf
-                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del empleado'}}" required>
+                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del producto'}}" required>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>

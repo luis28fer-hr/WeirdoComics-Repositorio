@@ -26,30 +26,40 @@ class controladorUsuarios extends Controller
 
     public function store(procesarUsuario $req)
     {
-        DB::table('tb_usuarios')->insert([
-            "nombre"=>$req->input('nombre'),
-            "apellidoP"=>$req->input('apellidoPaterno'),
-            "apellidoM"=>$req->input('apellidoMaterno'),
-            "celular"=>$req->input('numeroCelular'),
-            "fechaIngreso"=>$req->input('fechaIngreso'),
-            "email"=>$req->input('correo'),
-            "contraseña"=>$req->input('password'),
-            "confirmcontraseña"=>$req->input('passwordConfirm'),
-            "cargo"=>$req->input('cargo'),
-            "fechaIngreso"=>Carbon::now(),
-            "created_at"=>Carbon::now(),
-            "updated_at"=>Carbon::now()
-        ]);
+        if ($req->input('password')==$req->input('passwordConfirm')) {
+            DB::table('tb_usuarios')->insert([
+                "nombre"=>$req->input('nombre'),
+                "apellidoP"=>$req->input('apellidoPaterno'),
+                "apellidoM"=>$req->input('apellidoMaterno'),
+                "celular"=>$req->input('numeroCelular'),
+                "fechaIngreso"=>$req->input('fechaIngreso'),
+                "email"=>$req->input('correo'),
+                "contraseña"=>$req->input('password'),
+                "confirmcontraseña"=>$req->input('passwordConfirm'),
+                "cargo"=>$req->input('cargo'),
+                "fechaIngreso"=>Carbon::now(),
+                "created_at"=>Carbon::now(),
+                "updated_at"=>Carbon::now()
 
-        return redirect('usuarios/agregar')
-        ->with('confirmacion','Guardado')
-        ->with('nombre',$req->nombre);
+            ]);
+
+            return redirect('usuarios/agregar')
+            ->with('confirmacion','Guardado')
+            ->with('nombre',$req->nombre);
+        }else{
+
+            return redirect('usuarios/agregar')
+            ->with('nocoincide','mensaje');
+        }
+
+
+
     }
 
     public function show()
     {
 
-        $consulUsuarios=DB::table('tb_usuarios')->get();
+        $consulUsuarios=DB::table('tb_usuarios')->orderByDesc('created_at')->get();
         return view('parciales.usuarios.consultar',compact('consulUsuarios'));
     }
 
@@ -62,7 +72,7 @@ class controladorUsuarios extends Controller
 
     public function showPDF()
     {
-        $consulUsuarios=DB::table('tb_usuarios')->get();
+        $consulUsuarios=DB::table('tb_usuarios')->orderByDesc('created_at')->get();
 
         $pdf = PDF::loadView('parciales.usuarios.pdf', compact('consulUsuarios'));
 

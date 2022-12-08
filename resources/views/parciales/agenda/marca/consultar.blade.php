@@ -25,14 +25,14 @@ $nom = session()->get('txtnombre')
 @endif
 
 
-    
+
 <section class="tabla">
     <table>
         <tr class="uno">
             <th>COD</th>
             <th>Nombre</th>
             <th>Fecha</th>
-            <th></th>
+            <th>Opciones</th>
         </tr>
         @foreach ($consulMarcas as $consul1)
         <tr>
