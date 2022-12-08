@@ -38,8 +38,8 @@ Route::get('usuarios/pdf', [controladorUsuarios::class, 'showPDF'])->name('usuar
 Route::get('ventas', [controladorVentas::class, 'index'])->name('ventas');
 Route::post('ventas/añadir', [controladorVentas::class, 'add'])->name('ventas.añadir');
 Route::get('ventas/agregar', [controladorVentas::class, 'create'])->name('ventas.agregar');
-Route::get('ventas/agregar/guardar/comic{id}', [controladorVentas::class, 'storeComic'])->name('ventas.guardar.comic');
-Route::get('ventas/agregar/guardar/articulo{id}', [controladorVentas::class, 'storeArticulo'])->name('ventas.guardar.articulo');
+Route::post('ventas/agregar/guardar/comic{id}', [controladorVentas::class, 'storeComic'])->name('ventas.guardar.comic');
+Route::post('ventas/agregar/guardar/articulo{id}', [controladorVentas::class, 'storeArticulo'])->name('ventas.guardar.articulo');
 
 Route::get('ventas/consultar', [controladorVentas::class, 'show'])->name('ventas.consultar');
 Route::post('ventas/consultar/nombre', [controladorVentas::class, 'showNombre'])->name('ventas.consultar.buscar');

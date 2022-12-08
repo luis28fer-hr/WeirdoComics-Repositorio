@@ -113,6 +113,7 @@ class controladorArticulo extends Controller
     }
 
     public function generarPedido(validarpedido $req,  $id){
+
         $cantidad = $req->input('cantidad');
         $usuario=DB::table('tb_usuarios')->first();
         $articulo=DB::table('tb_articulos')->where('idArticulo', $id)->first();
@@ -120,6 +121,7 @@ class controladorArticulo extends Controller
         $marca =DB::table('tb_marcas')->where('idMarca', $articulo->id_marca)->first();
 
         $pdf = PDF::loadView('parciales.inventario.articulo.pdf-pedido', compact('articulo', 'proveedorArticulo', 'cantidad', 'usuario', 'marca'));
+
 
         Mail::to($proveedorArticulo->correo)->send(new solicitarPedidoArticulo($articulo, $proveedorArticulo ,$cantidad, $usuario, $marca));
 

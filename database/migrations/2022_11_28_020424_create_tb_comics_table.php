@@ -29,7 +29,7 @@ return new class extends Migration
                 ->references("idProveedor")
                 ->on("tb_proveedores")
                 ->onUpdate("cascade")
-                ->onDelete("set null");
+                ->onDelete("cascade");
         });
     }
 

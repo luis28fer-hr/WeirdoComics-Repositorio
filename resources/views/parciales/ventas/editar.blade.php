@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div class= "busqueda-venta">
-                <input class="input_producto {{$errors->first('cantidad')? '__invalid':''}}" name="cantidad" placeholder="Cantidad" value="">
+                <input class="input_producto {{$errors->first('cantidad')? '__invalid':''}}" name="cantidad" placeholder="Cantidad" value="{{$consultaVenta->cantidad}}">
             </div>
             <button type="submit">Actualizar</button>
         </div>
