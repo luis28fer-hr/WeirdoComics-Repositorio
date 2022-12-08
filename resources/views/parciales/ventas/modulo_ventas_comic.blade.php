@@ -5,7 +5,8 @@
         <div id = "encabezado">
             <p id="titulo">Productos Agregados</p>
         </div>
-
+        <form action="{{route('ventas.guardar.comic', $comic->idComic)}}" method="POST">
+            @csrf
             <div class="container-venta">
                 <div class= "tabla-venta">
                     <table>
@@ -16,18 +17,18 @@
                             <th>Cantidad</th>
                             <th>Opciones</th>
                         </tr>
-                            <tr>
-                                <td>{{$comic->idComic}}</td>
-                                <td>{{$comic->nombre}}</td>
-                                <td>{{$comic->precioVenta }}</td>
-                                <td><input class="__cantidad" type="number" value="1" name="cantidad"></td>
-                                <td><a href="{{route('ventas.agregar')}}" title="eliminar" class="__eliminar-producto"><i class="fa-solid fa-trash"></i></a></td>
-                            </tr>
-
+                        <tr>
+                            <td>{{$comic->idComic}}</td>
+                            <td>{{$comic->nombre}}</td>
+                            <td>{{$comic->precioVenta }}</td>
+                            <td><input class="__cantidad" type="number" value="1" name="cantidad"></td>
+                            <td><a href="{{route('ventas.agregar')}}" title="eliminar" class="__eliminar-producto"><i class="fa-solid fa-trash"></i></a></td>
+                        </tr>
                     </table>
                 </div>
-                <a class="__btn" href="{{route('ventas.guardar.comic', $comic->idComic)}}">Vender</a>
+                <button class="__btn">Vender</button>
             </div>
+        </form>
     </div>
 
 @endsection

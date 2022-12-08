@@ -21,6 +21,23 @@ $codArt = session()->get('txtNombre')
     })</script> "!!}
 @endif
 
+@if (session()->has('noprocede'))
+{!!"<script> Swal.fire({
+    icon: 'error',
+    title: 'Lo siento, El stock de: {$codArt} es insuficiente!',
+    text: 'Presiona para continuar!',
+    })</script> "!!}
+@endif
+
+@if (session()->has('cantidad'))
+{!!"<script> Swal.fire({
+    icon: 'error',
+    title: 'Lo siento, Ingrese una cantidad valida!',
+    text: 'Presiona para continuar!',
+    })</script> "!!}
+@endif
+
+
 <div class="form" id="venta">
     <div id = "encabezado">
          <p id="titulo">Busqueda</p>

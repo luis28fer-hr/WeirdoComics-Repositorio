@@ -32,6 +32,15 @@ $codArt = session()->get('txtCodProducto')
     })</script> "!!}
 @endif
 
+@if (session()->has('cantidad'))
+{!!"<script> Swal.fire({
+    icon: 'error',
+    title: 'Lo siento, Ingrese una cantidad valida!',
+    text: 'Presiona para continuar!',
+    })</script> "!!}
+@endif
+
+
 <section class="tabla">
     <table>
         <tr class="uno">

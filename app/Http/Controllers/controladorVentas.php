@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\buscarVenta;
 use App\Http\Requests\editarventa;
+use App\Http\Requests\validarpedido;
 use App\Http\Requests\validarVentaDatos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -65,53 +66,95 @@ class controladorVentas extends Controller
         return view('parciales.ventas.agregar');
     }
 
-    public function storeComic($id)
+    public function storeComic(validarpedido $req, $id)
     {
+        $cantidad = $req->input('cantidad');
         $consulUsuarios=DB::table('tb_usuarios')->first();
         $consulComic=DB::table('tb_comics')->where('idComic', $id)->first();
 
-        DB::table('tb_ventas')->insert([
-            "usuario_id"=>$consulUsuarios->idUsuario,
-            "comic_id"=>$consulComic->idComic,
-            "precio"=>$consulComic->precioVenta,
-            "cantidad"=>1,
-            "total"=>($consulComic->precioVenta * 1),
-            "created_at"=>Carbon::now(),
-            "updated_at"=>Carbon::now()
-        ]);
+        if($cantidad>0 and $cantidad!=null){
 
-        DB::table('tb_comics')->where('idComic', $id)->update([
-            "cantidad"=>($consulComic->cantidad - 1),
-        ]);
+            if ($consulComic->cantidad > $cantidad) {
 
-        return redirect('ventas/agregar')
-        ->with('confirmacion','Guardado')
-        ->with('txtNombre', $consulComic->nombre);
+                DB::table('tb_ventas')->insert([
+                    "usuario_id"=>$consulUsuarios->idUsuario,
+                    "comic_id"=>$consulComic->idComic,
+                    "precio"=>$consulComic->precioVenta,
+                    "cantidad"=>$cantidad,
+                    "total"=>($consulComic->precioVenta * $cantidad),
+                    "created_at"=>Carbon::now(),
+                    "updated_at"=>Carbon::now()
+                ]);
+
+                DB::table('tb_comics')->where('idComic', $id)->update([
+                    "cantidad"=>($consulComic->cantidad - $cantidad),
+                ]);
+
+                return redirect('ventas/agregar')
+                ->with('confirmacion','Guardado')
+                ->with('txtNombre', $consulComic->nombre);
+
+            }else{
+
+                return redirect('ventas/agregar')
+                ->with('noprocede','error')
+                ->with('txtCodProducto',$consulComic->nombre);
+            }
+
+        }else{
+
+            return redirect('ventas/agregar')
+            ->with('cantidad','error')
+            ->with('txtCodProducto',$consulComic->nombre);
+        }
+
+
     }
 
 
-    public function storeArticulo($id)
+    public function storeArticulo(validarpedido $req, $id)
     {
+        $cantidad = $req->input('cantidad');
         $consulUsuarios=DB::table('tb_usuarios')->first();
         $consulArticulo=DB::table('tb_articulos')->where('idArticulo', $id)->first();
+        if($cantidad>0 and $cantidad!=null){
 
-        DB::table('tb_ventas')->insert([
-            "usuario_id"=>$consulUsuarios->idUsuario,
-            "articulo_id"=>$consulArticulo->idArticulo,
-            "precio"=>$consulArticulo->precioVenta,
-            "cantidad"=>1,
-            "total"=>($consulArticulo->precioVenta * 1),
-            "created_at"=>Carbon::now(),
-            "updated_at"=>Carbon::now()
-        ]);
+            if ($consulArticulo->cantidad > $cantidad) {
 
-        DB::table('tb_articulos')->where('idArticulo', $id)->update([
-            "cantidad"=>($consulArticulo->cantidad - 1),
-        ]);
+                DB::table('tb_ventas')->insert([
+                    "usuario_id"=>$consulUsuarios->idUsuario,
+                    "articulo_id"=>$consulArticulo->idArticulo,
+                    "precio"=>$consulArticulo->precioVenta,
+                    "cantidad"=>$cantidad,
+                    "total"=>($consulArticulo->precioVenta * $cantidad),
+                    "created_at"=>Carbon::now(),
+                    "updated_at"=>Carbon::now()
+                ]);
 
-        return redirect('ventas/agregar')
-        ->with('confirmacion','Guardado')
-        ->with('txtNombre', $consulArticulo->nombre);
+                DB::table('tb_articulos')->where('idArticulo', $id)->update([
+                    "cantidad"=>($consulArticulo->cantidad - $cantidad),
+                ]);
+
+                return redirect('ventas/agregar')
+                ->with('confirmacion','Guardado')
+                ->with('txtNombre', $consulArticulo->nombre);
+
+            }else{
+
+                return redirect('ventas/agregar')
+                ->with('noprocede','error')
+                ->with('txtCodProducto',$consulArticulo->nombre);
+            }
+
+        }else{
+
+            return redirect('ventas/agregar')
+            ->with('cantidad','error')
+            ->with('txtCodProducto',$consulArticulo->nombre);
+        }
+
+
+
     }
 
 
@@ -151,33 +194,43 @@ class controladorVentas extends Controller
 
         $consulComic=DB::table('tb_comics')->where('idComic', $req->input('producto'))->first();
         $total = $consulComic->precioVenta * $req->input('cantidad');
-        $cantidadDisponible = $consulComic->cantidad -  $req->input('cantidad');
+        $cantidadDisponible = $consulComic->cantidad -  ($req->input('cantidad'));
 
-        if ($cantidadDisponible<0) {
+        if($req->input('cantidad')>0 and $req->input('cantidad')!=null){
+
+            if ($cantidadDisponible<0) {
+
+                return redirect('ventas/consultar')
+                ->with('noprocede','error')
+                ->with('txtCodProducto',$consulComic->nombre);
+            }
+            else{
+
+                DB::table('tb_ventas')->where('idVenta', $id)->update([
+                    "comic_id"=>$req->input('producto'),
+                    "precio"=>$consulComic->precioVenta,
+                    "cantidad"=>$req->input('cantidad'),
+                    "total"=>$total,
+                    "updated_at"=>Carbon::now()
+                ]);
+
+                DB::table('tb_comics')->where('idComic', $req->input('producto'))->update([
+                    "cantidad"=>$cantidadDisponible,
+                ]);
+
+
+                return redirect('ventas/consultar')
+                ->with('actualizacion','Guardado')
+                ->with('txtCodProducto',$consulComic->nombre);
+            }
+
+        }else{
 
             return redirect('ventas/consultar')
-            ->with('noprocede','error')
+            ->with('cantidad','error')
             ->with('txtCodProducto',$consulComic->nombre);
         }
-        else{
 
-            DB::table('tb_ventas')->where('idVenta', $id)->update([
-                "comic_id"=>$req->input('producto'),
-                "precio"=>$consulComic->precioVenta,
-                "cantidad"=>$req->input('cantidad'),
-                "total"=>$total,
-                "updated_at"=>Carbon::now()
-            ]);
-
-            DB::table('tb_comics')->where('idComic', $req->input('producto'))->update([
-                "cantidad"=>$cantidadDisponible,
-            ]);
-
-
-            return redirect('ventas/consultar')
-            ->with('actualizacion','Guardado')
-            ->with('txtCodProducto',$consulComic->nombre);
-        }
     }
 
 
@@ -188,31 +241,42 @@ class controladorVentas extends Controller
         $total = $consulArticulo->precioVenta * $req->input('cantidad');
         $cantidadDisponible = $consulArticulo->cantidad -  $req->input('cantidad');
 
-        if ($cantidadDisponible<0) {
+        if($req->input('cantidad')>0 and $req->input('cantidad')!=null){
+
+            if ($cantidadDisponible<0) {
+
+                return redirect('ventas/consultar')
+                ->with('noprocede','error')
+                ->with('txtCodProducto',$consulArticulo->nombre);
+            }
+            else{
+
+                DB::table('tb_ventas')->where('idVenta', $id)->update([
+                    "articulo_id"=>$req->input('producto'),
+                    "precio"=>$consulArticulo->precioVenta,
+                    "cantidad"=>$req->input('cantidad'),
+                    "total"=>$total,
+                    "updated_at"=>Carbon::now()
+                ]);
+
+                DB::table('tb_articulos')->where('idArticulo', $req->input('producto'))->update([
+                    "cantidad"=>$cantidadDisponible,
+                ]);
+
+
+                return redirect('ventas/consultar')
+                ->with('actualizacion','Guardado')
+                ->with('txtCodProducto',$consulArticulo->nombre);
+            }
+
+        }else{
 
             return redirect('ventas/consultar')
-            ->with('noprocede','error')
+            ->with('cantidad','error')
             ->with('txtCodProducto',$consulArticulo->nombre);
         }
-        else{
-
-            DB::table('tb_ventas')->where('idVenta', $id)->update([
-                "articulo_id"=>$req->input('producto'),
-                "precio"=>$consulArticulo->precioVenta,
-                "cantidad"=>$req->input('cantidad'),
-                "total"=>$total,
-                "updated_at"=>Carbon::now()
-            ]);
-
-            DB::table('tb_articulos')->where('idArticulo', $req->input('producto'))->update([
-                "cantidad"=>$cantidadDisponible,
-            ]);
 
 
-            return redirect('ventas/consultar')
-            ->with('actualizacion','Guardado')
-            ->with('txtCodProducto',$consulArticulo->nombre);
-        }
     }
 
 
