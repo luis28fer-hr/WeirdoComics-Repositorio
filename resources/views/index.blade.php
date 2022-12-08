@@ -22,7 +22,7 @@
                         <input type="text" name="usuario">
                         <span>{{$errors->first('usuario')}}</span>
                         <p>Contraseña:</p>
-                        <input type="text" name="contraseña">
+                        <input type="password" name="contraseña">
                         <span>{{$errors->first('contraseña')}}</span>
                     </div>
                     <button type="submit">Entrar</button>

@@ -50,12 +50,12 @@ Route::put('ventas/eliminar/{id}', [controladorVentas::class, 'destroy'])->name(
 Route::get('ventas/pdf', [controladorVentas::class, 'showPDF'])->name('ventas.pdf');
 
 
-
 /* Rutas para Inventario */
 Route::get('inventario', [controladorComic::class, 'index'])->name('inventario');
 Route::get('inventario/comic/agregar', [controladorComic::class, 'create'])->name('inventario.comic.agregar');
 Route::post('inventario/comic/agregar/guardar', [controladorComic::class, 'store'])->name('inventario.comic.guardar');
 Route::get('inventario/comic/consultar', [controladorComic::class, 'show'])->name('inventario.comic.consultar');
+Route::post('inventario/comic/consultar/generar/pedido/{id}', [controladorComic::class, 'generarPedido'])->name('ventas.consultar.generarpedido');
 Route::post('inventario/comic/consultar/nombre', [controladorComic::class, 'showNombre'])->name('inventario.comic.consultar.filtro');
 Route::get('inventario/comic/editar/{id}', [controladorComic::class, 'edit'])->name('inventario.comic.consultar.editar');
 Route::post('inventario/comic/editar/actualizar/{id}', [controladorComic::class, 'update'])->name('inventario.comic.consultar.editar.actualizar');
@@ -67,6 +67,8 @@ Route::get('inventario/comic/pdf', [controladorComic::class, 'showPDF'])->name('
 Route::get('inventario/articulo/agregar', [controladorArticulo::class, 'create'])->name('inventario.articulo.agregar');
 Route::post('inventario/articulo/agregar/guardar', [controladorArticulo::class, 'store'])->name('inventario.articulo.guardar');
 Route::get('inventario/articulo/consultar', [controladorArticulo::class, 'show'])->name('inventario.articulo.consultar');
+Route::post('inventario/articulo/consultar/generar/pedido/{id}', [controladorArticulo::class, 'generarPedido'])->name('inventario.articulo.consultar.generarpedido');
+
 Route::post('inventario/articulo/consultar/nombre', [controladorArticulo::class, 'showNombre'])->name('inventario.articulo.consultar.filtro');
 Route::get('inventario/articulo/editar/{id}', [controladorArticulo::class, 'edit'])->name('inventario.articulo.consultar.editar');
 Route::post('inventario/articulo/editar/actualizar/{id}', [controladorArticulo::class, 'update'])->name('inventario.articulo.consultar.editar.actualizar');

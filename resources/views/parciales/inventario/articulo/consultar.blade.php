@@ -23,6 +23,13 @@ $nomArt = session()->get('txtnombre')
     )</script> "!!}
 @endif
 
+@if (session()->has('pedidoenviado'))
+{!!"<script> Swal.fire(
+    'Pedido enviado, su pedido ha sido enviado por correo!',
+    'El proovedor se pondra en contacto pronto!',
+    'success'
+    )</script> "!!}
+@endif
 
 <section class="tabla">
     <table>
@@ -34,7 +41,7 @@ $nomArt = session()->get('txtnombre')
             <th>Stock</th>
             <th>$ Compra</th>
             <th>$ Venta</th>
-            <th>$ Proveedor</th>
+            <th>Proveedor</th>
             <th>Fecha</th>
             <th>Opciones</th>
         </tr>
@@ -53,7 +60,7 @@ $nomArt = session()->get('txtnombre')
             <td>{{$consul->proveedores->nombre}}</td>
             <td>{{$consul->fechaIngreso}}</td>
             <td>
-                <a href="">
+                <a href="#modal_pedido-{{$consul->idArticulo}}" id="b">
                     <i title="Solicitar pedido" class="fa-solid fa-envelope correo"></i>
                 </a>
                 <a href="{{route('inventario.articulo.consultar.editar',$consul->idArticulo)}}">
@@ -66,6 +73,7 @@ $nomArt = session()->get('txtnombre')
         </tr>
 
         @include('parciales.inventario.articulo.modal-eliminar')
+        @include('parciales.inventario.articulo.modal-pedido')
 
         @endforeach
 

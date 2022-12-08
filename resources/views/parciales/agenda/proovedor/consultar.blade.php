@@ -32,7 +32,7 @@ $nompro = session()->get('txtproovedor')
             <th>Numero Fijo</th>
             <th>Numero Celular</th>
             <th>Correo</th>
-            <th></th>
+            <th>Opciones</th>
         </tr>
         @foreach ($consulProvedor as $consul1)
         <tr>

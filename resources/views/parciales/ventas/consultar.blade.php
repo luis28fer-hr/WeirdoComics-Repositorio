@@ -25,12 +25,11 @@ $codArt = session()->get('txtCodProducto')
 @endif
 
 @if (session()->has('noprocede'))
-{!!"<script> Swal.fire(
-    'Lo siento, El stock de: {$codArt} es insuficiente!',
-    'Presiona para continuar!',
-    'success'
-    )</script> "!!}
-
+{!!"<script> Swal.fire({
+    icon: 'error',
+    title: 'Lo siento, El stock de: {$codArt} es insuficiente!',
+    text: 'Presiona para continuar!',
+    })</script> "!!}
 @endif
 
 <section class="tabla">

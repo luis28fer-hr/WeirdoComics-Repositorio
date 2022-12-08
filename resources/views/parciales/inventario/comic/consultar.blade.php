@@ -22,6 +22,15 @@ $titul = session()->get('nombre')
     )</script> "!!}
 @endif
 
+@if (session()->has('pedidoenviado'))
+{!!"<script> Swal.fire(
+    'Pedido enviado, su pedido ha sido enviado por correo!',
+    'El proovedor se pondra en contacto pronto!',
+    'success'
+    )</script> "!!}
+@endif
+
+
 <section class="tabla">
     <table>
         <tr class="uno">
@@ -50,7 +59,7 @@ $titul = session()->get('nombre')
             <td>{{$consul->proveedores->nombre}}</td>
             <td>{{$consul->fechaIngreso}}</td>
             <td>
-                <a href="">
+                <a href="#modal_pedido-{{$consul->idComic}}" id="#b">
                     <i title="Solicitar pedido" class="fa-solid fa-envelope correo"></i>
                 </a>
                 <a href="{{route('inventario.comic.consultar.editar',$consul->idComic)}}">
@@ -65,7 +74,7 @@ $titul = session()->get('nombre')
         </tr>
 
         @include('parciales.inventario.comic.modal-eliminar')
-
+        @include('parciales.inventario.comic.modal-pedido')
         @endforeach
     </table>
 </section>

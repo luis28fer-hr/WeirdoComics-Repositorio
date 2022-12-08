@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\procesarComic;
 use App\Http\Requests\validadBuscar;
+use App\Http\Requests\validarpedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Mail\solicitarPedido;
+use Illuminate\Support\Facades\Mail;
 
 class controladorComic extends Controller
 {
@@ -48,13 +51,14 @@ class controladorComic extends Controller
 
     public function show()
     {
-        $consulComics=DB::table('tb_comics')->get();
+        $consulComics=DB::table('tb_comics')->orderByDesc('created_at')->get();
+
         foreach($consulComics as $comic){
             if($comic->id_proveedor != null){
-            $comic->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $comic->id_proveedor)->first();
-        }else{
-            $comic->proveedores =(object)['nombre'=>'No existe' ];
-        }
+            $comic->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre', 'correo'])->where('idProveedor', $comic->id_proveedor)->first();
+            }else{
+                $comic->proveedores =(object)['nombre'=>'No existe' ];
+            }
         }
         return view('parciales.inventario.comic.consultar',compact('consulComics'));
     }
@@ -62,22 +66,24 @@ class controladorComic extends Controller
     public function showNombre(validadBuscar $req)
     {
         $nombre = $req->input('txtnombre');
+
         $consulComics=DB::select('select * from tb_comics where nombre like ?', ['%'.$nombre.'%']);
 
         foreach($consulComics as $comic){
             if($comic->id_proveedor != null){
-            $comic->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $comic->id_proveedor)->first();
+            $comic->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre', 'correo'])->where('idProveedor', $comic->id_proveedor)->first();
         }else{
             $comic->proveedores =(object)['nombre'=>'No existe' ];
         }
         }
+
         return view('parciales.inventario.comic.consultar',compact('consulComics'));
     }
 
     public function showPDF()
     {
 
-        $consulComics=DB::table('tb_comics')->get();
+        $consulComics=DB::table('tb_comics')->orderByDesc('created_at')->get();
         foreach($consulComics as $comic){
             if($comic->id_proveedor != null){
             $comic->proveedores = DB::table('tb_proveedores')->select(['idProveedor', 'nombre'])->where('idProveedor', $comic->id_proveedor)->first();
@@ -89,6 +95,23 @@ class controladorComic extends Controller
         $pdf = PDF::loadView('parciales.inventario.comic.pdf', compact('consulComics'));
 
         return $pdf->stream();
+    }
+
+    public function generarPedido(validarpedido $req,  $id){
+        $cantidad = $req->input('cantidad');
+        $usuario=DB::table('tb_usuarios')->first();
+        $comic=DB::table('tb_comics')->where('idComic', $id)->first();
+        $proveedorComic = DB::table('tb_proveedores')->where('idProveedor', $comic->id_proveedor)->first();
+
+        $pdf = PDF::loadView('parciales.inventario.comic.pdf-pedido', compact('comic', 'proveedorComic', 'cantidad', 'usuario'));
+
+
+        Mail::to($proveedorComic->correo)->send(new solicitarPedido($comic, $proveedorComic ,$cantidad, $usuario));
+
+
+        return redirect('inventario/comic/consultar')
+        ->with('pedidoenviado','Guardado')
+        ->with('nombre',$req->nombre);
     }
 
 

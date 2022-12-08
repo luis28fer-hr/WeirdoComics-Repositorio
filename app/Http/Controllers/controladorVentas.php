@@ -90,14 +90,10 @@ class controladorVentas extends Controller
     }
 
 
-
     public function storeArticulo($id)
     {
         $consulUsuarios=DB::table('tb_usuarios')->first();
         $consulArticulo=DB::table('tb_articulos')->where('idArticulo', $id)->first();
-
-
-
 
         DB::table('tb_ventas')->insert([
             "usuario_id"=>$consulUsuarios->idUsuario,
@@ -121,7 +117,7 @@ class controladorVentas extends Controller
 
     public function show()
     {
-        $consultaVentas=DB::table('tb_ventas')->get();
+        $consultaVentas=DB::table('tb_ventas')->orderByDesc('created_at')->get();
 
         foreach ($consultaVentas as $venta) {
 
@@ -241,7 +237,7 @@ class controladorVentas extends Controller
     public function showPDF()
     {
 
-        $consultaVentas=DB::table('tb_ventas')->get();
+        $consultaVentas=DB::table('tb_ventas')->orderByDesc('created_at')->get();
 
         foreach($consultaVentas as $venta){
             if($venta->usuario_id != null){

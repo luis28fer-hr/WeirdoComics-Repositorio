@@ -9,7 +9,7 @@
             </ul>
             <form action="{{route('agenda.marca.consultar.filtro')}}" method="POST">
                 @csrf
-                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del empleado'}}" required>
+                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre de la marca'}}" required>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
@@ -24,7 +24,7 @@
             </ul>
             <form action="{{route('agenda.proovedor.consultar.filtro')}}" method="POST">
                 @csrf
-                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del empleado'}}" required>
+                <input class="buscar" type="text" name="txtnombre" placeholder="{{$errors->first('txtnombre')? 'Porfavor ingrese un valor':'Nombre del Proveedor'}}" required>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>

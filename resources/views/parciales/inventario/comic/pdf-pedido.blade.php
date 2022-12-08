@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de Inventario</title>
+    <title>Solicitud de pedido</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <style>
 
@@ -19,12 +19,12 @@
         }
         header{
             margin: 20px 15px 0 15px;
-            height: 11vh;
+            height: 13vh;
             background-color: #2C3E50;
-            padding: 15px 3%;
-            font-size: 19px;
+            padding: 30px 3%;
+            font-size: 22px;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 1px;
             color: #ffffff
         }
         main{
@@ -38,76 +38,75 @@
         }
         main .tabla table .uno th{
             background-color: rgba(84, 153, 199, .8);
-            padding: .8rem .5rem;
+            padding: 1.2rem .5rem;
             font-weight: 600;
             text-align: left;
-            font-size: 11px;
+            font-size: 15px;
             letter-spacing: 1px;
         }
         main .tabla table td{
             font-family: 'Montserrat', sans-serif;
-            padding: .4rem .05rem;
+            padding: 1rem .5rem;
             font-weight: 500;
             text-align: left;
-            font-size: 10px
+            font-size: 13px;
+            letter-spacing: 1px;
         }
         main .tabla table tr td:first-child{
-            text-align: center;
+            text-align: left;
             font-weight: 600;
         }
         footer {
         background-color: #1C2833;
         margin: 0px 15px 0 15px;
-        padding: 30px 3%;
-        font-size: 12px;
-        font-weight: 500;
+        padding: 35px 3%;
+        font-size: 13px;
+        font-weight: 600;
         letter-spacing: 1px;
         color: #ffffff
-    }
+        }
 
+        .final{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 0 15px;
+            padding: 5px 2px;
+            font-size: 12px;
+            font-weight: 500;
+        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <a>WEIRDO COMICS - Articulos</a>
+        <a>WEIRDO COMICS - Solicitud de pedido</a>
     </header>
     <main>
         <section class="tabla">
+
             <table>
                 <tr class="uno">
-                    <th>COD</th>
-                    <th>Nombre</th>
-                    <th>Tipo</th>
-                    <th>Marca</th>
-                    <th>Stock</th>
-                    <th>$ Compra</th>
-                    <th>$ Venta</th>
-                    <th>Proveedor</th>
-                    <th>Fecha</th>
+                    <th>Producto</th>
+                    <th>Stock requerido</th>
                 </tr>
                 <tr>
-                @foreach($consulArticulos as $consul)
-                    <tr>
 
-                        <td>{{$consul->idArticulo}}</td>
-                        <td>{{$consul->nombre}}</td>
-                        <td>{{$consul->tipo}}</td>
-                        <td>{{$consul->marca->nombre}}</td>
-                        <td>{{$consul->cantidad}}</td>
-                        <td>$ {{$consul->precioCompra}}</td>
-                        <td>$ {{$consul->precioVenta}}</td>
-                        <td>{{$consul->proveedores->nombre}}</td>
-                        <td>{{$consul->fechaIngreso}}</td>
+                    <td>{{$comic->nombre}} - {{$comic->añoEdicion}} - {{$comic->compania}}</td>
+                    <td>{{$cantidad}}</td>
 
-                    </tr>
-                @endforeach
+                </tr>
+
             </table>
         </section>
     </main>
     <footer>
-        <a>Registro de todos los articulos presentes en WEIRDO COMICS</a>
+        <a>WEIRDO COMICS agradece su profesionalidad como empresa.</a>
     </footer>
+    <div class="final">
+        <a>Responsable de solicitud: {{$usuario->nombre}} {{$usuario->apellidoP}} {{$usuario->apellidoM}}</a>
+    </div>
+
 </body>
 </html>
